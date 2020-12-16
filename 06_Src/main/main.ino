@@ -62,7 +62,7 @@ int32_t   pulse1, // RUN_FW
           pulse2, // BACK_RV
           pulse3, // STEPPER
           pulse4; // DC_SERVO
-
+char incoming_UART
 /* Define Water Pump Pins*/
 #define waterPump 39
 
@@ -99,7 +99,7 @@ BTS7960 motorController0(EN0, L_PWM0, R_PWM0);
 int32_t curPos = 0, desPos = 0, err = 0;
 
 void setup() {
-  Serial.begin(4800);
+  Serial.begin(115200);
   init_RF();
   //init_WATER_pump();
   //init_SW();
@@ -108,20 +108,32 @@ void setup() {
 }
 
 void loop() {
+  /*Mode Camera Handlde*/
   if (Serial.available() > 0)
   {
-    desPos = Serial.parseInt();
+    /* Income Signal */
+    char incoming_UART = Serial.read();
+
+    /* Testing Serial */
+    /*desPos = Serial.parseInt();
     Serial.readString();
     if (desPos >= 40000)
       desPos = 40000;
     if (desPos <= -40000)
-      desPos = -40000;
+      desPos = -40000;*/
   }
+  
+  /* DC_Handle */
+  read_channel2();
+  
+  /* Servo_Handle */
   err = desPos - curPos;
   //read_channel4();
   DC_SERVO_run(partP(err, 0.099) +  + partI(err, 0.0001) + partD(err,0));
-
   Serial.println(curPos);
+
+  /* Pump Handle */
+  read_channel3();
 }
 
 float PIDCompute(float Kp, float Ki, float Kd, float err) {
@@ -207,7 +219,6 @@ void DC_motor_brake() {
 
 void DC_SERVO_run(float value)
 {
-
   value = constrain(value, -255.00, 255.00);
   motorController0.Enable();
   if (value > 0)
@@ -300,8 +311,11 @@ void STEP_motor_brake() {
   digitalWrite(enPin, LOW);
 }
 
-void read_channel2() {
+void read_channel1(){
+  
+}
 
+void read_channel2() {
   /* Min: 1485 Max: 1910*/
   if ( duration2 >= 1040 && duration2 <= 1473 ) {
     pulse1 = map(duration2, 1473, 1050, 0, 255);
@@ -318,17 +332,23 @@ void read_channel2() {
     DC_motor_brake();
 }
 
+void read_channel3() {
+  duration3 = pulseIn(channel3, HIGH);
+  duration3 = constrain(duration3, 1050, 1890);
+  if ( duration3 >= 1050 && duration <= 1473  ){
+    WATER_pump_run();
+  }
+  else if ( duration2 >= 1485 && duration2 <= 1910 ) {
+    WATER_pump_brake();
+  }
+}
+
 void read_channel4() {
   duration4 = pulseIn(channel4, HIGH); // DC Servo Motor
   Serial.println(duration4);
   duration4 = constrain(duration4, 1050, 1890);
   //Serial.println(duration4);
-  duration4 = map(duration4, 1050, 1890, -5.0, 5.0);
   //Serial.println(duration4);
-  desPos = duration4 * 5000;
-  if (desPos >= 40000)
-    desPos = 40000;
-  if (desPos <= -40000)
-    desPos = -40000;
+  desPos = constrain(duration4, 1050, 1890, -32767, 32767);
   //Serial.println(desPos);
 }
