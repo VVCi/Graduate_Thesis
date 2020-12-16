@@ -62,7 +62,9 @@ int32_t   pulse1, // RUN_FW
           pulse2, // BACK_RV
           pulse3, // STEPPER
           pulse4; // DC_SERVO
-char incoming_UART
+String incoming_UART; char char_range;
+byte blank;
+int32_t int_range
 /* Define Water Pump Pins*/
 #define waterPump 39
 
@@ -112,7 +114,7 @@ void loop() {
   if (Serial.available() > 0)
   {
     /* Income Signal */
-    char incoming_UART = Serial.read();
+    String incoming_UART = Serial.read();
 
     /* Testing Serial */
     /*desPos = Serial.parseInt();
@@ -351,4 +353,14 @@ void read_channel4() {
   //Serial.println(duration4);
   desPos = constrain(duration4, 1050, 1890, -32767, 32767);
   //Serial.println(desPos);
+}
+
+int UART_handle (String incoming_UART){
+  for int i = 0; i < incoming_UART.length(); i++{
+    if (incomming_UART.charAt(i) == '1' || incomming_UART.charAt(i) == '2' || incomming_UART.charAt(i) == '3'
+    incomming_UART.charAt(i) == '4') || incomming_UART.charAt(i) == '5' || incomming_UART.charAt(i) == '6' || incomming_UART.charAt(i) == '7'{
+      char_range = incomming_UART.charAt(i);
+      int_range = char_range.toInt();
+    }
+  }
 }
