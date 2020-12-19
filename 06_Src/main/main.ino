@@ -62,9 +62,9 @@ int32_t   pulse1, // RUN_FW
           pulse2, // BACK_RV
           pulse3, // STEPPER
           pulse4; // DC_SERVO
-String incoming_UART; char char_range;
+String incomming_UART; char char_range;
 byte blank;
-int32_t int_range
+int32_t int_range;
 /* Define Water Pump Pins*/
 #define waterPump 39
 
@@ -114,7 +114,7 @@ void loop() {
   if (Serial.available() > 0)
   {
     /* Income Signal */
-    String incoming_UART = Serial.read();
+    //String incoming_UART = Serial.read();
 
     /* Testing Serial */
     /*desPos = Serial.parseInt();
@@ -131,7 +131,8 @@ void loop() {
   /* Servo_Handle */
   err = desPos - curPos;
   //read_channel4();
-  DC_SERVO_run(partP(err, 0.099) +  + partI(err, 0.0001) + partD(err,0));
+  //DC_SERVO_run(partP(err, 0.099) +  + partI(err, 0.0001) + partD(err,0));
+  DC_SERVO_run(partP(err, 0.049) +  + partI(err, 0.0001) + partD(err,0));
   Serial.println(curPos);
 
   /* Pump Handle */
@@ -337,10 +338,10 @@ void read_channel2() {
 void read_channel3() {
   duration3 = pulseIn(channel3, HIGH);
   duration3 = constrain(duration3, 1050, 1890);
-  if ( duration3 >= 1050 && duration <= 1473  ){
+  if ( duration3 >= 1050 && duration3 <= 1473  ){
     WATER_pump_run();
   }
-  else if ( duration2 >= 1485 && duration2 <= 1910 ) {
+  else if ( duration3 >= 1485 && duration3 <= 1910 ) {
     WATER_pump_brake();
   }
 }
@@ -351,16 +352,18 @@ void read_channel4() {
   duration4 = constrain(duration4, 1050, 1890);
   //Serial.println(duration4);
   //Serial.println(duration4);
-  desPos = constrain(duration4, 1050, 1890, -32767, 32767);
+  duration4 = map(duration4, 1050, 1890, -5, 5);
+  desPos = duration4 * 6553;
+  desPos = constrain(desPos, -32767, 32767);
   //Serial.println(desPos);
 }
 
 int UART_handle (String incoming_UART){
-  for int i = 0; i < incoming_UART.length(); i++{
-    if (incomming_UART.charAt(i) == '1' || incomming_UART.charAt(i) == '2' || incomming_UART.charAt(i) == '3'
-    incomming_UART.charAt(i) == '4') || incomming_UART.charAt(i) == '5' || incomming_UART.charAt(i) == '6' || incomming_UART.charAt(i) == '7'{
+  for (int i = 0; i < incoming_UART.length(); i++){
+    if (incomming_UART.charAt(i) == '1' || incomming_UART.charAt(i) == '2' || incomming_UART.charAt(i) == '3' ||
+    incomming_UART.charAt(i) == '4' || incomming_UART.charAt(i) == '5' || incomming_UART.charAt(i) == '6' || incomming_UART.charAt(i) == '7'){
       char_range = incomming_UART.charAt(i);
-      int_range = char_range.toInt();
+      //int_range = char_range.toInt();
     }
   }
 }
