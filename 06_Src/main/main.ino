@@ -52,10 +52,10 @@
 /* ================================== */
 
 /* Define Signal Channel RF Pins*/
-#define channel1  44
-#define channel2  45
-#define channel3  46
-#define channel4  47
+#define channel1  44        // DC Stepper Channel 
+#define channel2  45        // DC Channel
+#define channel3  46        // DC Pump Channel
+#define channel4  47        // DC Servo Channel
 
 unsigned long duration1, duration2, duration3, duration4;
 int32_t   pulse1, // RUN_FW
@@ -118,25 +118,20 @@ void loop() {
 
     /* Testing Serial */
     /*desPos = Serial.parseInt();
-    Serial.readString();
-    if (desPos >= 40000)
+      Serial.readString();
+      if (desPos >= 40000)
       desPos = 40000;
-    if (desPos <= -40000)
+      if (desPos <= -40000)
       desPos = -40000;*/
   }
-  
+
   /* DC_Handle */
   read_channel2();
-  
   /* Servo_Handle */
-  err = desPos - curPos;
   //read_channel4();
-  //DC_SERVO_run(partP(err, 0.099) +  + partI(err, 0.0001) + partD(err,0));
-  DC_SERVO_run(partP(err, 0.049) +  + partI(err, 0.0001) + partD(err,0));
-  Serial.println(curPos);
 
   /* Pump Handle */
-  read_channel3();
+  //read_channel3();
 }
 
 float PIDCompute(float Kp, float Ki, float Kd, float err) {
@@ -314,31 +309,34 @@ void STEP_motor_brake() {
   digitalWrite(enPin, LOW);
 }
 
-void read_channel1(){
-  
+void read_channel1() {
+
 }
 
 void read_channel2() {
-  /* Min: 1485 Max: 1910*/
-  if ( duration2 >= 1040 && duration2 <= 1473 ) {
-    pulse1 = map(duration2, 1473, 1050, 0, 255);
-    Serial.println(pulse1);
-    DC_motor_run(pulse1, 1); // RUN_FW
+  duration2 = pulseIn(channel2, HIGH);
+  if (duration2 >= 1473 && duration2 <= 1910) {
+    duration2 = constrain(duration2, 1473, 1910);
+    /* Min: 1485 Max: 1910*/
+    if ( duration2 >= 1473 && duration2 <= 1473 ) {
+      pulse1 = map(duration2, 1473, 1050, 0, 255);
+      //Serial.println(pulse1);
+      DC_motor_run(pulse1, 1); // RUN_FW
+    }
+
+    else if ( duration2 >= 1485 && duration2 <= 1910 ) {
+      pulse1 = map(duration2, 1485, 1910, 0, 255);
+      //Serial.println(pulse2);
+      DC_motor_run(pulse1, 0); // RUN_RV
+    }
   }
 
-  else if ( duration2 >= 1485 && duration2 <= 1910 ) {
-    pulse2 = map(duration2, 1485, 1910, 0, 255);
-    Serial.println(pulse2);
-    DC_motor_run(pulse2, 0); // RUN_RV
-  }
-  else
-    DC_motor_brake();
 }
 
 void read_channel3() {
   duration3 = pulseIn(channel3, HIGH);
   duration3 = constrain(duration3, 1050, 1890);
-  if ( duration3 >= 1050 && duration3 <= 1473  ){
+  if ( duration3 >= 1050 && duration3 <= 1473  ) {
     WATER_pump_run();
   }
   else if ( duration3 >= 1485 && duration3 <= 1910 ) {
@@ -348,20 +346,31 @@ void read_channel3() {
 
 void read_channel4() {
   duration4 = pulseIn(channel4, HIGH); // DC Servo Motor
-  Serial.println(duration4);
+  //Serial.println(duration4);
   duration4 = constrain(duration4, 1050, 1890);
   //Serial.println(duration4);
   //Serial.println(duration4);
   duration4 = map(duration4, 1050, 1890, -5, 5);
   desPos = duration4 * 6553;
-  desPos = constrain(desPos, -32767, 32767);
+  
+  if (desPos <= -32000) {
+    desPos = -32000;
+  }
+  else if (desPos >= 32000) {
+    desPos = 32000;
+  }
+
+  err = desPos - curPos;
+  //DC_SERVO_run(partP(err, 0.099) +  + partI(err, 0.0001) + partD(err,0));
+  DC_SERVO_run(partP(err, 0.049) +  + partI(err, 0.0001) + partD(err, 0));
   //Serial.println(desPos);
+  Serial.println(curPos);
 }
 
-int UART_handle (String incoming_UART){
-  for (int i = 0; i < incoming_UART.length(); i++){
+int UART_handle (String incoming_UART) {
+  for (int i = 0; i < incoming_UART.length(); i++) {
     if (incomming_UART.charAt(i) == '1' || incomming_UART.charAt(i) == '2' || incomming_UART.charAt(i) == '3' ||
-    incomming_UART.charAt(i) == '4' || incomming_UART.charAt(i) == '5' || incomming_UART.charAt(i) == '6' || incomming_UART.charAt(i) == '7'){
+        incomming_UART.charAt(i) == '4' || incomming_UART.charAt(i) == '5' || incomming_UART.charAt(i) == '6' || incomming_UART.charAt(i) == '7') {
       char_range = incomming_UART.charAt(i);
       //int_range = char_range.toInt();
     }

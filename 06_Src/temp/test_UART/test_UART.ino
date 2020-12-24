@@ -5,7 +5,7 @@ byte blank;
 
 void setup() {
   Serial.begin(115200);
-
+  Serial.write("Start Reading");
 }
 
 void UART_handle() {
