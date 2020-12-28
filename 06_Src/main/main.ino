@@ -1,11 +1,9 @@
 #include "BTS7960.h"
-
 /* Define Mode
   0: Locked Mode
   1: Auto Handling Mode
   2: Remode Handling Mode
 */
-
 /*============ Pins Table============ */
 
 /*  RF Signal                       Mega2560
@@ -37,34 +35,17 @@
     ENCB (ChannelB) - Normal            4
 */
 
-/*
-    TB6560 Stepper Controller       Mega2560
-     CLK+ (stepPin)                     23
-     CW+  (dirPin)                      24
-     EN+  (enPin)                       25
-     CLK-                               GND
-     CW-                                GND
-     EN-                                GND
-     LOW SW Journey                     26
-     HIGH SW Journey                    27
-*/
-
 /* ================================== */
 
 /* Define Signal Channel RF Pins*/
-#define channel1  44        // DC Stepper Channel 
 #define channel2  45        // DC Channel
 #define channel3  46        // DC Pump Channel
 #define channel4  47        // DC Servo Channel
 
-unsigned long duration1, duration2, duration3, duration4;
+unsigned long duration2, duration3, duration4;
 int32_t   pulse1, // RUN_FW
           pulse2, // BACK_RV
-          pulse3, // STEPPER
           pulse4; // DC_SERVO
-String incomming_UART; char char_range;
-byte blank;
-int32_t int_range;
 /* Define Water Pump Pins*/
 #define waterPump 39
 
@@ -74,15 +55,6 @@ int32_t int_range;
 #define L_PWM    9
 #define R_PWM   10
 BTS7960 motorController(EN, L_PWM, R_PWM);
-
-/* Define Stepper Motor Pins */
-#define stepPin    23
-#define dirPin     24
-#define enPin      25
-
-/* Define Switch Journey Pins*/
-#define swLow      26
-#define swHigh     27
 
 /* Define DC Servo Motor Pins */
 #define EN0         5
@@ -104,8 +76,6 @@ void setup() {
   Serial.begin(115200);
   init_RF();
   //init_WATER_pump();
-  //init_SW();
-  //init_STEP_motor();
   init_Encoders();
 }
 
@@ -113,9 +83,6 @@ void loop() {
   /*Mode Camera Handlde*/
   if (Serial.available() > 0)
   {
-    /* Income Signal */
-    //String incoming_UART = Serial.read();
-
     /* Testing Serial */
     /*desPos = Serial.parseInt();
       Serial.readString();
@@ -134,29 +101,7 @@ void loop() {
   //read_channel3();
 }
 
-float PIDCompute(float Kp, float Ki, float Kd, float err) {
-  float a0, a1, a2, out ;
-  static float preErr, pre_preErr, preOut;
-  static uint32_t preTime = 0;
-
-  a0 = Kp + (0.5 * (Ki * float(millis() - preTime))) + 0.5 * (Kd / float(millis() - preTime));
-  a1 = -Kp + (0.5 * (Ki * float(millis() - preTime))) - (Kd / float(millis() - preTime));
-  a2 = 0.5 * (Kd / float(millis() - preTime));
-  preTime = millis();
-
-  out = preOut + a0 * err + a1 * preErr + a2 * pre_preErr;
-
-  pre_preErr = preErr;
-  preErr = err;
-  preOut = out;
-  if ((curPos > 0 && curPos > desPos) || (curPos < 0 && curPos < desPos)) {
-    curPos = desPos;
-  }
-  return out;
-}
-
 void init_RF() {
-  pinMode(channel1, INPUT);
   pinMode(channel2, INPUT);
   pinMode(channel3, INPUT);
   pinMode(channel4, INPUT);
@@ -165,18 +110,6 @@ void init_RF() {
 void init_WATER_pump() {
   pinMode(waterPump, OUTPUT);
   digitalWrite(waterPump, LOW);
-}
-
-void init_SW() {
-  pinMode(swLow, INPUT_PULLUP);
-  pinMode(swHigh, INPUT_PULLUP);
-}
-
-void init_STEP_motor() {
-  pinMode(stepPin, OUTPUT);
-  pinMode(dirPin, OUTPUT);
-  pinMode(enPin, OUTPUT);
-  digitalWrite(enPin, HIGH);
 }
 
 void init_Encoders() {
@@ -268,51 +201,6 @@ float partI(float err, float i)
   return ret;
 }
 
-void STEP_motor_run( uint32_t cycle, bool dir ) {
-
-  /* STEP Motor Secure Mode*/
-  bool enable;
-  if ( swLow == 0 || swHigh == 0 ) {
-    enable = 0;
-  }
-
-  if ( swLow != 0 && swHigh != 0 ) {
-    enable = 1;
-  }
-
-  /* UP */
-  if (dir == 1 && enable == 1) {
-    digitalWrite(enPin, LOW);
-    digitalWrite(dirPin, HIGH);
-    for ( int x = 0; x < 400 * cycle; x++ ) {
-      digitalWrite(stepPin, HIGH);
-      delayMicroseconds(500);
-      digitalWrite(stepPin, LOW);
-      delayMicroseconds(500);
-    }
-  }
-
-  /* DOWN */
-  if ( dir == 0 && enable == 1 ) {
-    digitalWrite(enPin, LOW);
-    digitalWrite(dirPin, LOW);
-    for ( int x = 0; x < 400 * cycle; x++ ) {
-      digitalWrite(stepPin, HIGH);
-      delayMicroseconds(500);
-      digitalWrite(stepPin, LOW);
-      delayMicroseconds(500);
-    }
-  }
-}
-
-void STEP_motor_brake() {
-  digitalWrite(enPin, LOW);
-}
-
-void read_channel1() {
-
-}
-
 void read_channel2() {
   duration2 = pulseIn(channel2, HIGH);
   if (duration2 >= 1473 && duration2 <= 1910) {
@@ -365,14 +253,4 @@ void read_channel4() {
   DC_SERVO_run(partP(err, 0.049) +  + partI(err, 0.0001) + partD(err, 0));
   //Serial.println(desPos);
   Serial.println(curPos);
-}
-
-int UART_handle (String incoming_UART) {
-  for (int i = 0; i < incoming_UART.length(); i++) {
-    if (incomming_UART.charAt(i) == '1' || incomming_UART.charAt(i) == '2' || incomming_UART.charAt(i) == '3' ||
-        incomming_UART.charAt(i) == '4' || incomming_UART.charAt(i) == '5' || incomming_UART.charAt(i) == '6' || incomming_UART.charAt(i) == '7') {
-      char_range = incomming_UART.charAt(i);
-      //int_range = char_range.toInt();
-    }
-  }
 }
