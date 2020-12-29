@@ -1,0 +1,32 @@
+build_arm_cortex_m4_base_application_stm32f4/Adafruit_GFX.o: \
+ sources/driver/Adafruit_ssd1306syp/Adafruit_GFX.cpp \
+ sources/driver/Adafruit_ssd1306syp/Adafruit_GFX.h \
+ sources/ak/../platform/stm32f4/arduino/Print.h \
+ /home/covv/workspace/tools/gcc-arm-none-eabi-5_4-2016q3/arm-none-eabi/include/stdio.h \
+ /home/covv/workspace/tools/gcc-arm-none-eabi-5_4-2016q3/arm-none-eabi/include/_ansi.h \
+ /home/covv/workspace/tools/gcc-arm-none-eabi-5_4-2016q3/arm-none-eabi/include/newlib.h \
+ /home/covv/workspace/tools/gcc-arm-none-eabi-5_4-2016q3/arm-none-eabi/include/_newlib_version.h \
+ /home/covv/workspace/tools/gcc-arm-none-eabi-5_4-2016q3/arm-none-eabi/include/sys/config.h \
+ /home/covv/workspace/tools/gcc-arm-none-eabi-5_4-2016q3/arm-none-eabi/include/machine/ieeefp.h \
+ /home/covv/workspace/tools/gcc-arm-none-eabi-5_4-2016q3/arm-none-eabi/include/sys/features.h \
+ /home/covv/workspace/tools/gcc-arm-none-eabi-5_4-2016q3/arm-none-eabi/include/sys/cdefs.h \
+ /home/covv/workspace/tools/gcc-arm-none-eabi-5_4-2016q3/arm-none-eabi/include/machine/_default_types.h \
+ /home/covv/workspace/tools/gcc-arm-none-eabi-5_4-2016q3/lib/gcc/arm-none-eabi/5.4.1/include/stddef.h \
+ /home/covv/workspace/tools/gcc-arm-none-eabi-5_4-2016q3/lib/gcc/arm-none-eabi/5.4.1/include/stdarg.h \
+ /home/covv/workspace/tools/gcc-arm-none-eabi-5_4-2016q3/arm-none-eabi/include/sys/reent.h \
+ /home/covv/workspace/tools/gcc-arm-none-eabi-5_4-2016q3/arm-none-eabi/include/_ansi.h \
+ /home/covv/workspace/tools/gcc-arm-none-eabi-5_4-2016q3/arm-none-eabi/include/sys/_types.h \
+ /home/covv/workspace/tools/gcc-arm-none-eabi-5_4-2016q3/arm-none-eabi/include/machine/_types.h \
+ /home/covv/workspace/tools/gcc-arm-none-eabi-5_4-2016q3/arm-none-eabi/include/sys/lock.h \
+ /home/covv/workspace/tools/gcc-arm-none-eabi-5_4-2016q3/arm-none-eabi/include/sys/types.h \
+ /home/covv/workspace/tools/gcc-arm-none-eabi-5_4-2016q3/arm-none-eabi/include/sys/_stdint.h \
+ /home/covv/workspace/tools/gcc-arm-none-eabi-5_4-2016q3/arm-none-eabi/include/machine/types.h \
+ /home/covv/workspace/tools/gcc-arm-none-eabi-5_4-2016q3/arm-none-eabi/include/sys/stdio.h \
+ /home/covv/workspace/tools/gcc-arm-none-eabi-5_4-2016q3/arm-none-eabi/include/string.h \
+ /home/covv/workspace/tools/gcc-arm-none-eabi-5_4-2016q3/arm-none-eabi/include/sys/string.h \
+ /home/covv/workspace/tools/gcc-arm-none-eabi-5_4-2016q3/lib/gcc/arm-none-eabi/5.4.1/include/stdint.h \
+ /home/covv/workspace/tools/gcc-arm-none-eabi-5_4-2016q3/arm-none-eabi/include/stdint.h \
+ /home/covv/workspace/tools/gcc-arm-none-eabi-5_4-2016q3/arm-none-eabi/include/sys/_intsup.h \
+ sources/ak/../platform/stm32f4/arduino/Printable.h \
+ sources/ak/../platform/stm32f4/arduino/Print.h \
+ sources/driver/Adafruit_ssd1306syp/glcdfont.cpp

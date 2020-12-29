@@ -93,7 +93,7 @@ BTS7960 motorController(EN, L_PWM, R_PWM);
 BTS7960 motorController0(EN0, L_PWM0, R_PWM0);
 
 /* Define Encoders Pins */
-#define ECD_A        2
+#define ECD_A        18
 #define ECD_B        4
 
 /* DC Servo Motor Timing */
@@ -101,7 +101,6 @@ BTS7960 motorController0(EN0, L_PWM0, R_PWM0);
 
 /* PID Parameter Configuration */
 int32_t curPos = 0, desPos = 0, err = 0;
-
 
 
 int PrintValues(int32_t *quat, uint16_t SpamDelay = 100) {
@@ -137,7 +136,7 @@ int ChartValues(int32_t *quat, uint16_t SpamDelay = 100) {
 }
 
 //Gyro, Accel and Quaternion
-int PrintAllValues(int16_t *gyro, int16_t *accel, int32_t *quat, uint16_t SpamDelay = 100) {
+int PrintAllValues(int16_t *gyro, int16_t *accel, int32_t *quat, uint16_t SpamDelay = 200) {
   Quaternion q;
   VectorFloat gravity;
   float ypr[3] = { 0, 0, 0 };
@@ -267,22 +266,22 @@ void print_Values (int16_t *gyro, int16_t *accel, int32_t *quat, uint32_t *times
 void setup() {
   init_RF();
   //init_WATER_pump();
-  init_Encoders();
   uint8_t val;
   // join I2C bus (I2Cdev library doesn't do this automatically)
 #if I2CDEV_IMPLEMENTATION == I2CDEV_ARDUINO_WIRE
   Wire.begin();
-  Wire.setClock(400000); // 400kHz I2C clock. Comment this line if having compilation difficulties
+  Wire.setClock(100000); // 400kHz I2C clock. Comment this line if having compilation difficulties
 #elif I2CDEV_IMPLEMENTATION == I2CDEV_BUILTIN_FASTWIRE
   Fastwire::setup(400, true);
 #endif
   // initialize serial communication
-  Serial.begin(9600);
+  Serial.begin(115200);
   while (!Serial); // wait for Leonardo enumeration, others continue immediately
   Serial.println(F("Start:"));
 #ifdef OFFSETS
   Serial.println(F("Using Offsets"));
   mpu.SetAddress(MPU6050_ADDRESS_AD0_LOW).load_DMP_Image(OFFSETS); // Does it all for you
+  init_Encoders();
 
 #else
   /*//Serial.println(F(" Since no offsets are defined we aregoing to calibrate this specific MPU6050,\n"
@@ -292,7 +291,7 @@ void setup() {
   //while (Serial.available() && Serial.read()); // empty buffer
   //while (!Serial.available());                 // wait for data
   //while (Serial.available() && Serial.read()); // empty buffer again
-  delay(2000);
+  delay(500);
   mpu.SetAddress(MPU6050_ADDRESS_AD0_LOW).CalibrateMPU().load_DMP_Image();// Does it all for you with Calibration
 #endif
   mpu.on_FIFO(print_Values);
@@ -324,7 +323,7 @@ void init_Encoders() {
       curPos++;
     }
   }, RISING);
-  Serial.setTimeout(111);
+  Serial.setTimeout(150);
 }
 
 void WATER_pump_run() {
@@ -467,10 +466,10 @@ void read_channel4_auto(float setpoint){
   }
   else
    desPos = desPos;
-  Serial.println(  desPos);
+  Serial.println(desPos);
   err = desPos - curPos;
-  //DC_SERVO_run(partP(err, 0.099) +  + partI(err, 0.0001) + partD(err,0));
-  DC_SERVO_run(partP(err, 0.049) +  + partI(err, 0.0001) + partD(err, 0));
+  DC_SERVO_run(partP(err, 0.099) +  + partI(err, 0.0001) + partD(err,0));
+  //DC_SERVO_run(partP(err, 0.049) +  + partI(err, 0.0001) + partD(err, 0));
   //Serial.println(desPos);
-  //Serial.println(curPos); 
+  Serial.println(curPos); 
 }

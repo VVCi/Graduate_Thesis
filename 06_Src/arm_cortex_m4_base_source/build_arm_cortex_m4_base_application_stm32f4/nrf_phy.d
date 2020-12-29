@@ -1,0 +1,113 @@
+build_arm_cortex_m4_base_application_stm32f4/nrf_phy.o: \
+ sources/rf_protocols/rf24/nwk/nrf_phy.cpp \
+ /home/covv/workspace/tools/gcc-arm-none-eabi-5_4-2016q3/lib/gcc/arm-none-eabi/5.4.1/include/stdbool.h \
+ /home/covv/workspace/tools/gcc-arm-none-eabi-5_4-2016q3/lib/gcc/arm-none-eabi/5.4.1/include/stdint.h \
+ /home/covv/workspace/tools/gcc-arm-none-eabi-5_4-2016q3/arm-none-eabi/include/stdint.h \
+ /home/covv/workspace/tools/gcc-arm-none-eabi-5_4-2016q3/arm-none-eabi/include/machine/_default_types.h \
+ /home/covv/workspace/tools/gcc-arm-none-eabi-5_4-2016q3/arm-none-eabi/include/sys/features.h \
+ /home/covv/workspace/tools/gcc-arm-none-eabi-5_4-2016q3/arm-none-eabi/include/_newlib_version.h \
+ /home/covv/workspace/tools/gcc-arm-none-eabi-5_4-2016q3/arm-none-eabi/include/sys/_intsup.h \
+ /home/covv/workspace/tools/gcc-arm-none-eabi-5_4-2016q3/arm-none-eabi/include/sys/_stdint.h \
+ sources/app/app.h sources/app/../ak/ak.h sources/app/../ak/fsm.h \
+ sources/app/../ak/ak.h sources/app/../ak/message.h \
+ /home/covv/workspace/tools/gcc-arm-none-eabi-5_4-2016q3/arm-none-eabi/include/stdlib.h \
+ /home/covv/workspace/tools/gcc-arm-none-eabi-5_4-2016q3/arm-none-eabi/include/machine/ieeefp.h \
+ /home/covv/workspace/tools/gcc-arm-none-eabi-5_4-2016q3/arm-none-eabi/include/_ansi.h \
+ /home/covv/workspace/tools/gcc-arm-none-eabi-5_4-2016q3/arm-none-eabi/include/newlib.h \
+ /home/covv/workspace/tools/gcc-arm-none-eabi-5_4-2016q3/arm-none-eabi/include/sys/config.h \
+ /home/covv/workspace/tools/gcc-arm-none-eabi-5_4-2016q3/lib/gcc/arm-none-eabi/5.4.1/include/stddef.h \
+ /home/covv/workspace/tools/gcc-arm-none-eabi-5_4-2016q3/arm-none-eabi/include/sys/reent.h \
+ /home/covv/workspace/tools/gcc-arm-none-eabi-5_4-2016q3/arm-none-eabi/include/_ansi.h \
+ /home/covv/workspace/tools/gcc-arm-none-eabi-5_4-2016q3/arm-none-eabi/include/sys/_types.h \
+ /home/covv/workspace/tools/gcc-arm-none-eabi-5_4-2016q3/arm-none-eabi/include/machine/_types.h \
+ /home/covv/workspace/tools/gcc-arm-none-eabi-5_4-2016q3/arm-none-eabi/include/sys/lock.h \
+ /home/covv/workspace/tools/gcc-arm-none-eabi-5_4-2016q3/arm-none-eabi/include/sys/cdefs.h \
+ /home/covv/workspace/tools/gcc-arm-none-eabi-5_4-2016q3/arm-none-eabi/include/machine/stdlib.h \
+ sources/app/../ak/port.h sources/app/../ak/../platform/stm32f4/stm32f4.h \
+ sources/app/../ak/task.h sources/common/log_queue.h \
+ sources/app/../rf_protocols/rf24/nwk/nrf_nwk_sig.h \
+ sources/app/../rf_protocols/rf24/nwk/../../../ak/ak.h \
+ sources/app/app_if.h sources/app/app_eeprom.h sources/app/app.h \
+ sources/app/app_data.h sources/app/../sys/sys_boot.h \
+ sources/app/../sys/../ak/port.h sources/app/app_dbg.h \
+ sources/app/../common/xprintf.h \
+ /home/covv/workspace/tools/gcc-arm-none-eabi-5_4-2016q3/lib/gcc/arm-none-eabi/5.4.1/include/stdarg.h \
+ sources/app/app_data.h \
+ sources/rf_protocols/rf24/nwk/../../../app/task_list.h \
+ sources/rf_protocols/rf24/nwk/../../../app/../ak/ak.h \
+ sources/rf_protocols/rf24/nwk/../../../app/../ak/task.h \
+ sources/rf_protocols/rf24/nwk/../../../ak/fsm.h \
+ sources/rf_protocols/rf24/nwk/../../../ak/port.h \
+ sources/rf_protocols/rf24/nwk/../../../ak/message.h \
+ sources/rf_protocols/rf24/nwk/../../../ak/timer.h \
+ sources/rf_protocols/rf24/nwk/../../../ak/ak.h \
+ sources/rf_protocols/rf24/nwk/../../../ak/timer.h \
+ sources/rf_protocols/rf24/nwk/../../../ak/task.h \
+ sources/rf_protocols/rf24/nwk/../../../ak/message.h \
+ sources/rf_protocols/rf24/nwk/../../../sys/sys_dbg.h \
+ sources/rf_protocols/rf24/nwk/../../../sys/../ak/task.h \
+ sources/rf_protocols/rf24/nwk/../../../sys/../ak/message.h \
+ sources/rf_protocols/rf24/nwk/../../../sys/sys_svc.h \
+ sources/rf_protocols/rf24/nwk/../../../sys/../common/xprintf.h \
+ sources/rf_protocols/rf24/nwk/../../../sys/sys_irq.h \
+ sources/rf_protocols/rf24/nwk/../../../sys/sys_io.h \
+ sources/rf_protocols/rf24/nwk/../../../sys/../platform/stm32f4/io_cfg.h \
+ sources/platform/stm32f4/Libraries/CMSIS/Device/ST/STM32F4xx/Include/stm32f4xx.h \
+ sources/platform/stm32f4/Libraries/CMSIS/Include/core_cm4.h \
+ sources/platform/stm32f4/Libraries/CMSIS/Include/core_cmInstr.h \
+ sources/platform/stm32f4/Libraries/CMSIS/Include/core_cmFunc.h \
+ sources/platform/stm32f4/Libraries/CMSIS/Include/core_cmSimd.h \
+ sources/platform/stm32f4/Libraries/CMSIS/Device/ST/STM32F4xx/Include/system_stm32f4xx.h \
+ sources/platform/stm32f4/stm32f4xx_conf.h \
+ sources/platform/stm32f4/Libraries/STM32F4xx_StdPeriph_Driver/inc/stm32f4xx_adc.h \
+ sources/platform/stm32f4/Libraries/STM32F4xx_StdPeriph_Driver/inc/stm32f4xx_crc.h \
+ sources/platform/stm32f4/Libraries/STM32F4xx_StdPeriph_Driver/inc/stm32f4xx_dbgmcu.h \
+ sources/platform/stm32f4/Libraries/STM32F4xx_StdPeriph_Driver/inc/stm32f4xx_dma.h \
+ sources/platform/stm32f4/Libraries/STM32F4xx_StdPeriph_Driver/inc/stm32f4xx_exti.h \
+ sources/platform/stm32f4/Libraries/STM32F4xx_StdPeriph_Driver/inc/stm32f4xx_flash.h \
+ sources/platform/stm32f4/Libraries/STM32F4xx_StdPeriph_Driver/inc/stm32f4xx_gpio.h \
+ sources/platform/stm32f4/Libraries/STM32F4xx_StdPeriph_Driver/inc/stm32f4xx_i2c.h \
+ sources/platform/stm32f4/Libraries/STM32F4xx_StdPeriph_Driver/inc/stm32f4xx_iwdg.h \
+ sources/platform/stm32f4/Libraries/STM32F4xx_StdPeriph_Driver/inc/stm32f4xx_pwr.h \
+ sources/platform/stm32f4/Libraries/STM32F4xx_StdPeriph_Driver/inc/stm32f4xx_rcc.h \
+ sources/platform/stm32f4/Libraries/STM32F4xx_StdPeriph_Driver/inc/stm32f4xx_rtc.h \
+ sources/platform/stm32f4/Libraries/STM32F4xx_StdPeriph_Driver/inc/stm32f4xx_sdio.h \
+ sources/platform/stm32f4/Libraries/STM32F4xx_StdPeriph_Driver/inc/stm32f4xx_spi.h \
+ sources/platform/stm32f4/Libraries/STM32F4xx_StdPeriph_Driver/inc/stm32f4xx_syscfg.h \
+ sources/platform/stm32f4/Libraries/STM32F4xx_StdPeriph_Driver/inc/stm32f4xx_tim.h \
+ sources/platform/stm32f4/Libraries/STM32F4xx_StdPeriph_Driver/inc/stm32f4xx_usart.h \
+ sources/platform/stm32f4/Libraries/STM32F4xx_StdPeriph_Driver/inc/stm32f4xx_wwdg.h \
+ sources/platform/stm32f4/Libraries/STM32F4xx_StdPeriph_Driver/inc/misc.h \
+ sources/platform/stm32f4/Libraries/STM32F4xx_StdPeriph_Driver/inc/stm32f4xx_cryp.h \
+ sources/platform/stm32f4/Libraries/STM32F4xx_StdPeriph_Driver/inc/stm32f4xx_hash.h \
+ sources/platform/stm32f4/Libraries/STM32F4xx_StdPeriph_Driver/inc/stm32f4xx_rng.h \
+ sources/platform/stm32f4/Libraries/STM32F4xx_StdPeriph_Driver/inc/stm32f4xx_can.h \
+ sources/platform/stm32f4/Libraries/STM32F4xx_StdPeriph_Driver/inc/stm32f4xx_dac.h \
+ sources/platform/stm32f4/Libraries/STM32F4xx_StdPeriph_Driver/inc/stm32f4xx_dcmi.h \
+ sources/platform/stm32f4/Libraries/STM32F4xx_StdPeriph_Driver/inc/stm32f4xx_fsmc.h \
+ sources/rf_protocols/rf24/nwk/../../../sys/../platform/stm32f4/stm32f4xx_conf.h \
+ sources/platform/stm32f4/Libraries/CMSIS/Device/ST/STM32F4xx/Include/system_stm32f4xx.h \
+ sources/ak/../driver/rtc/rtc.h sources/ak/../driver/eeprom/eeprom.h \
+ sources/platform/stm32f4/Libraries/NNN_library/gpio/tm_stm32f4_gpio.h \
+ sources/ak/../platform/stm32f4/defines.h \
+ sources/platform/stm32f4/Libraries/NNN_library/gpio/tm_stm32f4_pwm.h \
+ sources/platform/stm32f4/Libraries/NNN_library/gpio/tm_stm32f4_timer_properties.h \
+ sources/platform/stm32f4/defines.h \
+ sources/platform/stm32f4/Libraries/NNN_library/gpio/tm_stm32f4_gpio.h \
+ sources/rf_protocols/rf24/nwk/../../../common/utils.h \
+ /home/covv/workspace/tools/gcc-arm-none-eabi-5_4-2016q3/arm-none-eabi/include/string.h \
+ /home/covv/workspace/tools/gcc-arm-none-eabi-5_4-2016q3/arm-none-eabi/include/sys/string.h \
+ sources/rf_protocols/rf24/nwk/../../../common/fifo.h \
+ sources/rf_protocols/rf24/nwk/../hal/hal_nrf.h \
+ sources/rf_protocols/rf24/nwk/../hal/hal_nrf_reg.h \
+ sources/rf_protocols/rf24/nwk/../hal/hal_nrf_hw.h \
+ sources/rf_protocols/rf24/nwk/../hal/../../../sys/sys_ctrl.h \
+ sources/rf_protocols/rf24/nwk/../hal/../../../sys/../app/app_data.h \
+ sources/rf_protocols/rf24/nwk/../hal/../../../sys/sys_io.h \
+ sources/rf_protocols/rf24/nwk/nrf_nwk_sig.h \
+ sources/rf_protocols/rf24/nwk/nrf_phy.h \
+ sources/rf_protocols/rf24/nwk/nrf_data.h \
+ sources/rf_protocols/rf24/nwk/nrf_config.h \
+ sources/rf_protocols/rf24/nwk/nrf_nwk.h \
+ sources/rf_protocols/rf24/nwk/../../../ak/ak.h \
+ sources/rf_protocols/rf24/nwk/nrf_mac.h

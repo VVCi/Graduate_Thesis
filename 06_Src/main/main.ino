@@ -63,7 +63,7 @@ BTS7960 motorController(EN, L_PWM, R_PWM);
 BTS7960 motorController0(EN0, L_PWM0, R_PWM0);
 
 /* Define Encoders Pins */
-#define ECD_A        2
+#define ECD_A        18
 #define ECD_B        4
 
 /* DC Servo Motor Timing */
@@ -73,7 +73,7 @@ BTS7960 motorController0(EN0, L_PWM0, R_PWM0);
 int32_t curPos = 0, desPos = 0, err = 0;
 
 void setup() {
-  Serial.begin(115200);
+  Serial.begin(4800);
   init_RF();
   //init_WATER_pump();
   init_Encoders();
@@ -84,21 +84,31 @@ void loop() {
   if (Serial.available() > 0)
   {
     /* Testing Serial */
-    /*desPos = Serial.parseInt();
+    desPos = Serial.parseInt();
       Serial.readString();
       if (desPos >= 40000)
       desPos = 40000;
       if (desPos <= -40000)
-      desPos = -40000;*/
+      desPos = -40000;
   }
-
+  
   /* DC_Handle */
-  read_channel2();
+  //read_channel2();
   /* Servo_Handle */
   //read_channel4();
 
   /* Pump Handle */
   //read_channel3();
+
+  err = desPos - curPos;
+  //DC_SERVO_run(partP(err, 0.198) +  + partI(err, 0) + partD(err, 0)); //1
+  //DC_SERVO_run(partP(err, 0.099) +  + partI(err, 0.0001) + partD(err, 0)); //2
+  //DC_SERVO_run(partP(err, 0.099) +  + partI(err, 0.001) + partD(err, 0)); //3
+  DC_SERVO_run(partP(err, 0.099) +  + partI(err, 0.00011) + partD(err, 0)); //4
+  //DC_SERVO_run(partP(err, 0.099) +  + partI(err, 0.0001) + partD(err,0));
+  //DC_SERVO_run(partP(err, 0.049) +  + partI(err, 0.0001) + partD(err, 0));
+  //Serial.println(desPos);
+  Serial.println(curPos);
 }
 
 void init_RF() {

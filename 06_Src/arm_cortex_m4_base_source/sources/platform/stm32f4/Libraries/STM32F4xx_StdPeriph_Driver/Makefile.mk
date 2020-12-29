@@ -1,0 +1,50 @@
+CFLAGS += -I./sources/platform/stm32f4/Libraries/STM32F4xx_StdPeriph_Driver/inc
+CFLAGS += -I./sources/platform/stm32f4
+
+VPATH += sources/platform/stm32f4/Libraries/STM32F4xx_StdPeriph_Driver/src
+VPATH += sources/platform/stm32f4
+
+# C source files
+
+SOURCES += ./sources/platform/stm32f4/Libraries/STM32F4xx_StdPeriph_Driver/src/misc.c
+SOURCES += ./sources/platform/stm32f4/Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_adc.c
+SOURCES += ./sources/platform/stm32f4/Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_can.c
+SOURCES += ./sources/platform/stm32f4/Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_cec.c
+SOURCES += ./sources/platform/stm32f4/Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_crc.c
+SOURCES += ./sources/platform/stm32f4/Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_cryp_aes.c
+SOURCES += ./sources/platform/stm32f4/Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_cryp.c
+SOURCES += ./sources/platform/stm32f4/Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_cryp_des.c
+SOURCES += ./sources/platform/stm32f4/Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_cryp_tdes.c
+SOURCES += ./sources/platform/stm32f4/Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_dac.c
+SOURCES += ./sources/platform/stm32f4/Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_dbgmcu.c
+SOURCES += ./sources/platform/stm32f4/Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_dcmi.c
+SOURCES += ./sources/platform/stm32f4/Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_dfsdm.c
+SOURCES += ./sources/platform/stm32f4/Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_dma2d.c
+SOURCES += ./sources/platform/stm32f4/Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_dma.c
+SOURCES += ./sources/platform/stm32f4/Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_dsi.c
+SOURCES += ./sources/platform/stm32f4/Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_exti.c
+SOURCES += ./sources/platform/stm32f4/Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_flash.c
+SOURCES += ./sources/platform/stm32f4/Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_flash_ramfunc.c
+SOURCES += ./sources/platform/stm32f4/Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_fmc.c
+SOURCES += ./sources/platform/stm32f4/Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_fmpi2c.c
+SOURCES += ./sources/platform/stm32f4/Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_fsmc.c
+SOURCES += ./sources/platform/stm32f4/Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_gpio.c
+SOURCES += ./sources/platform/stm32f4/Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_hash.c
+SOURCES += ./sources/platform/stm32f4/Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_hash_md5.c
+SOURCES += ./sources/platform/stm32f4/Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_hash_sha1.c
+SOURCES += ./sources/platform/stm32f4/Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_i2c.c
+SOURCES += ./sources/platform/stm32f4/Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_iwdg.c
+SOURCES += ./sources/platform/stm32f4/Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_lptim.c
+SOURCES += ./sources/platform/stm32f4/Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_ltdc.c
+SOURCES += ./sources/platform/stm32f4/Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_pwr.c
+SOURCES += ./sources/platform/stm32f4/Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_qspi.c
+SOURCES += ./sources/platform/stm32f4/Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_rcc.c
+SOURCES += ./sources/platform/stm32f4/Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_rng.c
+SOURCES += ./sources/platform/stm32f4/Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_rtc.c
+SOURCES += ./sources/platform/stm32f4/Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_sai.c
+SOURCES += ./sources/platform/stm32f4/Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_sdio.c
+SOURCES += ./sources/platform/stm32f4/Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_spdifrx.c
+SOURCES += ./sources/platform/stm32f4/Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_spi.c
+SOURCES += ./sources/platform/stm32f4/Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_syscfg.c
+SOURCES += ./sources/platform/stm32f4/Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_tim.c
+SOURCES += ./sources/platform/stm32f4/Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_usart.c
