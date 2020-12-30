@@ -130,7 +130,7 @@ int main_app() {
  */
 void app_start_timer() {
 	/* start timer to toggle life led */
-	//timer_set(AC_TASK_LIFE_ID, AC_LIFE_SYSTEM_CHECK, 10000, TIMER_PERIODIC);
+	timer_set(AC_TASK_LIFE_ID, AC_LIFE_SYSTEM_CHECK, 10000, TIMER_PERIODIC);
 	timer_set(AC_TASK_ENCODER_PID_ID, SL_DELTA_ROBOT_AUTO_RUN_REQ, 10, TIMER_PERIODIC);
 }
 

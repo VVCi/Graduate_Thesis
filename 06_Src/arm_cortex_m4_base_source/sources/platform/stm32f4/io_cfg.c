@@ -1998,7 +1998,7 @@ void Encoder3_Tim5_Init(void) {
 	TIM_ICInit(TIM5, &TIM_ICInitStructure);
 	TIM_ClearFlag(TIM5, TIM_FLAG_Update);
 	TIM_ITConfig(TIM5, TIM_IT_Update, ENABLE);
-	TIM_SetCounter(TIM5, 1000000);
+	TIM_SetCounter(TIM5, 2000000000);
 	TIM_Cmd(TIM5, ENABLE);
 }
 
@@ -2033,7 +2033,7 @@ void ENCODER_Read_Release(float* Save_vitri_feedback, uint32_t* Dir, uint32_t* C
 
 	*Cnt = TIMx->CNT;     //TIM_GetCounter(TIMx);       // dem encoder
 
-	*Save_vitri_feedback = ((*Cnt - 1000000.0) * 360) / 400000.0;               // export to degree
+	*Save_vitri_feedback = ((*Cnt - 2000000000.0) * 360) / 4000000.0;               // export to degree
 
 }
 
@@ -2194,8 +2194,11 @@ void Move_Up_Release(int16_t DCx, TM_PWM_TIM_t* TIM_Data, TM_PWM_Channel_t Chann
 		break;
 
 	case 2:
-		TM_GPIO_SetPinHigh(DC_DIR_GPIO_PORT, DC1_DIR_PIN);
-		TM_GPIO_SetPinLow(DC_DIR_GPIO_PORT, DC2_DIR_PIN);
+		/*TM_GPIO_SetPinHigh(DC_DIR_GPIO_PORT, DC1_DIR_PIN);
+		TM_GPIO_SetPinLow(DC_DIR_GPIO_PORT, DC2_DIR_PIN);*/
+		TM_GPIO_SetPinLow(DC_DIR_GPIO_PORT, DC1_DIR_PIN);
+		TM_GPIO_SetPinHigh(DC_DIR_GPIO_PORT, DC2_DIR_PIN);
+
 		TM_PWM_SetChannelPercent(TIM_Data, Channel, 100 - percent);
 		break;
 
@@ -2225,8 +2228,8 @@ void Move_Down_Release(int16_t DCx, TM_PWM_TIM_t* TIM_Data, TM_PWM_Channel_t Cha
 		break;
 
 	case 2:
-		TM_GPIO_SetPinLow(DC_DIR_GPIO_PORT, DC1_DIR_PIN);
-		TM_GPIO_SetPinHigh(DC_DIR_GPIO_PORT, DC2_DIR_PIN);
+		TM_GPIO_SetPinHigh(DC_DIR_GPIO_PORT, DC1_DIR_PIN);
+		TM_GPIO_SetPinLow(DC_DIR_GPIO_PORT, DC2_DIR_PIN);
 		TM_PWM_SetChannelPercent(TIM_Data, Channel, 100 - percent);
 		break;
 

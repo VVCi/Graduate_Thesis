@@ -39,9 +39,9 @@ extern "C"
 
 #define DEBUG_ENCODER	1
 
-#define kp_545		1
+#define kp_545		5
 #define ki_545		0
-#define kd_545		0.02
+#define kd_545		0.01
 
 typedef struct {
 	uint32_t cpu_clock;

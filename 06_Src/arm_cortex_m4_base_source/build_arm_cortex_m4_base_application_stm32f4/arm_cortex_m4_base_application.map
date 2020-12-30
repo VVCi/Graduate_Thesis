@@ -2482,6 +2482,8 @@ Discarded input sections
                 0x00000000       0x24 build_arm_cortex_m4_base_application_stm32f4/system.o
  .text.PID_DIGITAL
                 0x00000000      0x118 build_arm_cortex_m4_base_application_stm32f4/system.o
+ .text.PID_DeltaRobot
+                0x00000000      0x1b8 build_arm_cortex_m4_base_application_stm32f4/system.o
  .text.uart3_irq
                 0x00000000        0x4 build_arm_cortex_m4_base_application_stm32f4/system.o
  .text.spi2_irq
@@ -2637,9 +2639,9 @@ Discarded input sections
  .text.GPIO_PinMode
                 0x00000000       0x4c build_arm_cortex_m4_base_application_stm32f4/io_cfg.o
  .text.Move_Up_Release
-                0x00000000       0x5c build_arm_cortex_m4_base_application_stm32f4/io_cfg.o
+                0x00000000       0x58 build_arm_cortex_m4_base_application_stm32f4/io_cfg.o
  .text.Move_Down_Release
-                0x00000000       0x5c build_arm_cortex_m4_base_application_stm32f4/io_cfg.o
+                0x00000000       0x58 build_arm_cortex_m4_base_application_stm32f4/io_cfg.o
  .text          0x00000000        0x0 build_arm_cortex_m4_base_application_stm32f4/system_stm32f4xx.o
  .data          0x00000000        0x0 build_arm_cortex_m4_base_application_stm32f4/system_stm32f4xx.o
  .bss           0x00000000        0x0 build_arm_cortex_m4_base_application_stm32f4/system_stm32f4xx.o
@@ -3481,7 +3483,7 @@ Linker script and memory map
                 0x08000000                isr_vector
                 0x08000188                . = ALIGN (0x4)
 
-.text           0x08000188    0x12bd4
+.text           0x08000188    0x12b9c
                 0x08000188                . = ALIGN (0x4)
  *(.text)
  .text          0x08000188       0xec /home/covv/workspace/tools/gcc-arm-none-eabi-5_4-2016q3/arm-none-eabi/lib/armv7-m/libc.a(lib_a-memcpy.o)
@@ -4282,678 +4284,674 @@ Linker script and memory map
  .text.uart2_irq
                 0x0800a7a4       0x2c build_arm_cortex_m4_base_application_stm32f4/system.o
                 0x0800a7a4                uart2_irq
- .text.sys_ctrl_delay
-                0x0800a7d0        0x8 build_arm_cortex_m4_base_application_stm32f4/system.o
-                0x0800a7d0                sys_ctrl_delay
- .text.reset_handler
-                0x0800a7d8       0xe0 build_arm_cortex_m4_base_application_stm32f4/system.o
-                0x0800a7d8                reset_handler
- .text.sys_ctrl_millis
-                0x0800a8b8       0x20 build_arm_cortex_m4_base_application_stm32f4/system.o
-                0x0800a8b8                sys_ctrl_millis
- .text._init    0x0800a8d8        0x4 build_arm_cortex_m4_base_application_stm32f4/system.o
-                0x0800a8d8                _init
- .text.svc_exe  0x0800a8dc       0x10 build_arm_cortex_m4_base_application_stm32f4/system.o
-                0x0800a8dc                svc_exe
- *fill*         0x0800a8ec        0x4 
- .text.PID_DeltaRobot
-                0x0800a8f0      0x1b8 build_arm_cortex_m4_base_application_stm32f4/system.o
-                0x0800a8f0                PID_DeltaRobot
  .text.timer4_irq
-                0x0800aaa8       0x5c build_arm_cortex_m4_base_application_stm32f4/system.o
-                0x0800aaa8                timer4_irq
+                0x0800a7d0      0x1d0 build_arm_cortex_m4_base_application_stm32f4/system.o
+                0x0800a7d0                timer4_irq
+ .text.sys_ctrl_delay
+                0x0800a9a0        0x8 build_arm_cortex_m4_base_application_stm32f4/system.o
+                0x0800a9a0                sys_ctrl_delay
+ .text.reset_handler
+                0x0800a9a8       0xe0 build_arm_cortex_m4_base_application_stm32f4/system.o
+                0x0800a9a8                reset_handler
+ .text.sys_ctrl_millis
+                0x0800aa88       0x20 build_arm_cortex_m4_base_application_stm32f4/system.o
+                0x0800aa88                sys_ctrl_millis
+ .text._init    0x0800aaa8        0x4 build_arm_cortex_m4_base_application_stm32f4/system.o
+                0x0800aaa8                _init
+ .text.svc_exe  0x0800aaac       0x10 build_arm_cortex_m4_base_application_stm32f4/system.o
+                0x0800aaac                svc_exe
  .text.xputchar
-                0x0800ab04       0x2c build_arm_cortex_m4_base_application_stm32f4/sys_cfg.o
+                0x0800aabc       0x2c build_arm_cortex_m4_base_application_stm32f4/sys_cfg.o
  .text.sys_cfg_clock
-                0x0800ab30       0x24 build_arm_cortex_m4_base_application_stm32f4/sys_cfg.o
-                0x0800ab30                sys_cfg_clock
+                0x0800aae8       0x24 build_arm_cortex_m4_base_application_stm32f4/sys_cfg.o
+                0x0800aae8                sys_cfg_clock
  .text.sys_cfg_tick
-                0x0800ab54       0x40 build_arm_cortex_m4_base_application_stm32f4/sys_cfg.o
-                0x0800ab54                sys_cfg_tick
+                0x0800ab0c       0x40 build_arm_cortex_m4_base_application_stm32f4/sys_cfg.o
+                0x0800ab0c                sys_cfg_tick
  .text.sys_cfg_console
-                0x0800ab94       0xb8 build_arm_cortex_m4_base_application_stm32f4/sys_cfg.o
-                0x0800ab94                sys_cfg_console
+                0x0800ab4c       0xb8 build_arm_cortex_m4_base_application_stm32f4/sys_cfg.o
+                0x0800ab4c                sys_cfg_console
  .text.sys_cfg_svc
-                0x0800ac4c       0x1c build_arm_cortex_m4_base_application_stm32f4/sys_cfg.o
-                0x0800ac4c                sys_cfg_svc
+                0x0800ac04       0x1c build_arm_cortex_m4_base_application_stm32f4/sys_cfg.o
+                0x0800ac04                sys_cfg_svc
  .text.sys_cfg_pendsv
-                0x0800ac68       0x1c build_arm_cortex_m4_base_application_stm32f4/sys_cfg.o
-                0x0800ac68                sys_cfg_pendsv
+                0x0800ac20       0x1c build_arm_cortex_m4_base_application_stm32f4/sys_cfg.o
+                0x0800ac20                sys_cfg_pendsv
  .text.sys_cfg_update_info
-                0x0800ac84      0x178 build_arm_cortex_m4_base_application_stm32f4/sys_cfg.o
-                0x0800ac84                sys_cfg_update_info
+                0x0800ac3c      0x178 build_arm_cortex_m4_base_application_stm32f4/sys_cfg.o
+                0x0800ac3c                sys_cfg_update_info
  .text.sys_ctrl_shell_put_char
-                0x0800adfc       0x2c build_arm_cortex_m4_base_application_stm32f4/sys_cfg.o
-                0x0800adfc                sys_ctrl_shell_put_char
+                0x0800adb4       0x2c build_arm_cortex_m4_base_application_stm32f4/sys_cfg.o
+                0x0800adb4                sys_ctrl_shell_put_char
  .text.sys_ctrl_shell_get_char
-                0x0800ae28       0x40 build_arm_cortex_m4_base_application_stm32f4/sys_cfg.o
-                0x0800ae28                sys_ctrl_shell_get_char
+                0x0800ade0       0x40 build_arm_cortex_m4_base_application_stm32f4/sys_cfg.o
+                0x0800ade0                sys_ctrl_shell_get_char
  .text.sys_ctrl_reset
-                0x0800ae68       0x24 build_arm_cortex_m4_base_application_stm32f4/sys_cfg.o
-                0x0800ae68                sys_ctrl_reset
+                0x0800ae20       0x24 build_arm_cortex_m4_base_application_stm32f4/sys_cfg.o
+                0x0800ae20                sys_ctrl_reset
  .text.sys_ctrl_delay_us
-                0x0800ae8c       0x28 build_arm_cortex_m4_base_application_stm32f4/sys_cfg.o
-                0x0800ae8c                sys_ctrl_delay_us
+                0x0800ae44       0x28 build_arm_cortex_m4_base_application_stm32f4/sys_cfg.o
+                0x0800ae44                sys_ctrl_delay_us
  .text.sys_ctrl_delay_ms
-                0x0800aeb4       0x34 build_arm_cortex_m4_base_application_stm32f4/sys_cfg.o
-                0x0800aeb4                sys_ctrl_delay_ms
+                0x0800ae6c       0x34 build_arm_cortex_m4_base_application_stm32f4/sys_cfg.o
+                0x0800ae6c                sys_ctrl_delay_ms
  .text.sys_ctr_sleep_wait_for_irq
-                0x0800aee8        0x4 build_arm_cortex_m4_base_application_stm32f4/sys_cfg.o
-                0x0800aee8                sys_ctr_sleep_wait_for_irq
+                0x0800aea0        0x4 build_arm_cortex_m4_base_application_stm32f4/sys_cfg.o
+                0x0800aea0                sys_ctr_sleep_wait_for_irq
  .text.sys_cfg_restore_app
-                0x0800aeec       0x38 build_arm_cortex_m4_base_application_stm32f4/sys_cfg.o
-                0x0800aeec                sys_cfg_restore_app
+                0x0800aea4       0x38 build_arm_cortex_m4_base_application_stm32f4/sys_cfg.o
+                0x0800aea4                sys_cfg_restore_app
  .text.sys_ctrl_independent_watchdog_reset
-                0x0800af24       0x14 build_arm_cortex_m4_base_application_stm32f4/sys_cfg.o
-                0x0800af24                sys_ctrl_independent_watchdog_reset
+                0x0800aedc       0x14 build_arm_cortex_m4_base_application_stm32f4/sys_cfg.o
+                0x0800aedc                sys_ctrl_independent_watchdog_reset
  .text.sys_ctrl_soft_watchdog_reset
-                0x0800af38       0x18 build_arm_cortex_m4_base_application_stm32f4/sys_cfg.o
-                0x0800af38                sys_ctrl_soft_watchdog_reset
+                0x0800aef0       0x18 build_arm_cortex_m4_base_application_stm32f4/sys_cfg.o
+                0x0800aef0                sys_ctrl_soft_watchdog_reset
  .text.sys_ctrl_get_firmware_info
-                0x0800af50       0x44 build_arm_cortex_m4_base_application_stm32f4/sys_cfg.o
-                0x0800af50                sys_ctrl_get_firmware_info
+                0x0800af08       0x44 build_arm_cortex_m4_base_application_stm32f4/sys_cfg.o
+                0x0800af08                sys_ctrl_get_firmware_info
  .text.ak_irq_io_entry_trigger
-                0x0800af94        0x4 build_arm_cortex_m4_base_application_stm32f4/sys_cfg.o
-                0x0800af94                ak_irq_io_entry_trigger
+                0x0800af4c        0x4 build_arm_cortex_m4_base_application_stm32f4/sys_cfg.o
+                0x0800af4c                ak_irq_io_entry_trigger
  .text.ak_irq_io_exit_trigger
-                0x0800af98        0x4 build_arm_cortex_m4_base_application_stm32f4/sys_cfg.o
-                0x0800af98                ak_irq_io_exit_trigger
+                0x0800af50        0x4 build_arm_cortex_m4_base_application_stm32f4/sys_cfg.o
+                0x0800af50                ak_irq_io_exit_trigger
  .text.led_life_init
-                0x0800af9c       0x38 build_arm_cortex_m4_base_application_stm32f4/io_cfg.o
-                0x0800af9c                led_life_init
+                0x0800af54       0x38 build_arm_cortex_m4_base_application_stm32f4/io_cfg.o
+                0x0800af54                led_life_init
  .text.led_life_on
-                0x0800afd4        0xc build_arm_cortex_m4_base_application_stm32f4/io_cfg.o
-                0x0800afd4                led_life_on
+                0x0800af8c        0xc build_arm_cortex_m4_base_application_stm32f4/io_cfg.o
+                0x0800af8c                led_life_on
  .text.led_life_off
-                0x0800afe0        0xc build_arm_cortex_m4_base_application_stm32f4/io_cfg.o
-                0x0800afe0                led_life_off
+                0x0800af98        0xc build_arm_cortex_m4_base_application_stm32f4/io_cfg.o
+                0x0800af98                led_life_off
  .text.nrf24l01_io_ctrl_init
-                0x0800afec       0xc8 build_arm_cortex_m4_base_application_stm32f4/io_cfg.o
-                0x0800afec                nrf24l01_io_ctrl_init
+                0x0800afa4       0xc8 build_arm_cortex_m4_base_application_stm32f4/io_cfg.o
+                0x0800afa4                nrf24l01_io_ctrl_init
  .text.nrf24l01_spi_ctrl_init
-                0x0800b0b4       0xd0 build_arm_cortex_m4_base_application_stm32f4/io_cfg.o
-                0x0800b0b4                nrf24l01_spi_ctrl_init
+                0x0800b06c       0xd0 build_arm_cortex_m4_base_application_stm32f4/io_cfg.o
+                0x0800b06c                nrf24l01_spi_ctrl_init
  .text.nrf24l01_ce_low
-                0x0800b184       0x10 build_arm_cortex_m4_base_application_stm32f4/io_cfg.o
-                0x0800b184                nrf24l01_ce_low
+                0x0800b13c       0x10 build_arm_cortex_m4_base_application_stm32f4/io_cfg.o
+                0x0800b13c                nrf24l01_ce_low
  .text.nrf24l01_ce_high
-                0x0800b194       0x10 build_arm_cortex_m4_base_application_stm32f4/io_cfg.o
-                0x0800b194                nrf24l01_ce_high
+                0x0800b14c       0x10 build_arm_cortex_m4_base_application_stm32f4/io_cfg.o
+                0x0800b14c                nrf24l01_ce_high
  .text.nrf24l01_csn_low
-                0x0800b1a4       0x10 build_arm_cortex_m4_base_application_stm32f4/io_cfg.o
-                0x0800b1a4                nrf24l01_csn_low
+                0x0800b15c       0x10 build_arm_cortex_m4_base_application_stm32f4/io_cfg.o
+                0x0800b15c                nrf24l01_csn_low
  .text.nrf24l01_csn_high
-                0x0800b1b4       0x10 build_arm_cortex_m4_base_application_stm32f4/io_cfg.o
-                0x0800b1b4                nrf24l01_csn_high
+                0x0800b16c       0x10 build_arm_cortex_m4_base_application_stm32f4/io_cfg.o
+                0x0800b16c                nrf24l01_csn_high
  .text.nrf24l01_spi_rw
-                0x0800b1c4       0x94 build_arm_cortex_m4_base_application_stm32f4/io_cfg.o
-                0x0800b1c4                nrf24l01_spi_rw
+                0x0800b17c       0x94 build_arm_cortex_m4_base_application_stm32f4/io_cfg.o
+                0x0800b17c                nrf24l01_spi_rw
  .text.flash_cs_low
-                0x0800b258        0xc build_arm_cortex_m4_base_application_stm32f4/io_cfg.o
-                0x0800b258                flash_cs_low
+                0x0800b210        0xc build_arm_cortex_m4_base_application_stm32f4/io_cfg.o
+                0x0800b210                flash_cs_low
  .text.flash_cs_high
-                0x0800b264        0xc build_arm_cortex_m4_base_application_stm32f4/io_cfg.o
-                0x0800b264                flash_cs_high
+                0x0800b21c        0xc build_arm_cortex_m4_base_application_stm32f4/io_cfg.o
+                0x0800b21c                flash_cs_high
  .text.flash_transfer
-                0x0800b270       0x94 build_arm_cortex_m4_base_application_stm32f4/io_cfg.o
-                0x0800b270                flash_transfer
+                0x0800b228       0x94 build_arm_cortex_m4_base_application_stm32f4/io_cfg.o
+                0x0800b228                flash_transfer
  .text.sht1x_clk_input_mode
-                0x0800b304       0x38 build_arm_cortex_m4_base_application_stm32f4/io_cfg.o
-                0x0800b304                sht1x_clk_input_mode
+                0x0800b2bc       0x38 build_arm_cortex_m4_base_application_stm32f4/io_cfg.o
+                0x0800b2bc                sht1x_clk_input_mode
  .text.sht1x_clk_output_mode
-                0x0800b33c       0x38 build_arm_cortex_m4_base_application_stm32f4/io_cfg.o
-                0x0800b33c                sht1x_clk_output_mode
+                0x0800b2f4       0x38 build_arm_cortex_m4_base_application_stm32f4/io_cfg.o
+                0x0800b2f4                sht1x_clk_output_mode
  .text.sht1x_clk_digital_write_low
-                0x0800b374       0x10 build_arm_cortex_m4_base_application_stm32f4/io_cfg.o
-                0x0800b374                sht1x_clk_digital_write_low
+                0x0800b32c       0x10 build_arm_cortex_m4_base_application_stm32f4/io_cfg.o
+                0x0800b32c                sht1x_clk_digital_write_low
  .text.sht1x_clk_digital_write_high
-                0x0800b384       0x10 build_arm_cortex_m4_base_application_stm32f4/io_cfg.o
-                0x0800b384                sht1x_clk_digital_write_high
+                0x0800b33c       0x10 build_arm_cortex_m4_base_application_stm32f4/io_cfg.o
+                0x0800b33c                sht1x_clk_digital_write_high
  .text.sht1x_data_input_mode
-                0x0800b394       0x38 build_arm_cortex_m4_base_application_stm32f4/io_cfg.o
-                0x0800b394                sht1x_data_input_mode
+                0x0800b34c       0x38 build_arm_cortex_m4_base_application_stm32f4/io_cfg.o
+                0x0800b34c                sht1x_data_input_mode
  .text.sht1x_data_output_mode
-                0x0800b3cc       0x38 build_arm_cortex_m4_base_application_stm32f4/io_cfg.o
-                0x0800b3cc                sht1x_data_output_mode
+                0x0800b384       0x38 build_arm_cortex_m4_base_application_stm32f4/io_cfg.o
+                0x0800b384                sht1x_data_output_mode
  .text.sht1x_data_digital_write_low
-                0x0800b404       0x10 build_arm_cortex_m4_base_application_stm32f4/io_cfg.o
-                0x0800b404                sht1x_data_digital_write_low
+                0x0800b3bc       0x10 build_arm_cortex_m4_base_application_stm32f4/io_cfg.o
+                0x0800b3bc                sht1x_data_digital_write_low
  .text.sht1x_data_digital_write_high
-                0x0800b414       0x10 build_arm_cortex_m4_base_application_stm32f4/io_cfg.o
-                0x0800b414                sht1x_data_digital_write_high
+                0x0800b3cc       0x10 build_arm_cortex_m4_base_application_stm32f4/io_cfg.o
+                0x0800b3cc                sht1x_data_digital_write_high
  .text.ds1302_ce_input_mode
-                0x0800b424       0x34 build_arm_cortex_m4_base_application_stm32f4/io_cfg.o
-                0x0800b424                ds1302_ce_input_mode
+                0x0800b3dc       0x34 build_arm_cortex_m4_base_application_stm32f4/io_cfg.o
+                0x0800b3dc                ds1302_ce_input_mode
  .text.ds1302_ce_output_mode
-                0x0800b458       0x34 build_arm_cortex_m4_base_application_stm32f4/io_cfg.o
-                0x0800b458                ds1302_ce_output_mode
+                0x0800b410       0x34 build_arm_cortex_m4_base_application_stm32f4/io_cfg.o
+                0x0800b410                ds1302_ce_output_mode
  .text.ds1302_ce_digital_write_low
-                0x0800b48c        0xc build_arm_cortex_m4_base_application_stm32f4/io_cfg.o
-                0x0800b48c                ds1302_ce_digital_write_low
+                0x0800b444        0xc build_arm_cortex_m4_base_application_stm32f4/io_cfg.o
+                0x0800b444                ds1302_ce_digital_write_low
  .text.ds1302_ce_digital_write_high
-                0x0800b498        0xc build_arm_cortex_m4_base_application_stm32f4/io_cfg.o
-                0x0800b498                ds1302_ce_digital_write_high
+                0x0800b450        0xc build_arm_cortex_m4_base_application_stm32f4/io_cfg.o
+                0x0800b450                ds1302_ce_digital_write_high
  .text.ds1302_clk_input_mode
-                0x0800b4a4       0x38 build_arm_cortex_m4_base_application_stm32f4/io_cfg.o
-                0x0800b4a4                ds1302_clk_input_mode
+                0x0800b45c       0x38 build_arm_cortex_m4_base_application_stm32f4/io_cfg.o
+                0x0800b45c                ds1302_clk_input_mode
  .text.ds1302_clk_output_mode
-                0x0800b4dc       0x38 build_arm_cortex_m4_base_application_stm32f4/io_cfg.o
-                0x0800b4dc                ds1302_clk_output_mode
+                0x0800b494       0x38 build_arm_cortex_m4_base_application_stm32f4/io_cfg.o
+                0x0800b494                ds1302_clk_output_mode
  .text.ds1302_clk_digital_write_low
-                0x0800b514       0x10 build_arm_cortex_m4_base_application_stm32f4/io_cfg.o
-                0x0800b514                ds1302_clk_digital_write_low
+                0x0800b4cc       0x10 build_arm_cortex_m4_base_application_stm32f4/io_cfg.o
+                0x0800b4cc                ds1302_clk_digital_write_low
  .text.ds1302_clk_digital_write_high
-                0x0800b524       0x10 build_arm_cortex_m4_base_application_stm32f4/io_cfg.o
-                0x0800b524                ds1302_clk_digital_write_high
+                0x0800b4dc       0x10 build_arm_cortex_m4_base_application_stm32f4/io_cfg.o
+                0x0800b4dc                ds1302_clk_digital_write_high
  .text.ds1302_data_input_mode
-                0x0800b534       0x34 build_arm_cortex_m4_base_application_stm32f4/io_cfg.o
-                0x0800b534                ds1302_data_input_mode
+                0x0800b4ec       0x34 build_arm_cortex_m4_base_application_stm32f4/io_cfg.o
+                0x0800b4ec                ds1302_data_input_mode
  .text.ds1302_data_output_mode
-                0x0800b568       0x34 build_arm_cortex_m4_base_application_stm32f4/io_cfg.o
-                0x0800b568                ds1302_data_output_mode
+                0x0800b520       0x34 build_arm_cortex_m4_base_application_stm32f4/io_cfg.o
+                0x0800b520                ds1302_data_output_mode
  .text.ds1302_data_digital_write_low
-                0x0800b59c        0xc build_arm_cortex_m4_base_application_stm32f4/io_cfg.o
-                0x0800b59c                ds1302_data_digital_write_low
+                0x0800b554        0xc build_arm_cortex_m4_base_application_stm32f4/io_cfg.o
+                0x0800b554                ds1302_data_digital_write_low
  .text.ds1302_data_digital_write_high
-                0x0800b5a8        0xc build_arm_cortex_m4_base_application_stm32f4/io_cfg.o
-                0x0800b5a8                ds1302_data_digital_write_high
+                0x0800b560        0xc build_arm_cortex_m4_base_application_stm32f4/io_cfg.o
+                0x0800b560                ds1302_data_digital_write_high
  .text.ssd1306_clk_input_mode
-                0x0800b5b4       0x38 build_arm_cortex_m4_base_application_stm32f4/io_cfg.o
-                0x0800b5b4                ssd1306_clk_input_mode
+                0x0800b56c       0x38 build_arm_cortex_m4_base_application_stm32f4/io_cfg.o
+                0x0800b56c                ssd1306_clk_input_mode
  .text.ssd1306_clk_output_mode
-                0x0800b5ec       0x38 build_arm_cortex_m4_base_application_stm32f4/io_cfg.o
-                0x0800b5ec                ssd1306_clk_output_mode
+                0x0800b5a4       0x38 build_arm_cortex_m4_base_application_stm32f4/io_cfg.o
+                0x0800b5a4                ssd1306_clk_output_mode
  .text.ssd1306_clk_digital_write_low
-                0x0800b624       0x10 build_arm_cortex_m4_base_application_stm32f4/io_cfg.o
-                0x0800b624                ssd1306_clk_digital_write_low
+                0x0800b5dc       0x10 build_arm_cortex_m4_base_application_stm32f4/io_cfg.o
+                0x0800b5dc                ssd1306_clk_digital_write_low
  .text.ssd1306_clk_digital_write_high
-                0x0800b634       0x10 build_arm_cortex_m4_base_application_stm32f4/io_cfg.o
-                0x0800b634                ssd1306_clk_digital_write_high
+                0x0800b5ec       0x10 build_arm_cortex_m4_base_application_stm32f4/io_cfg.o
+                0x0800b5ec                ssd1306_clk_digital_write_high
  .text.ssd1306_data_input_mode
-                0x0800b644       0x38 build_arm_cortex_m4_base_application_stm32f4/io_cfg.o
-                0x0800b644                ssd1306_data_input_mode
+                0x0800b5fc       0x38 build_arm_cortex_m4_base_application_stm32f4/io_cfg.o
+                0x0800b5fc                ssd1306_data_input_mode
  .text.ssd1306_data_output_mode
-                0x0800b67c       0x38 build_arm_cortex_m4_base_application_stm32f4/io_cfg.o
-                0x0800b67c                ssd1306_data_output_mode
+                0x0800b634       0x38 build_arm_cortex_m4_base_application_stm32f4/io_cfg.o
+                0x0800b634                ssd1306_data_output_mode
  .text.ssd1306_data_digital_write_low
-                0x0800b6b4       0x10 build_arm_cortex_m4_base_application_stm32f4/io_cfg.o
-                0x0800b6b4                ssd1306_data_digital_write_low
+                0x0800b66c       0x10 build_arm_cortex_m4_base_application_stm32f4/io_cfg.o
+                0x0800b66c                ssd1306_data_digital_write_low
  .text.ssd1306_data_digital_write_high
-                0x0800b6c4       0x10 build_arm_cortex_m4_base_application_stm32f4/io_cfg.o
-                0x0800b6c4                ssd1306_data_digital_write_high
+                0x0800b67c       0x10 build_arm_cortex_m4_base_application_stm32f4/io_cfg.o
+                0x0800b67c                ssd1306_data_digital_write_high
  .text.internal_flash_unlock
-                0x0800b6d4       0x10 build_arm_cortex_m4_base_application_stm32f4/io_cfg.o
-                0x0800b6d4                internal_flash_unlock
+                0x0800b68c       0x10 build_arm_cortex_m4_base_application_stm32f4/io_cfg.o
+                0x0800b68c                internal_flash_unlock
  .text.internal_flash_lock
-                0x0800b6e4        0x4 build_arm_cortex_m4_base_application_stm32f4/io_cfg.o
-                0x0800b6e4                internal_flash_lock
+                0x0800b69c        0x4 build_arm_cortex_m4_base_application_stm32f4/io_cfg.o
+                0x0800b69c                internal_flash_lock
  .text.internal_flash_erase_pages_cal
-                0x0800b6e8        0x4 build_arm_cortex_m4_base_application_stm32f4/io_cfg.o
-                0x0800b6e8                internal_flash_erase_pages_cal
+                0x0800b6a0        0x4 build_arm_cortex_m4_base_application_stm32f4/io_cfg.o
+                0x0800b6a0                internal_flash_erase_pages_cal
  .text.internal_flash_write_cal
-                0x0800b6ec       0x2c build_arm_cortex_m4_base_application_stm32f4/io_cfg.o
-                0x0800b6ec                internal_flash_write_cal
+                0x0800b6a4       0x2c build_arm_cortex_m4_base_application_stm32f4/io_cfg.o
+                0x0800b6a4                internal_flash_write_cal
  .text.io_uart_interface_cfg
-                0x0800b718       0xcc build_arm_cortex_m4_base_application_stm32f4/io_cfg.o
-                0x0800b718                io_uart_interface_cfg
+                0x0800b6d0       0xcc build_arm_cortex_m4_base_application_stm32f4/io_cfg.o
+                0x0800b6d0                io_uart_interface_cfg
  .text.io_uart_interface_receiver
-                0x0800b7e4       0x2c build_arm_cortex_m4_base_application_stm32f4/io_cfg.o
-                0x0800b7e4                io_uart_interface_receiver
+                0x0800b79c       0x2c build_arm_cortex_m4_base_application_stm32f4/io_cfg.o
+                0x0800b79c                io_uart_interface_receiver
  .text.Encoder3_Tim5_Init
-                0x0800b810       0xd0 build_arm_cortex_m4_base_application_stm32f4/io_cfg.o
-                0x0800b810                Encoder3_Tim5_Init
+                0x0800b7c8       0xd0 build_arm_cortex_m4_base_application_stm32f4/io_cfg.o
+                0x0800b7c8                Encoder3_Tim5_Init
  .text.ALL_ENCODER_INIT
-                0x0800b8e0        0x4 build_arm_cortex_m4_base_application_stm32f4/io_cfg.o
-                0x0800b8e0                ALL_ENCODER_INIT
- *fill*         0x0800b8e4        0x4 
+                0x0800b898        0x4 build_arm_cortex_m4_base_application_stm32f4/io_cfg.o
+                0x0800b898                ALL_ENCODER_INIT
+ *fill*         0x0800b89c        0x4 
  .text.ENCODER_Read_Release
-                0x0800b8e8       0x54 build_arm_cortex_m4_base_application_stm32f4/io_cfg.o
-                0x0800b8e8                ENCODER_Read_Release
+                0x0800b8a0       0x54 build_arm_cortex_m4_base_application_stm32f4/io_cfg.o
+                0x0800b8a0                ENCODER_Read_Release
  .text.timer4_config
-                0x0800b93c       0x94 build_arm_cortex_m4_base_application_stm32f4/io_cfg.o
-                0x0800b93c                timer4_config
+                0x0800b8f4       0x94 build_arm_cortex_m4_base_application_stm32f4/io_cfg.o
+                0x0800b8f4                timer4_config
  .text.ALL_GPIO_INIT
-                0x0800b9d0       0x34 build_arm_cortex_m4_base_application_stm32f4/io_cfg.o
-                0x0800b9d0                ALL_GPIO_INIT
+                0x0800b988       0x34 build_arm_cortex_m4_base_application_stm32f4/io_cfg.o
+                0x0800b988                ALL_GPIO_INIT
  .text.ALL_PWM_INIT
-                0x0800ba04       0x38 build_arm_cortex_m4_base_application_stm32f4/io_cfg.o
-                0x0800ba04                ALL_PWM_INIT
+                0x0800b9bc       0x38 build_arm_cortex_m4_base_application_stm32f4/io_cfg.o
+                0x0800b9bc                ALL_PWM_INIT
  .text.Turn_Release
-                0x0800ba3c      0x124 build_arm_cortex_m4_base_application_stm32f4/io_cfg.o
-                0x0800ba3c                Turn_Release
+                0x0800b9f4      0x124 build_arm_cortex_m4_base_application_stm32f4/io_cfg.o
+                0x0800b9f4                Turn_Release
  .text.SystemInit
-                0x0800bb60       0xf4 build_arm_cortex_m4_base_application_stm32f4/system_stm32f4xx.o
-                0x0800bb60                SystemInit
+                0x0800bb18       0xf4 build_arm_cortex_m4_base_application_stm32f4/system_stm32f4xx.o
+                0x0800bb18                SystemInit
  .text.SystemCoreClockUpdate
-                0x0800bc54       0x78 build_arm_cortex_m4_base_application_stm32f4/system_stm32f4xx.o
-                0x0800bc54                SystemCoreClockUpdate
+                0x0800bc0c       0x78 build_arm_cortex_m4_base_application_stm32f4/system_stm32f4xx.o
+                0x0800bc0c                SystemCoreClockUpdate
  .text.main_app
-                0x0800bccc       0x60 build_arm_cortex_m4_base_application_stm32f4/app.o
-                0x0800bccc                main_app
+                0x0800bc84       0x70 build_arm_cortex_m4_base_application_stm32f4/app.o
+                0x0800bc84                main_app
  .text.sys_irq_timer_10ms
-                0x0800bd2c        0x4 build_arm_cortex_m4_base_application_stm32f4/app.o
-                0x0800bd2c                sys_irq_timer_10ms
+                0x0800bcf4        0x4 build_arm_cortex_m4_base_application_stm32f4/app.o
+                0x0800bcf4                sys_irq_timer_10ms
  .text.rf_printf
-                0x0800bd30        0x4 build_arm_cortex_m4_base_application_stm32f4/rf_remote_ctrl.o
-                0x0800bd30                rf_printf
+                0x0800bcf8        0x4 build_arm_cortex_m4_base_application_stm32f4/rf_remote_ctrl.o
+                0x0800bcf8                rf_printf
  .text._ZL9shell_epiPh
-                0x0800bd34        0x4 build_arm_cortex_m4_base_application_stm32f4/shell.o
+                0x0800bcfc        0x4 build_arm_cortex_m4_base_application_stm32f4/shell.o
  .text._ZL9shell_psvPh
-                0x0800bd38       0x14 build_arm_cortex_m4_base_application_stm32f4/shell.o
+                0x0800bd00       0x14 build_arm_cortex_m4_base_application_stm32f4/shell.o
  .text._ZL10shell_helpPh
-                0x0800bd4c       0x30 build_arm_cortex_m4_base_application_stm32f4/shell.o
+                0x0800bd14       0x30 build_arm_cortex_m4_base_application_stm32f4/shell.o
  .text._ZL9shell_svcPh
-                0x0800bd7c       0x10 build_arm_cortex_m4_base_application_stm32f4/shell.o
+                0x0800bd44       0x10 build_arm_cortex_m4_base_application_stm32f4/shell.o
  .text._ZL9shell_fwuPh
-                0x0800bd8c       0x34 build_arm_cortex_m4_base_application_stm32f4/shell.o
+                0x0800bd54       0x34 build_arm_cortex_m4_base_application_stm32f4/shell.o
  .text._ZL12shell_rebootPh
-                0x0800bdc0        0xc build_arm_cortex_m4_base_application_stm32f4/shell.o
+                0x0800bd88        0xc build_arm_cortex_m4_base_application_stm32f4/shell.o
  .text._ZL11shell_resetPh
-                0x0800bdcc       0x10 build_arm_cortex_m4_base_application_stm32f4/shell.o
+                0x0800bd94       0x10 build_arm_cortex_m4_base_application_stm32f4/shell.o
  .text._ZL9shell_epsPh
-                0x0800bddc       0xe4 build_arm_cortex_m4_base_application_stm32f4/shell.o
+                0x0800bda4       0xe4 build_arm_cortex_m4_base_application_stm32f4/shell.o
  .text._ZL9shell_sttPh
-                0x0800bec0       0x34 build_arm_cortex_m4_base_application_stm32f4/shell.o
+                0x0800be88       0x34 build_arm_cortex_m4_base_application_stm32f4/shell.o
  .text._ZL11shell_fatalPh
-                0x0800bef4      0x390 build_arm_cortex_m4_base_application_stm32f4/shell.o
+                0x0800bebc      0x390 build_arm_cortex_m4_base_application_stm32f4/shell.o
  .text._ZL9shell_verPh
-                0x0800c284       0x50 build_arm_cortex_m4_base_application_stm32f4/shell.o
+                0x0800c24c       0x50 build_arm_cortex_m4_base_application_stm32f4/shell.o
  .text._ZL9shell_dbgPh
-                0x0800c2d4       0x94 build_arm_cortex_m4_base_application_stm32f4/shell.o
+                0x0800c29c       0x94 build_arm_cortex_m4_base_application_stm32f4/shell.o
  .text._ZL10shell_bootPh
-                0x0800c368       0xec build_arm_cortex_m4_base_application_stm32f4/shell.o
+                0x0800c330       0xec build_arm_cortex_m4_base_application_stm32f4/shell.o
  .text._ZL11shell_flashPh
-                0x0800c454       0xac build_arm_cortex_m4_base_application_stm32f4/shell.o
+                0x0800c41c       0xac build_arm_cortex_m4_base_application_stm32f4/shell.o
  .text._ZL9shell_ramPh
-                0x0800c500      0x30c build_arm_cortex_m4_base_application_stm32f4/shell.o
+                0x0800c4c8      0x30c build_arm_cortex_m4_base_application_stm32f4/shell.o
  .text._ZL9shell_lcdPh
-                0x0800c80c      0x10c build_arm_cortex_m4_base_application_stm32f4/shell.o
+                0x0800c7d4      0x10c build_arm_cortex_m4_base_application_stm32f4/shell.o
  .text.sys_irq_shell
-                0x0800c918       0x84 build_arm_cortex_m4_base_application_stm32f4/task_shell.o
-                0x0800c918                sys_irq_shell
+                0x0800c8e0       0x84 build_arm_cortex_m4_base_application_stm32f4/task_shell.o
+                0x0800c8e0                sys_irq_shell
  .text._Z10task_shellP8ak_msg_t
-                0x0800c99c       0xb0 build_arm_cortex_m4_base_application_stm32f4/task_shell.o
-                0x0800c99c                task_shell(ak_msg_t*)
+                0x0800c964       0xb0 build_arm_cortex_m4_base_application_stm32f4/task_shell.o
+                0x0800c964                task_shell(ak_msg_t*)
  .text._Z9task_lifeP8ak_msg_t
-                0x0800ca4c       0x14 build_arm_cortex_m4_base_application_stm32f4/task_life.o
-                0x0800ca4c                task_life(ak_msg_t*)
+                0x0800ca14       0x14 build_arm_cortex_m4_base_application_stm32f4/task_life.o
+                0x0800ca14                task_life(ak_msg_t*)
  .text._Z7task_fwP8ak_msg_t
-                0x0800ca60      0x3ec build_arm_cortex_m4_base_application_stm32f4/task_fw.o
-                0x0800ca60                task_fw(ak_msg_t*)
+                0x0800ca28      0x3ec build_arm_cortex_m4_base_application_stm32f4/task_fw.o
+                0x0800ca28                task_fw(ak_msg_t*)
  .text._Z12task_displayP8ak_msg_t
-                0x0800ce4c       0xd8 build_arm_cortex_m4_base_application_stm32f4/task_display.o
-                0x0800ce4c                task_display(ak_msg_t*)
+                0x0800ce14       0xd8 build_arm_cortex_m4_base_application_stm32f4/task_display.o
+                0x0800ce14                task_display(ak_msg_t*)
  .text._Z7task_ifP8ak_msg_t
-                0x0800cf24       0x9c build_arm_cortex_m4_base_application_stm32f4/task_if.o
-                0x0800cf24                task_if(ak_msg_t*)
+                0x0800ceec       0x9c build_arm_cortex_m4_base_application_stm32f4/task_if.o
+                0x0800ceec                task_if(ak_msg_t*)
  .text._Z12task_rf24_ifP8ak_msg_t
-                0x0800cfc0       0x98 build_arm_cortex_m4_base_application_stm32f4/task_rf24_if.o
-                0x0800cfc0                task_rf24_if(ak_msg_t*)
+                0x0800cf88       0x98 build_arm_cortex_m4_base_application_stm32f4/task_rf24_if.o
+                0x0800cf88                task_rf24_if(ak_msg_t*)
  .text.sys_irq_uart_cpu_serial_if
-                0x0800d058      0x2a4 build_arm_cortex_m4_base_application_stm32f4/task_uart_if.o
-                0x0800d058                sys_irq_uart_cpu_serial_if
+                0x0800d020      0x2a4 build_arm_cortex_m4_base_application_stm32f4/task_uart_if.o
+                0x0800d020                sys_irq_uart_cpu_serial_if
  .text._Z12task_uart_ifP8ak_msg_t
-                0x0800d2fc      0x2b0 build_arm_cortex_m4_base_application_stm32f4/task_uart_if.o
-                0x0800d2fc                task_uart_if(ak_msg_t*)
+                0x0800d2c4      0x2b0 build_arm_cortex_m4_base_application_stm32f4/task_uart_if.o
+                0x0800d2c4                task_uart_if(ak_msg_t*)
  .text._Z15rx_frame_parserh
-                0x0800d5ac      0x2ac build_arm_cortex_m4_base_application_stm32f4/task_uart_if.o
-                0x0800d5ac                rx_frame_parser(unsigned char)
+                0x0800d574      0x2ac build_arm_cortex_m4_base_application_stm32f4/task_uart_if.o
+                0x0800d574                rx_frame_parser(unsigned char)
  .text._Z8task_dbgP8ak_msg_t
-                0x0800d858      0x12c build_arm_cortex_m4_base_application_stm32f4/task_dbg.o
-                0x0800d858                task_dbg(ak_msg_t*)
+                0x0800d820      0x12c build_arm_cortex_m4_base_application_stm32f4/task_dbg.o
+                0x0800d820                task_dbg(ak_msg_t*)
  .text._Z16task_encoder_pidP8ak_msg_t
-                0x0800d984      0x14c build_arm_cortex_m4_base_application_stm32f4/task_encoder_pid.o
-                0x0800d984                task_encoder_pid(ak_msg_t*)
+                0x0800d94c      0x14c build_arm_cortex_m4_base_application_stm32f4/task_encoder_pid.o
+                0x0800d94c                task_encoder_pid(ak_msg_t*)
  .text.startup._GLOBAL__sub_I_view_render
-                0x0800dad0        0xc build_arm_cortex_m4_base_application_stm32f4/view_render.o
+                0x0800da98        0xc build_arm_cortex_m4_base_application_stm32f4/view_render.o
  .text.exit._GLOBAL__sub_D_view_render
-                0x0800dadc        0xc build_arm_cortex_m4_base_application_stm32f4/view_render.o
+                0x0800daa4        0xc build_arm_cortex_m4_base_application_stm32f4/view_render.o
  .text._ZN12Adafruit_GFX8drawLineEsssst
-                0x0800dae8      0x114 build_arm_cortex_m4_base_application_stm32f4/Adafruit_GFX.o
-                0x0800dae8                Adafruit_GFX::drawLine(short, short, short, short, unsigned short)
+                0x0800dab0      0x114 build_arm_cortex_m4_base_application_stm32f4/Adafruit_GFX.o
+                0x0800dab0                Adafruit_GFX::drawLine(short, short, short, short, unsigned short)
  .text._ZN12Adafruit_GFX13invertDisplayEb
-                0x0800dbfc        0x4 build_arm_cortex_m4_base_application_stm32f4/Adafruit_GFX.o
-                0x0800dbfc                Adafruit_GFX::invertDisplay(bool)
+                0x0800dbc4        0x4 build_arm_cortex_m4_base_application_stm32f4/Adafruit_GFX.o
+                0x0800dbc4                Adafruit_GFX::invertDisplay(bool)
  .text._ZN12Adafruit_GFX8fillRectEsssst
-                0x0800dc00      0x184 build_arm_cortex_m4_base_application_stm32f4/Adafruit_GFX.o
-                0x0800dc00                Adafruit_GFX::fillRect(short, short, short, short, unsigned short)
+                0x0800dbc8      0x184 build_arm_cortex_m4_base_application_stm32f4/Adafruit_GFX.o
+                0x0800dbc8                Adafruit_GFX::fillRect(short, short, short, short, unsigned short)
  .text._ZN12Adafruit_GFX10fillScreenEt
-                0x0800dd84      0x1ac build_arm_cortex_m4_base_application_stm32f4/Adafruit_GFX.o
-                0x0800dd84                Adafruit_GFX::fillScreen(unsigned short)
+                0x0800dd4c      0x1ac build_arm_cortex_m4_base_application_stm32f4/Adafruit_GFX.o
+                0x0800dd4c                Adafruit_GFX::fillScreen(unsigned short)
  .text._ZN12Adafruit_GFX13drawFastVLineEssst
-                0x0800df30       0xfc build_arm_cortex_m4_base_application_stm32f4/Adafruit_GFX.o
-                0x0800df30                Adafruit_GFX::drawFastVLine(short, short, short, unsigned short)
+                0x0800def8       0xfc build_arm_cortex_m4_base_application_stm32f4/Adafruit_GFX.o
+                0x0800def8                Adafruit_GFX::drawFastVLine(short, short, short, unsigned short)
  .text._ZN12Adafruit_GFX13drawFastHLineEssst
-                0x0800e02c       0x94 build_arm_cortex_m4_base_application_stm32f4/Adafruit_GFX.o
-                0x0800e02c                Adafruit_GFX::drawFastHLine(short, short, short, unsigned short)
+                0x0800dff4       0x94 build_arm_cortex_m4_base_application_stm32f4/Adafruit_GFX.o
+                0x0800dff4                Adafruit_GFX::drawFastHLine(short, short, short, unsigned short)
  .text._ZN12Adafruit_GFX8drawRectEsssst
-                0x0800e0c0      0x434 build_arm_cortex_m4_base_application_stm32f4/Adafruit_GFX.o
-                0x0800e0c0                Adafruit_GFX::drawRect(short, short, short, short, unsigned short)
+                0x0800e088      0x434 build_arm_cortex_m4_base_application_stm32f4/Adafruit_GFX.o
+                0x0800e088                Adafruit_GFX::drawRect(short, short, short, short, unsigned short)
  .text._ZN12Adafruit_GFXC2Ess
-                0x0800e4f4       0x30 build_arm_cortex_m4_base_application_stm32f4/Adafruit_GFX.o
-                0x0800e4f4                Adafruit_GFX::Adafruit_GFX(short, short)
-                0x0800e4f4                Adafruit_GFX::Adafruit_GFX(short, short)
+                0x0800e4bc       0x30 build_arm_cortex_m4_base_application_stm32f4/Adafruit_GFX.o
+                0x0800e4bc                Adafruit_GFX::Adafruit_GFX(short, short)
+                0x0800e4bc                Adafruit_GFX::Adafruit_GFX(short, short)
  .text._ZN12Adafruit_GFX8drawCharEsshtth
-                0x0800e524      0x4d0 build_arm_cortex_m4_base_application_stm32f4/Adafruit_GFX.o
-                0x0800e524                Adafruit_GFX::drawChar(short, short, unsigned char, unsigned short, unsigned short, unsigned char)
+                0x0800e4ec      0x4d0 build_arm_cortex_m4_base_application_stm32f4/Adafruit_GFX.o
+                0x0800e4ec                Adafruit_GFX::drawChar(short, short, unsigned char, unsigned short, unsigned short, unsigned char)
  .text._ZN12Adafruit_GFX5writeEh
-                0x0800e9f4       0x74 build_arm_cortex_m4_base_application_stm32f4/Adafruit_GFX.o
-                0x0800e9f4                Adafruit_GFX::write(unsigned char)
+                0x0800e9bc       0x74 build_arm_cortex_m4_base_application_stm32f4/Adafruit_GFX.o
+                0x0800e9bc                Adafruit_GFX::write(unsigned char)
  .text._ZN12Adafruit_GFX9setCursorEss
-                0x0800ea68        0x8 build_arm_cortex_m4_base_application_stm32f4/Adafruit_GFX.o
-                0x0800ea68                Adafruit_GFX::setCursor(short, short)
+                0x0800ea30        0x8 build_arm_cortex_m4_base_application_stm32f4/Adafruit_GFX.o
+                0x0800ea30                Adafruit_GFX::setCursor(short, short)
  .text._ZN12Adafruit_GFX11setTextSizeEh
-                0x0800ea70        0xc build_arm_cortex_m4_base_application_stm32f4/Adafruit_GFX.o
-                0x0800ea70                Adafruit_GFX::setTextSize(unsigned char)
+                0x0800ea38        0xc build_arm_cortex_m4_base_application_stm32f4/Adafruit_GFX.o
+                0x0800ea38                Adafruit_GFX::setTextSize(unsigned char)
  .text._ZN12Adafruit_GFX12setTextColorEt
-                0x0800ea7c        0x8 build_arm_cortex_m4_base_application_stm32f4/Adafruit_GFX.o
-                0x0800ea7c                Adafruit_GFX::setTextColor(unsigned short)
+                0x0800ea44        0x8 build_arm_cortex_m4_base_application_stm32f4/Adafruit_GFX.o
+                0x0800ea44                Adafruit_GFX::setTextColor(unsigned short)
  .text._ZN12Adafruit_GFX5widthEv
-                0x0800ea84        0x8 build_arm_cortex_m4_base_application_stm32f4/Adafruit_GFX.o
-                0x0800ea84                Adafruit_GFX::width()
+                0x0800ea4c        0x8 build_arm_cortex_m4_base_application_stm32f4/Adafruit_GFX.o
+                0x0800ea4c                Adafruit_GFX::width()
  .text._ZN12Adafruit_GFX6heightEv
-                0x0800ea8c        0x8 build_arm_cortex_m4_base_application_stm32f4/Adafruit_GFX.o
-                0x0800ea8c                Adafruit_GFX::height()
+                0x0800ea54        0x8 build_arm_cortex_m4_base_application_stm32f4/Adafruit_GFX.o
+                0x0800ea54                Adafruit_GFX::height()
  .text._ZN19Adafruit_ssd1306syp9drawPixelEsst
-                0x0800ea94       0x7c build_arm_cortex_m4_base_application_stm32f4/Adafruit_ssd1306syp.o
-                0x0800ea94                Adafruit_ssd1306syp::drawPixel(short, short, unsigned short)
+                0x0800ea5c       0x7c build_arm_cortex_m4_base_application_stm32f4/Adafruit_ssd1306syp.o
+                0x0800ea5c                Adafruit_ssd1306syp::drawPixel(short, short, unsigned short)
  .text._ZN19Adafruit_ssd1306syp9updateRowEii
-                0x0800eb10      0x36c build_arm_cortex_m4_base_application_stm32f4/Adafruit_ssd1306syp.o
-                0x0800eb10                Adafruit_ssd1306syp::updateRow(int, int)
+                0x0800ead8      0x36c build_arm_cortex_m4_base_application_stm32f4/Adafruit_ssd1306syp.o
+                0x0800ead8                Adafruit_ssd1306syp::updateRow(int, int)
  .text._ZN19Adafruit_ssd1306syp6updateEv
-                0x0800ee7c      0x4cc build_arm_cortex_m4_base_application_stm32f4/Adafruit_ssd1306syp.o
-                0x0800ee7c                Adafruit_ssd1306syp::update()
+                0x0800ee44      0x4cc build_arm_cortex_m4_base_application_stm32f4/Adafruit_ssd1306syp.o
+                0x0800ee44                Adafruit_ssd1306syp::update()
  .text._ZN19Adafruit_ssd1306syp9updateRowEi
-                0x0800f348      0x32c build_arm_cortex_m4_base_application_stm32f4/Adafruit_ssd1306syp.o
-                0x0800f348                Adafruit_ssd1306syp::updateRow(int)
+                0x0800f310      0x32c build_arm_cortex_m4_base_application_stm32f4/Adafruit_ssd1306syp.o
+                0x0800f310                Adafruit_ssd1306syp::updateRow(int)
  .text._ZN19Adafruit_ssd1306sypC2Ev
-                0x0800f674       0x24 build_arm_cortex_m4_base_application_stm32f4/Adafruit_ssd1306syp.o
-                0x0800f674                Adafruit_ssd1306syp::Adafruit_ssd1306syp()
-                0x0800f674                Adafruit_ssd1306syp::Adafruit_ssd1306syp()
+                0x0800f63c       0x24 build_arm_cortex_m4_base_application_stm32f4/Adafruit_ssd1306syp.o
+                0x0800f63c                Adafruit_ssd1306syp::Adafruit_ssd1306syp()
+                0x0800f63c                Adafruit_ssd1306syp::Adafruit_ssd1306syp()
  .text._ZN19Adafruit_ssd1306sypD2Ev
-                0x0800f698        0x4 build_arm_cortex_m4_base_application_stm32f4/Adafruit_ssd1306syp.o
-                0x0800f698                Adafruit_ssd1306syp::~Adafruit_ssd1306syp()
-                0x0800f698                Adafruit_ssd1306syp::~Adafruit_ssd1306syp()
+                0x0800f660        0x4 build_arm_cortex_m4_base_application_stm32f4/Adafruit_ssd1306syp.o
+                0x0800f660                Adafruit_ssd1306syp::~Adafruit_ssd1306syp()
+                0x0800f660                Adafruit_ssd1306syp::~Adafruit_ssd1306syp()
  .text._ZN19Adafruit_ssd1306syp5clearEb
-                0x0800f69c       0x24 build_arm_cortex_m4_base_application_stm32f4/Adafruit_ssd1306syp.o
-                0x0800f69c                Adafruit_ssd1306syp::clear(bool)
+                0x0800f664       0x24 build_arm_cortex_m4_base_application_stm32f4/Adafruit_ssd1306syp.o
+                0x0800f664                Adafruit_ssd1306syp::clear(bool)
  .text._ZN19Adafruit_ssd1306syp12writeCommandEh
-                0x0800f6c0      0x130 build_arm_cortex_m4_base_application_stm32f4/Adafruit_ssd1306syp.o
-                0x0800f6c0                Adafruit_ssd1306syp::writeCommand(unsigned char)
+                0x0800f688      0x130 build_arm_cortex_m4_base_application_stm32f4/Adafruit_ssd1306syp.o
+                0x0800f688                Adafruit_ssd1306syp::writeCommand(unsigned char)
  .text._ZN19Adafruit_ssd1306syp10initializeEv
-                0x0800f7f0      0x104 build_arm_cortex_m4_base_application_stm32f4/Adafruit_ssd1306syp.o
-                0x0800f7f0                Adafruit_ssd1306syp::initialize()
+                0x0800f7b8      0x104 build_arm_cortex_m4_base_application_stm32f4/Adafruit_ssd1306syp.o
+                0x0800f7b8                Adafruit_ssd1306syp::initialize()
  .text._ZN19Adafruit_ssd1306syp10display_onEv
-                0x0800f8f4        0x8 build_arm_cortex_m4_base_application_stm32f4/Adafruit_ssd1306syp.o
-                0x0800f8f4                Adafruit_ssd1306syp::display_on()
+                0x0800f8bc        0x8 build_arm_cortex_m4_base_application_stm32f4/Adafruit_ssd1306syp.o
+                0x0800f8bc                Adafruit_ssd1306syp::display_on()
  .text._ZN19Adafruit_ssd1306syp11display_offEv
-                0x0800f8fc        0x8 build_arm_cortex_m4_base_application_stm32f4/Adafruit_ssd1306syp.o
-                0x0800f8fc                Adafruit_ssd1306syp::display_off()
+                0x0800f8c4        0x8 build_arm_cortex_m4_base_application_stm32f4/Adafruit_ssd1306syp.o
+                0x0800f8c4                Adafruit_ssd1306syp::display_off()
  .text.eeprom_read
-                0x0800f904        0x4 build_arm_cortex_m4_base_application_stm32f4/eeprom.o
-                0x0800f904                eeprom_read
+                0x0800f8cc        0x4 build_arm_cortex_m4_base_application_stm32f4/eeprom.o
+                0x0800f8cc                eeprom_read
  .text.eeprom_erase
-                0x0800f908        0x4 build_arm_cortex_m4_base_application_stm32f4/eeprom.o
-                0x0800f908                eeprom_erase
+                0x0800f8d0        0x4 build_arm_cortex_m4_base_application_stm32f4/eeprom.o
+                0x0800f8d0                eeprom_erase
  .text._Z16nrf_nwk_pdu_initv
-                0x0800f90c       0x40 build_arm_cortex_m4_base_application_stm32f4/nrf_data.o
-                0x0800f90c                nrf_nwk_pdu_init()
+                0x0800f8d4       0x40 build_arm_cortex_m4_base_application_stm32f4/nrf_data.o
+                0x0800f8d4                nrf_nwk_pdu_init()
  .text._Z18nrf_nwk_pdu_mallocv
-                0x0800f94c       0x34 build_arm_cortex_m4_base_application_stm32f4/nrf_data.o
-                0x0800f94c                nrf_nwk_pdu_malloc()
+                0x0800f914       0x34 build_arm_cortex_m4_base_application_stm32f4/nrf_data.o
+                0x0800f914                nrf_nwk_pdu_malloc()
  .text._Z16nrf_nwk_pdu_freeP13nrf_nwk_pdu_t
-                0x0800f980       0x20 build_arm_cortex_m4_base_application_stm32f4/nrf_data.o
-                0x0800f980                nrf_nwk_pdu_free(nrf_nwk_pdu_t*)
+                0x0800f948       0x20 build_arm_cortex_m4_base_application_stm32f4/nrf_data.o
+                0x0800f948                nrf_nwk_pdu_free(nrf_nwk_pdu_t*)
  .text._Z15nrf_nwk_pdu_getm
-                0x0800f9a0       0x10 build_arm_cortex_m4_base_application_stm32f4/nrf_data.o
-                0x0800f9a0                nrf_nwk_pdu_get(unsigned long)
+                0x0800f968       0x10 build_arm_cortex_m4_base_application_stm32f4/nrf_data.o
+                0x0800f968                nrf_nwk_pdu_get(unsigned long)
  .text._Z16nrf_nwk_pdu_freem
-                0x0800f9b0       0x4c build_arm_cortex_m4_base_application_stm32f4/nrf_data.o
-                0x0800f9b0                nrf_nwk_pdu_free(unsigned long)
+                0x0800f978       0x4c build_arm_cortex_m4_base_application_stm32f4/nrf_data.o
+                0x0800f978                nrf_nwk_pdu_free(unsigned long)
  .text._Z23nrf_set_static_nwk_addrt
-                0x0800f9fc       0x10 build_arm_cortex_m4_base_application_stm32f4/nrf_data.o
-                0x0800f9fc                nrf_set_static_nwk_addr(unsigned short)
+                0x0800f9c4       0x10 build_arm_cortex_m4_base_application_stm32f4/nrf_data.o
+                0x0800f9c4                nrf_set_static_nwk_addr(unsigned short)
  .text._Z23nrf_get_static_nwk_addrv
-                0x0800fa0c       0x1c build_arm_cortex_m4_base_application_stm32f4/nrf_data.o
-                0x0800fa0c                nrf_get_static_nwk_addr()
+                0x0800f9d4       0x1c build_arm_cortex_m4_base_application_stm32f4/nrf_data.o
+                0x0800f9d4                nrf_get_static_nwk_addr()
  .text._Z20nrf_set_des_nwk_addrt
-                0x0800fa28       0x10 build_arm_cortex_m4_base_application_stm32f4/nrf_data.o
-                0x0800fa28                nrf_set_des_nwk_addr(unsigned short)
+                0x0800f9f0       0x10 build_arm_cortex_m4_base_application_stm32f4/nrf_data.o
+                0x0800f9f0                nrf_set_des_nwk_addr(unsigned short)
  .text._Z20nrf_get_des_nwk_addrv
-                0x0800fa38       0x1c build_arm_cortex_m4_base_application_stm32f4/nrf_data.o
-                0x0800fa38                nrf_get_des_nwk_addr()
+                0x0800fa00       0x1c build_arm_cortex_m4_base_application_stm32f4/nrf_data.o
+                0x0800fa00                nrf_get_des_nwk_addr()
  .text._Z20nrf_get_des_phy_addrv
-                0x0800fa54        0x8 build_arm_cortex_m4_base_application_stm32f4/nrf_data.o
-                0x0800fa54                nrf_get_des_phy_addr()
+                0x0800fa1c        0x8 build_arm_cortex_m4_base_application_stm32f4/nrf_data.o
+                0x0800fa1c                nrf_get_des_phy_addr()
  .text._Z20nrf_get_src_phy_addrv
-                0x0800fa5c        0x8 build_arm_cortex_m4_base_application_stm32f4/nrf_data.o
-                0x0800fa5c                nrf_get_src_phy_addr()
+                0x0800fa24        0x8 build_arm_cortex_m4_base_application_stm32f4/nrf_data.o
+                0x0800fa24                nrf_get_src_phy_addr()
  .text._Z13task_rf24_macP8ak_msg_t
-                0x0800fa64      0x498 build_arm_cortex_m4_base_application_stm32f4/nrf_mac.o
-                0x0800fa64                task_rf24_mac(ak_msg_t*)
+                0x0800fa2c      0x498 build_arm_cortex_m4_base_application_stm32f4/nrf_mac.o
+                0x0800fa2c                task_rf24_mac(ak_msg_t*)
  .text._Z16nrf_nwk_fsm_idleP8ak_msg_t
-                0x0800fefc      0x1cc build_arm_cortex_m4_base_application_stm32f4/nrf_nwk.o
-                0x0800fefc                nrf_nwk_fsm_idle(ak_msg_t*)
+                0x0800fec4      0x1cc build_arm_cortex_m4_base_application_stm32f4/nrf_nwk.o
+                0x0800fec4                nrf_nwk_fsm_idle(ak_msg_t*)
  .text._Z13task_rf24_nwkP8ak_msg_t
-                0x080100c8        0xc build_arm_cortex_m4_base_application_stm32f4/nrf_nwk.o
-                0x080100c8                task_rf24_nwk(ak_msg_t*)
+                0x08010090        0xc build_arm_cortex_m4_base_application_stm32f4/nrf_nwk.o
+                0x08010090                task_rf24_nwk(ak_msg_t*)
  .text._Z16nrf_nwk_fsm_initP8ak_msg_t
-                0x080100d4       0x2c build_arm_cortex_m4_base_application_stm32f4/nrf_nwk.o
-                0x080100d4                nrf_nwk_fsm_init(ak_msg_t*)
+                0x0801009c       0x2c build_arm_cortex_m4_base_application_stm32f4/nrf_nwk.o
+                0x0801009c                nrf_nwk_fsm_init(ak_msg_t*)
  .text._Z13task_rf24_phyP8ak_msg_t
-                0x08010100      0x17c build_arm_cortex_m4_base_application_stm32f4/nrf_phy.o
-                0x08010100                task_rf24_phy(ak_msg_t*)
+                0x080100c8      0x17c build_arm_cortex_m4_base_application_stm32f4/nrf_phy.o
+                0x080100c8                task_rf24_phy(ak_msg_t*)
  .text._Z23nrf_phy_switch_ptx_modev
-                0x0801027c       0x1c build_arm_cortex_m4_base_application_stm32f4/nrf_phy.o
-                0x0801027c                nrf_phy_switch_ptx_mode()
+                0x08010244       0x1c build_arm_cortex_m4_base_application_stm32f4/nrf_phy.o
+                0x08010244                nrf_phy_switch_ptx_mode()
  .text._Z23nrf_phy_switch_prx_modev
-                0x08010298       0x28 build_arm_cortex_m4_base_application_stm32f4/nrf_phy.o
-                0x08010298                nrf_phy_switch_prx_mode()
+                0x08010260       0x28 build_arm_cortex_m4_base_application_stm32f4/nrf_phy.o
+                0x08010260                nrf_phy_switch_prx_mode()
  .text.startup._GLOBAL__sub_I__ZN8SPIClassC2Ev
-                0x080102c0       0x10 build_arm_cortex_m4_base_application_stm32f4/SPI.o
+                0x08010288       0x10 build_arm_cortex_m4_base_application_stm32f4/SPI.o
  .text._Z7pinModehh
-                0x080102d0       0xe8 build_arm_cortex_m4_base_application_stm32f4/wiring_digital.o
-                0x080102d0                pinMode(unsigned char, unsigned char)
+                0x08010298       0xe8 build_arm_cortex_m4_base_application_stm32f4/wiring_digital.o
+                0x08010298                pinMode(unsigned char, unsigned char)
  .text._Z12digitalWritehh
-                0x080103b8       0xd4 build_arm_cortex_m4_base_application_stm32f4/wiring_digital.o
-                0x080103b8                digitalWrite(unsigned char, unsigned char)
+                0x08010380       0xd4 build_arm_cortex_m4_base_application_stm32f4/wiring_digital.o
+                0x08010380                digitalWrite(unsigned char, unsigned char)
  .text._ZN5Print5writeEPKhj
-                0x0801048c       0x28 build_arm_cortex_m4_base_application_stm32f4/Print.o
-                0x0801048c                Print::write(unsigned char const*, unsigned int)
+                0x08010454       0x28 build_arm_cortex_m4_base_application_stm32f4/Print.o
+                0x08010454                Print::write(unsigned char const*, unsigned int)
  .text._ZN5Print5printEPKc
-                0x080104b4       0x60 build_arm_cortex_m4_base_application_stm32f4/Print.o
-                0x080104b4                Print::print(char const*)
+                0x0801047c       0x60 build_arm_cortex_m4_base_application_stm32f4/Print.o
+                0x0801047c                Print::print(char const*)
  .text.__cxa_pure_virtual
-                0x08010514       0x18 build_arm_cortex_m4_base_application_stm32f4/mini_cpp.o
-                0x08010514                __cxa_pure_virtual
- .text._sbrk    0x0801052c       0x1c build_arm_cortex_m4_base_application_stm32f4/mini_cpp.o
-                0x0801052c                _sbrk
- .text.malloc   0x08010548       0x10 /home/covv/workspace/tools/gcc-arm-none-eabi-5_4-2016q3/arm-none-eabi/lib/armv7-m/libc.a(lib_a-malloc.o)
-                0x08010548                malloc
- .text.free     0x08010558       0x10 /home/covv/workspace/tools/gcc-arm-none-eabi-5_4-2016q3/arm-none-eabi/lib/armv7-m/libc.a(lib_a-malloc.o)
-                0x08010558                free
+                0x080104dc       0x18 build_arm_cortex_m4_base_application_stm32f4/mini_cpp.o
+                0x080104dc                __cxa_pure_virtual
+ .text._sbrk    0x080104f4       0x1c build_arm_cortex_m4_base_application_stm32f4/mini_cpp.o
+                0x080104f4                _sbrk
+ .text.malloc   0x08010510       0x10 /home/covv/workspace/tools/gcc-arm-none-eabi-5_4-2016q3/arm-none-eabi/lib/armv7-m/libc.a(lib_a-malloc.o)
+                0x08010510                malloc
+ .text.free     0x08010520       0x10 /home/covv/workspace/tools/gcc-arm-none-eabi-5_4-2016q3/arm-none-eabi/lib/armv7-m/libc.a(lib_a-malloc.o)
+                0x08010520                free
  .text._malloc_r
-                0x08010568      0x558 /home/covv/workspace/tools/gcc-arm-none-eabi-5_4-2016q3/arm-none-eabi/lib/armv7-m/libc.a(lib_a-mallocr.o)
-                0x08010568                _malloc_r
- .text.memcmp   0x08010ac0       0x64 /home/covv/workspace/tools/gcc-arm-none-eabi-5_4-2016q3/arm-none-eabi/lib/armv7-m/libc.a(lib_a-memcmp.o)
-                0x08010ac0                memcmp
- .text.memset   0x08010b24       0x9c /home/covv/workspace/tools/gcc-arm-none-eabi-5_4-2016q3/arm-none-eabi/lib/armv7-m/libc.a(lib_a-memset.o)
-                0x08010b24                memset
+                0x08010530      0x558 /home/covv/workspace/tools/gcc-arm-none-eabi-5_4-2016q3/arm-none-eabi/lib/armv7-m/libc.a(lib_a-mallocr.o)
+                0x08010530                _malloc_r
+ .text.memcmp   0x08010a88       0x64 /home/covv/workspace/tools/gcc-arm-none-eabi-5_4-2016q3/arm-none-eabi/lib/armv7-m/libc.a(lib_a-memcmp.o)
+                0x08010a88                memcmp
+ .text.memset   0x08010aec       0x9c /home/covv/workspace/tools/gcc-arm-none-eabi-5_4-2016q3/arm-none-eabi/lib/armv7-m/libc.a(lib_a-memset.o)
+                0x08010aec                memset
  .text.__malloc_lock
-                0x08010bc0        0x4 /home/covv/workspace/tools/gcc-arm-none-eabi-5_4-2016q3/arm-none-eabi/lib/armv7-m/libc.a(lib_a-mlock.o)
-                0x08010bc0                __malloc_lock
+                0x08010b88        0x4 /home/covv/workspace/tools/gcc-arm-none-eabi-5_4-2016q3/arm-none-eabi/lib/armv7-m/libc.a(lib_a-mlock.o)
+                0x08010b88                __malloc_lock
  .text.__malloc_unlock
-                0x08010bc4        0x4 /home/covv/workspace/tools/gcc-arm-none-eabi-5_4-2016q3/arm-none-eabi/lib/armv7-m/libc.a(lib_a-mlock.o)
-                0x08010bc4                __malloc_unlock
- .text.rand     0x08010bc8       0x40 /home/covv/workspace/tools/gcc-arm-none-eabi-5_4-2016q3/arm-none-eabi/lib/armv7-m/libc.a(lib_a-rand.o)
-                0x08010bc8                rand
- .text._sbrk_r  0x08010c08       0x24 /home/covv/workspace/tools/gcc-arm-none-eabi-5_4-2016q3/arm-none-eabi/lib/armv7-m/libc.a(lib_a-sbrkr.o)
-                0x08010c08                _sbrk_r
- .text.strcpy   0x08010c2c       0xbc /home/covv/workspace/tools/gcc-arm-none-eabi-5_4-2016q3/arm-none-eabi/lib/armv7-m/libc.a(lib_a-strcpy.o)
-                0x08010c2c                strcpy
- .text.strlen   0x08010ce8       0x5c /home/covv/workspace/tools/gcc-arm-none-eabi-5_4-2016q3/arm-none-eabi/lib/armv7-m/libc.a(lib_a-strlen-stub.o)
-                0x08010ce8                strlen
+                0x08010b8c        0x4 /home/covv/workspace/tools/gcc-arm-none-eabi-5_4-2016q3/arm-none-eabi/lib/armv7-m/libc.a(lib_a-mlock.o)
+                0x08010b8c                __malloc_unlock
+ .text.rand     0x08010b90       0x40 /home/covv/workspace/tools/gcc-arm-none-eabi-5_4-2016q3/arm-none-eabi/lib/armv7-m/libc.a(lib_a-rand.o)
+                0x08010b90                rand
+ .text._sbrk_r  0x08010bd0       0x24 /home/covv/workspace/tools/gcc-arm-none-eabi-5_4-2016q3/arm-none-eabi/lib/armv7-m/libc.a(lib_a-sbrkr.o)
+                0x08010bd0                _sbrk_r
+ .text.strcpy   0x08010bf4       0xbc /home/covv/workspace/tools/gcc-arm-none-eabi-5_4-2016q3/arm-none-eabi/lib/armv7-m/libc.a(lib_a-strcpy.o)
+                0x08010bf4                strcpy
+ .text.strlen   0x08010cb0       0x5c /home/covv/workspace/tools/gcc-arm-none-eabi-5_4-2016q3/arm-none-eabi/lib/armv7-m/libc.a(lib_a-strlen-stub.o)
+                0x08010cb0                strlen
  .text._strtol_l.isra.0
-                0x08010d44      0x138 /home/covv/workspace/tools/gcc-arm-none-eabi-5_4-2016q3/arm-none-eabi/lib/armv7-m/libc.a(lib_a-strtol.o)
- .text.strtol   0x08010e7c       0x2c /home/covv/workspace/tools/gcc-arm-none-eabi-5_4-2016q3/arm-none-eabi/lib/armv7-m/libc.a(lib_a-strtol.o)
-                0x08010e7c                strtol
+                0x08010d0c      0x138 /home/covv/workspace/tools/gcc-arm-none-eabi-5_4-2016q3/arm-none-eabi/lib/armv7-m/libc.a(lib_a-strtol.o)
+ .text.strtol   0x08010e44       0x2c /home/covv/workspace/tools/gcc-arm-none-eabi-5_4-2016q3/arm-none-eabi/lib/armv7-m/libc.a(lib_a-strtol.o)
+                0x08010e44                strtol
  .text._malloc_trim_r
-                0x08010ea8       0x9c /home/covv/workspace/tools/gcc-arm-none-eabi-5_4-2016q3/arm-none-eabi/lib/armv7-m/libc.a(lib_a-freer.o)
-                0x08010ea8                _malloc_trim_r
- .text._free_r  0x08010f44      0x1d0 /home/covv/workspace/tools/gcc-arm-none-eabi-5_4-2016q3/arm-none-eabi/lib/armv7-m/libc.a(lib_a-freer.o)
-                0x08010f44                _free_r
+                0x08010e70       0x9c /home/covv/workspace/tools/gcc-arm-none-eabi-5_4-2016q3/arm-none-eabi/lib/armv7-m/libc.a(lib_a-freer.o)
+                0x08010e70                _malloc_trim_r
+ .text._free_r  0x08010f0c      0x1d0 /home/covv/workspace/tools/gcc-arm-none-eabi-5_4-2016q3/arm-none-eabi/lib/armv7-m/libc.a(lib_a-freer.o)
+                0x08010f0c                _free_r
  .text.__locale_ctype_ptr_l
-                0x08011114        0x8 /home/covv/workspace/tools/gcc-arm-none-eabi-5_4-2016q3/arm-none-eabi/lib/armv7-m/libc.a(lib_a-locale.o)
-                0x08011114                __locale_ctype_ptr_l
+                0x080110dc        0x8 /home/covv/workspace/tools/gcc-arm-none-eabi-5_4-2016q3/arm-none-eabi/lib/armv7-m/libc.a(lib_a-locale.o)
+                0x080110dc                __locale_ctype_ptr_l
  .text.__ascii_mbtowc
-                0x0801111c       0x2c /home/covv/workspace/tools/gcc-arm-none-eabi-5_4-2016q3/arm-none-eabi/lib/armv7-m/libc.a(lib_a-mbtowc_r.o)
-                0x0801111c                __ascii_mbtowc
+                0x080110e4       0x2c /home/covv/workspace/tools/gcc-arm-none-eabi-5_4-2016q3/arm-none-eabi/lib/armv7-m/libc.a(lib_a-mbtowc_r.o)
+                0x080110e4                __ascii_mbtowc
  .text.__ascii_wctomb
-                0x08011148       0x1c /home/covv/workspace/tools/gcc-arm-none-eabi-5_4-2016q3/arm-none-eabi/lib/armv7-m/libc.a(lib_a-wctomb_r.o)
-                0x08011148                __ascii_wctomb
+                0x08011110       0x1c /home/covv/workspace/tools/gcc-arm-none-eabi-5_4-2016q3/arm-none-eabi/lib/armv7-m/libc.a(lib_a-wctomb_r.o)
+                0x08011110                __ascii_wctomb
  *(.rodata)
  *(.rodata*)
  .rodata.str1.4
-                0x08011164       0x59 build_arm_cortex_m4_base_application_stm32f4/message.o
- *fill*         0x080111bd        0x3 
+                0x0801112c       0x59 build_arm_cortex_m4_base_application_stm32f4/message.o
+ *fill*         0x08011185        0x3 
  .rodata.log2lkup.5221
-                0x080111c0      0x100 build_arm_cortex_m4_base_application_stm32f4/task.o
+                0x08011188      0x100 build_arm_cortex_m4_base_application_stm32f4/task.o
  .rodata.str1.4
-                0x080112c0       0x1e build_arm_cortex_m4_base_application_stm32f4/task.o
- *fill*         0x080112de        0x2 
+                0x08011288       0x1e build_arm_cortex_m4_base_application_stm32f4/task.o
+ *fill*         0x080112a6        0x2 
  .rodata.str1.4
-                0x080112e0        0x3 build_arm_cortex_m4_base_application_stm32f4/timer.o
- *fill*         0x080112e3        0x1 
+                0x080112a8        0x3 build_arm_cortex_m4_base_application_stm32f4/timer.o
+ *fill*         0x080112ab        0x1 
  .rodata.str1.4
-                0x080112e4       0x20 build_arm_cortex_m4_base_application_stm32f4/fifo.o
+                0x080112ac       0x20 build_arm_cortex_m4_base_application_stm32f4/fifo.o
  .rodata.str1.4
-                0x08011304        0xc build_arm_cortex_m4_base_application_stm32f4/tm_stm32f4_fatfs.o
+                0x080112cc        0xc build_arm_cortex_m4_base_application_stm32f4/tm_stm32f4_fatfs.o
  .rodata.str1.4
-                0x08011310      0x11d build_arm_cortex_m4_base_application_stm32f4/sys_dbg.o
- *fill*         0x0801142d        0x3 
+                0x080112d8      0x11d build_arm_cortex_m4_base_application_stm32f4/sys_dbg.o
+ *fill*         0x080113f5        0x3 
  .rodata.str.4709
-                0x08011430       0x24 build_arm_cortex_m4_base_application_stm32f4/ff.o
- .rodata.ExCvt  0x08011454       0x80 build_arm_cortex_m4_base_application_stm32f4/ff.o
+                0x080113f8       0x24 build_arm_cortex_m4_base_application_stm32f4/ff.o
+ .rodata.ExCvt  0x0801141c       0x80 build_arm_cortex_m4_base_application_stm32f4/ff.o
  .rodata.str1.4
-                0x080114d4       0x9a build_arm_cortex_m4_base_application_stm32f4/ff.o
- *fill*         0x0801156e        0x2 
+                0x0801149c       0x9a build_arm_cortex_m4_base_application_stm32f4/ff.o
+ *fill*         0x08011536        0x2 
  .rodata.LfnOfs
-                0x08011570        0xd build_arm_cortex_m4_base_application_stm32f4/ff.o
- *fill*         0x0801157d        0x3 
+                0x08011538        0xd build_arm_cortex_m4_base_application_stm32f4/ff.o
+ *fill*         0x08011545        0x3 
  .rodata.str1.4
-                0x08011580      0x223 build_arm_cortex_m4_base_application_stm32f4/fatfs_sd_sdio.o
- *fill*         0x080117a3        0x1 
+                0x08011548      0x223 build_arm_cortex_m4_base_application_stm32f4/fatfs_sd_sdio.o
+ *fill*         0x0801176b        0x1 
  .rodata.tbl_lower.4247
-                0x080117a4      0x1e0 build_arm_cortex_m4_base_application_stm32f4/unicode.o
- .rodata.Tbl    0x08011984      0x100 build_arm_cortex_m4_base_application_stm32f4/unicode.o
+                0x0801176c      0x1e0 build_arm_cortex_m4_base_application_stm32f4/unicode.o
+ .rodata.Tbl    0x0801194c      0x100 build_arm_cortex_m4_base_application_stm32f4/unicode.o
  .rodata.tbl_upper.4248
-                0x08011a84      0x1e0 build_arm_cortex_m4_base_application_stm32f4/unicode.o
+                0x08011a4c      0x1e0 build_arm_cortex_m4_base_application_stm32f4/unicode.o
  .rodata.str1.4
-                0x08011c64        0x4 build_arm_cortex_m4_base_application_stm32f4/stm32f4.o
+                0x08011c2c        0x4 build_arm_cortex_m4_base_application_stm32f4/stm32f4.o
  .rodata.str1.4
-                0x08011c68       0x20 build_arm_cortex_m4_base_application_stm32f4/system.o
+                0x08011c30       0x20 build_arm_cortex_m4_base_application_stm32f4/system.o
  .rodata.str1.4
-                0x08011c88      0x161 build_arm_cortex_m4_base_application_stm32f4/sys_cfg.o
+                0x08011c50      0x161 build_arm_cortex_m4_base_application_stm32f4/sys_cfg.o
                                 0x169 (size before relaxing)
- *fill*         0x08011de9        0x3 
+ *fill*         0x08011db1        0x3 
  .rodata.str1.4
-                0x08011dec        0x4 build_arm_cortex_m4_base_application_stm32f4/io_cfg.o
+                0x08011db4        0x4 build_arm_cortex_m4_base_application_stm32f4/io_cfg.o
  .rodata.str1.4
-                0x08011df0        0x6 build_arm_cortex_m4_base_application_stm32f4/app.o
- *fill*         0x08011df6        0x2 
+                0x08011db8        0x6 build_arm_cortex_m4_base_application_stm32f4/app.o
+ *fill*         0x08011dbe        0x2 
  .rodata.str1.4
-                0x08011df8      0x72c build_arm_cortex_m4_base_application_stm32f4/shell.o
+                0x08011dc0      0x72c build_arm_cortex_m4_base_application_stm32f4/shell.o
                                 0x740 (size before relaxing)
  .rodata.str1.4
-                0x08012524       0x4e build_arm_cortex_m4_base_application_stm32f4/task_shell.o
+                0x080124ec       0x4e build_arm_cortex_m4_base_application_stm32f4/task_shell.o
  .rodata.str1.4
-                0x08012572       0x4e build_arm_cortex_m4_base_application_stm32f4/task_display.o
- *fill*         0x08012572        0x2 
+                0x0801253a       0x4e build_arm_cortex_m4_base_application_stm32f4/task_display.o
+ *fill*         0x0801253a        0x2 
  .rodata.str1.4
-                0x08012574        0x8 build_arm_cortex_m4_base_application_stm32f4/task_uart_if.o
+                0x0801253c        0x8 build_arm_cortex_m4_base_application_stm32f4/task_uart_if.o
  .rodata.str1.4
-                0x0801257c       0x8f build_arm_cortex_m4_base_application_stm32f4/task_dbg.o
+                0x08012544       0x8f build_arm_cortex_m4_base_application_stm32f4/task_dbg.o
                                  0x93 (size before relaxing)
- *fill*         0x0801260b        0x1 
+ *fill*         0x080125d3        0x1 
  .rodata.str1.4
-                0x0801260c       0xba build_arm_cortex_m4_base_application_stm32f4/task_encoder_pid.o
- *fill*         0x080126c6        0x2 
+                0x080125d4       0xba build_arm_cortex_m4_base_application_stm32f4/task_encoder_pid.o
+ *fill*         0x0801268e        0x2 
  .rodata._ZTV12Adafruit_GFX
-                0x080126c8       0x30 build_arm_cortex_m4_base_application_stm32f4/Adafruit_GFX.o
-                0x080126c8                vtable for Adafruit_GFX
+                0x08012690       0x30 build_arm_cortex_m4_base_application_stm32f4/Adafruit_GFX.o
+                0x08012690                vtable for Adafruit_GFX
  .rodata._ZL4font
-                0x080126f8      0x4fb build_arm_cortex_m4_base_application_stm32f4/Adafruit_GFX.o
- *fill*         0x08012bf3        0x1 
+                0x080126c0      0x4fb build_arm_cortex_m4_base_application_stm32f4/Adafruit_GFX.o
+ *fill*         0x08012bbb        0x1 
  .rodata._ZTV19Adafruit_ssd1306syp
-                0x08012bf4       0x40 build_arm_cortex_m4_base_application_stm32f4/Adafruit_ssd1306syp.o
-                0x08012bf4                vtable for Adafruit_ssd1306syp
+                0x08012bbc       0x40 build_arm_cortex_m4_base_application_stm32f4/Adafruit_ssd1306syp.o
+                0x08012bbc                vtable for Adafruit_ssd1306syp
  .rodata.str1.4
-                0x08012c34        0x8 build_arm_cortex_m4_base_application_stm32f4/nrf_data.o
+                0x08012bfc        0x8 build_arm_cortex_m4_base_application_stm32f4/nrf_data.o
  .rodata.str1.4
-                0x08012c3c        0x4 build_arm_cortex_m4_base_application_stm32f4/nrf_nwk.o
+                0x08012c04        0x4 build_arm_cortex_m4_base_application_stm32f4/nrf_nwk.o
  .rodata.str1.4
-                0x08012c40        0x3 build_arm_cortex_m4_base_application_stm32f4/wiring_digital.o
- *fill*         0x08012c43        0x1 
+                0x08012c08        0x3 build_arm_cortex_m4_base_application_stm32f4/wiring_digital.o
+ *fill*         0x08012c0b        0x1 
  .rodata.str1.4
-                0x08012c44        0x4 build_arm_cortex_m4_base_application_stm32f4/mini_cpp.o
+                0x08012c0c        0x4 build_arm_cortex_m4_base_application_stm32f4/mini_cpp.o
  .rodata.str1.4
-                0x08012c48       0x10 /home/covv/workspace/tools/gcc-arm-none-eabi-5_4-2016q3/arm-none-eabi/lib/armv7-m/libc.a(lib_a-locale.o)
+                0x08012c10       0x10 /home/covv/workspace/tools/gcc-arm-none-eabi-5_4-2016q3/arm-none-eabi/lib/armv7-m/libc.a(lib_a-locale.o)
                                  0x12 (size before relaxing)
  .rodata._ctype_
-                0x08012c58      0x101 /home/covv/workspace/tools/gcc-arm-none-eabi-5_4-2016q3/arm-none-eabi/lib/armv7-m/libc.a(lib_a-ctype_.o)
-                0x08012c58                _ctype_
+                0x08012c20      0x101 /home/covv/workspace/tools/gcc-arm-none-eabi-5_4-2016q3/arm-none-eabi/lib/armv7-m/libc.a(lib_a-ctype_.o)
+                0x08012c20                _ctype_
  *(.glue_7)
- .glue_7        0x08012d59        0x0 linker stubs
+ .glue_7        0x08012d21        0x0 linker stubs
  *(.glue_7t)
- .glue_7t       0x08012d59        0x0 linker stubs
+ .glue_7t       0x08012d21        0x0 linker stubs
  *(.init)
  *(.fini)
-                0x08012d5c                . = ALIGN (0x4)
- *fill*         0x08012d59        0x3 
-                0x08012d5c                _etext = .
+                0x08012d24                . = ALIGN (0x4)
+ *fill*         0x08012d21        0x3 
+                0x08012d24                _etext = .
 
-.vfp11_veneer   0x08012d5c        0x0
- .vfp11_veneer  0x08012d5c        0x0 linker stubs
+.vfp11_veneer   0x08012d24        0x0
+ .vfp11_veneer  0x08012d24        0x0 linker stubs
 
-.v4_bx          0x08012d5c        0x0
- .v4_bx         0x08012d5c        0x0 linker stubs
+.v4_bx          0x08012d24        0x0
+ .v4_bx         0x08012d24        0x0 linker stubs
 
-.iplt           0x08012d5c        0x0
- .iplt          0x08012d5c        0x0 build_arm_cortex_m4_base_application_stm32f4/message.o
+.iplt           0x08012d24        0x0
+ .iplt          0x08012d24        0x0 build_arm_cortex_m4_base_application_stm32f4/message.o
 
-.rel.dyn        0x08012d5c        0x0
- .rel.iplt      0x08012d5c        0x0 build_arm_cortex_m4_base_application_stm32f4/message.o
+.rel.dyn        0x08012d24        0x0
+ .rel.iplt      0x08012d24        0x0 build_arm_cortex_m4_base_application_stm32f4/message.o
 
-.preinit_array  0x08012d5c        0x0
-                0x08012d5c                PROVIDE (__preinit_array_start, .)
+.preinit_array  0x08012d24        0x0
+                0x08012d24                PROVIDE (__preinit_array_start, .)
  *(SORT(.preinit_array.*))
  *(.preinit_array*)
-                0x08012d5c                PROVIDE (__preinit_array_end, .)
+                0x08012d24                PROVIDE (__preinit_array_end, .)
 
-.init_array     0x08012d5c        0x8
-                0x08012d5c                PROVIDE (__init_array_start, .)
+.init_array     0x08012d24        0x8
+                0x08012d24                PROVIDE (__init_array_start, .)
  *(SORT(.init_array.*))
  *(.init_array*)
- .init_array    0x08012d5c        0x4 build_arm_cortex_m4_base_application_stm32f4/view_render.o
- .init_array    0x08012d60        0x4 build_arm_cortex_m4_base_application_stm32f4/SPI.o
-                0x08012d64                PROVIDE (__init_array_end, .)
+ .init_array    0x08012d24        0x4 build_arm_cortex_m4_base_application_stm32f4/view_render.o
+ .init_array    0x08012d28        0x4 build_arm_cortex_m4_base_application_stm32f4/SPI.o
+                0x08012d2c                PROVIDE (__init_array_end, .)
 
-.fini_array     0x08012d64        0x4
+.fini_array     0x08012d2c        0x4
                 [!provide]                PROVIDE (__fini_array_start, .)
  *(.fini_array*)
- .fini_array    0x08012d64        0x4 build_arm_cortex_m4_base_application_stm32f4/view_render.o
+ .fini_array    0x08012d2c        0x4 build_arm_cortex_m4_base_application_stm32f4/view_render.o
  *(SORT(.fini_array.*))
                 [!provide]                PROVIDE (__fini_array_end, .)
 
-.end_flash      0x08012d68        0x0
-                0x08012d68                _end_flash = .
+.end_flash      0x08012d30        0x0
+                0x08012d30                _end_flash = .
 
 .start_ram      0x20000000        0x0
                 0x20000000                _start_ram = .
 
-.data           0x20000000      0xbe0 load address 0x08012d68
+.data           0x20000000      0xbe0 load address 0x08012d30
                 0x20000000                _data = .
-                0x08012d68                _ldata = LOADADDR (.data)
+                0x08012d30                _ldata = LOADADDR (.data)
  *(vtable)
  *(.data)
  *(.data*)
@@ -5014,16 +5012,16 @@ Linker script and memory map
  *(.ram_func*)
                 0x20000be0                _edata = .
 
-.igot.plt       0x20000be0        0x0 load address 0x08013948
+.igot.plt       0x20000be0        0x0 load address 0x08013910
  .igot.plt      0x20000be0        0x0 build_arm_cortex_m4_base_application_stm32f4/message.o
 
-non_clear_ram   0x20000be0        0x4 load address 0x08013948
+non_clear_ram   0x20000be0        0x4 load address 0x08013910
                 [!provide]                PROVIDE (__start_non_clear_ram, .)
  non_clear_ram  0x20000be0        0x4 build_arm_cortex_m4_base_application_stm32f4/app_non_clear_ram.o
                 0x20000be0                sys_soft_reboot_counter
                 [!provide]                PROVIDE (__stop_non_clear_ram, .)
 
-.bss            0x20000be8     0x2c40 load address 0x08013950
+.bss            0x20000be8     0x2c40 load address 0x08013918
                 0x20000be8                _bss = .
  *(.bss)
  *(.bss*)
@@ -5267,7 +5265,7 @@ non_clear_ram   0x20000be0        0x4 load address 0x08013948
                 0x20003824                errno
                 0x20003828                _ebss = .
 
-.heap           0x20003828     0x2800 load address 0x08016590
+.heap           0x20003828     0x2800 load address 0x08016558
                 0x20003828                __heap_start__ = .
                 0x20006028                . = (. + HEAP_SIZE)
  *fill*         0x20003828     0x2800 
@@ -5416,7 +5414,7 @@ LOAD /home/covv/workspace/tools/gcc-arm-none-eabi-5_4-2016q3/lib/gcc/arm-none-ea
 LOAD /home/covv/workspace/tools/gcc-arm-none-eabi-5_4-2016q3/arm-none-eabi/lib/armv7-m/libg.a
 OUTPUT(build_arm_cortex_m4_base_application_stm32f4/arm_cortex_m4_base_application.axf elf32-littlearm)
 
-.debug_info     0x00000000    0x45958
+.debug_info     0x00000000    0x45b39
  .debug_info    0x00000000     0x12a1 build_arm_cortex_m4_base_application_stm32f4/message.o
  .debug_info    0x000012a1      0x208 build_arm_cortex_m4_base_application_stm32f4/fsm.o
  .debug_info    0x000014a9      0xbdd build_arm_cortex_m4_base_application_stm32f4/task.o
@@ -5454,38 +5452,38 @@ OUTPUT(build_arm_cortex_m4_base_application_stm32f4/arm_cortex_m4_base_applicati
  .debug_info    0x00024d1c      0x10d build_arm_cortex_m4_base_application_stm32f4/syscall.o
  .debug_info    0x00024e29      0x167 build_arm_cortex_m4_base_application_stm32f4/unicode.o
  .debug_info    0x00024f90      0x1e5 build_arm_cortex_m4_base_application_stm32f4/stm32f4.o
- .debug_info    0x00025175     0x11e7 build_arm_cortex_m4_base_application_stm32f4/system.o
- .debug_info    0x0002635c     0x1af9 build_arm_cortex_m4_base_application_stm32f4/sys_cfg.o
- .debug_info    0x00027e55     0x68e2 build_arm_cortex_m4_base_application_stm32f4/io_cfg.o
- .debug_info    0x0002e737      0x62f build_arm_cortex_m4_base_application_stm32f4/system_stm32f4xx.o
- .debug_info    0x0002ed66      0x60c build_arm_cortex_m4_base_application_stm32f4/app.o
- .debug_info    0x0002f372       0xa5 build_arm_cortex_m4_base_application_stm32f4/app_non_clear_ram.o
- .debug_info    0x0002f417      0x10f build_arm_cortex_m4_base_application_stm32f4/rf_remote_ctrl.o
- .debug_info    0x0002f526     0x2074 build_arm_cortex_m4_base_application_stm32f4/shell.o
- .debug_info    0x0003159a      0x5b9 build_arm_cortex_m4_base_application_stm32f4/task_shell.o
- .debug_info    0x00031b53      0x299 build_arm_cortex_m4_base_application_stm32f4/task_life.o
- .debug_info    0x00031dec      0xd23 build_arm_cortex_m4_base_application_stm32f4/task_fw.o
- .debug_info    0x00032b0f      0x27d build_arm_cortex_m4_base_application_stm32f4/task_list.o
- .debug_info    0x00032d8c      0x42e build_arm_cortex_m4_base_application_stm32f4/task_display.o
- .debug_info    0x000331ba      0x3ce build_arm_cortex_m4_base_application_stm32f4/task_if.o
- .debug_info    0x00033588      0x451 build_arm_cortex_m4_base_application_stm32f4/task_rf24_if.o
- .debug_info    0x000339d9      0xd00 build_arm_cortex_m4_base_application_stm32f4/task_uart_if.o
- .debug_info    0x000346d9      0x9e9 build_arm_cortex_m4_base_application_stm32f4/task_dbg.o
- .debug_info    0x000350c2      0x87b build_arm_cortex_m4_base_application_stm32f4/task_encoder_pid.o
- .debug_info    0x0003593d      0x64d build_arm_cortex_m4_base_application_stm32f4/view_render.o
- .debug_info    0x00035f8a     0x5437 build_arm_cortex_m4_base_application_stm32f4/Adafruit_GFX.o
- .debug_info    0x0003b3c1     0x2d9a build_arm_cortex_m4_base_application_stm32f4/Adafruit_ssd1306syp.o
- .debug_info    0x0003e15b      0x1ca build_arm_cortex_m4_base_application_stm32f4/eeprom.o
- .debug_info    0x0003e325      0x401 build_arm_cortex_m4_base_application_stm32f4/nrf_data.o
- .debug_info    0x0003e726      0xd56 build_arm_cortex_m4_base_application_stm32f4/nrf_mac.o
- .debug_info    0x0003f47c      0x9d3 build_arm_cortex_m4_base_application_stm32f4/nrf_nwk.o
- .debug_info    0x0003fe4f      0xc82 build_arm_cortex_m4_base_application_stm32f4/nrf_phy.o
- .debug_info    0x00040ad1      0xb35 build_arm_cortex_m4_base_application_stm32f4/SPI.o
- .debug_info    0x00041606      0x4fc build_arm_cortex_m4_base_application_stm32f4/wiring_digital.o
- .debug_info    0x00041b02     0x3894 build_arm_cortex_m4_base_application_stm32f4/Print.o
- .debug_info    0x00045396      0x5c2 build_arm_cortex_m4_base_application_stm32f4/mini_cpp.o
+ .debug_info    0x00025175     0x1391 build_arm_cortex_m4_base_application_stm32f4/system.o
+ .debug_info    0x00026506     0x1af9 build_arm_cortex_m4_base_application_stm32f4/sys_cfg.o
+ .debug_info    0x00027fff     0x68e2 build_arm_cortex_m4_base_application_stm32f4/io_cfg.o
+ .debug_info    0x0002e8e1      0x62f build_arm_cortex_m4_base_application_stm32f4/system_stm32f4xx.o
+ .debug_info    0x0002ef10      0x643 build_arm_cortex_m4_base_application_stm32f4/app.o
+ .debug_info    0x0002f553       0xa5 build_arm_cortex_m4_base_application_stm32f4/app_non_clear_ram.o
+ .debug_info    0x0002f5f8      0x10f build_arm_cortex_m4_base_application_stm32f4/rf_remote_ctrl.o
+ .debug_info    0x0002f707     0x2074 build_arm_cortex_m4_base_application_stm32f4/shell.o
+ .debug_info    0x0003177b      0x5b9 build_arm_cortex_m4_base_application_stm32f4/task_shell.o
+ .debug_info    0x00031d34      0x299 build_arm_cortex_m4_base_application_stm32f4/task_life.o
+ .debug_info    0x00031fcd      0xd23 build_arm_cortex_m4_base_application_stm32f4/task_fw.o
+ .debug_info    0x00032cf0      0x27d build_arm_cortex_m4_base_application_stm32f4/task_list.o
+ .debug_info    0x00032f6d      0x42e build_arm_cortex_m4_base_application_stm32f4/task_display.o
+ .debug_info    0x0003339b      0x3ce build_arm_cortex_m4_base_application_stm32f4/task_if.o
+ .debug_info    0x00033769      0x451 build_arm_cortex_m4_base_application_stm32f4/task_rf24_if.o
+ .debug_info    0x00033bba      0xd00 build_arm_cortex_m4_base_application_stm32f4/task_uart_if.o
+ .debug_info    0x000348ba      0x9e9 build_arm_cortex_m4_base_application_stm32f4/task_dbg.o
+ .debug_info    0x000352a3      0x87b build_arm_cortex_m4_base_application_stm32f4/task_encoder_pid.o
+ .debug_info    0x00035b1e      0x64d build_arm_cortex_m4_base_application_stm32f4/view_render.o
+ .debug_info    0x0003616b     0x5437 build_arm_cortex_m4_base_application_stm32f4/Adafruit_GFX.o
+ .debug_info    0x0003b5a2     0x2d9a build_arm_cortex_m4_base_application_stm32f4/Adafruit_ssd1306syp.o
+ .debug_info    0x0003e33c      0x1ca build_arm_cortex_m4_base_application_stm32f4/eeprom.o
+ .debug_info    0x0003e506      0x401 build_arm_cortex_m4_base_application_stm32f4/nrf_data.o
+ .debug_info    0x0003e907      0xd56 build_arm_cortex_m4_base_application_stm32f4/nrf_mac.o
+ .debug_info    0x0003f65d      0x9d3 build_arm_cortex_m4_base_application_stm32f4/nrf_nwk.o
+ .debug_info    0x00040030      0xc82 build_arm_cortex_m4_base_application_stm32f4/nrf_phy.o
+ .debug_info    0x00040cb2      0xb35 build_arm_cortex_m4_base_application_stm32f4/SPI.o
+ .debug_info    0x000417e7      0x4fc build_arm_cortex_m4_base_application_stm32f4/wiring_digital.o
+ .debug_info    0x00041ce3     0x3894 build_arm_cortex_m4_base_application_stm32f4/Print.o
+ .debug_info    0x00045577      0x5c2 build_arm_cortex_m4_base_application_stm32f4/mini_cpp.o
 
-.debug_abbrev   0x00000000     0x86c3
+.debug_abbrev   0x00000000     0x876c
  .debug_abbrev  0x00000000      0x3bd build_arm_cortex_m4_base_application_stm32f4/message.o
  .debug_abbrev  0x000003bd       0xcb build_arm_cortex_m4_base_application_stm32f4/fsm.o
  .debug_abbrev  0x00000488      0x2fb build_arm_cortex_m4_base_application_stm32f4/task.o
@@ -5523,38 +5521,38 @@ OUTPUT(build_arm_cortex_m4_base_application_stm32f4/arm_cortex_m4_base_applicati
  .debug_abbrev  0x000041ff       0xae build_arm_cortex_m4_base_application_stm32f4/syscall.o
  .debug_abbrev  0x000042ad       0xa8 build_arm_cortex_m4_base_application_stm32f4/unicode.o
  .debug_abbrev  0x00004355      0x109 build_arm_cortex_m4_base_application_stm32f4/stm32f4.o
- .debug_abbrev  0x0000445e      0x3b6 build_arm_cortex_m4_base_application_stm32f4/system.o
- .debug_abbrev  0x00004814      0x48c build_arm_cortex_m4_base_application_stm32f4/sys_cfg.o
- .debug_abbrev  0x00004ca0      0x4a6 build_arm_cortex_m4_base_application_stm32f4/io_cfg.o
- .debug_abbrev  0x00005146      0x147 build_arm_cortex_m4_base_application_stm32f4/system_stm32f4xx.o
- .debug_abbrev  0x0000528d      0x20c build_arm_cortex_m4_base_application_stm32f4/app.o
- .debug_abbrev  0x00005499       0x4b build_arm_cortex_m4_base_application_stm32f4/app_non_clear_ram.o
- .debug_abbrev  0x000054e4       0x86 build_arm_cortex_m4_base_application_stm32f4/rf_remote_ctrl.o
- .debug_abbrev  0x0000556a      0x369 build_arm_cortex_m4_base_application_stm32f4/shell.o
- .debug_abbrev  0x000058d3      0x1fa build_arm_cortex_m4_base_application_stm32f4/task_shell.o
- .debug_abbrev  0x00005acd      0x105 build_arm_cortex_m4_base_application_stm32f4/task_life.o
- .debug_abbrev  0x00005bd2      0x23f build_arm_cortex_m4_base_application_stm32f4/task_fw.o
- .debug_abbrev  0x00005e11       0xc8 build_arm_cortex_m4_base_application_stm32f4/task_list.o
- .debug_abbrev  0x00005ed9      0x170 build_arm_cortex_m4_base_application_stm32f4/task_display.o
- .debug_abbrev  0x00006049      0x166 build_arm_cortex_m4_base_application_stm32f4/task_if.o
- .debug_abbrev  0x000061af      0x161 build_arm_cortex_m4_base_application_stm32f4/task_rf24_if.o
- .debug_abbrev  0x00006310      0x308 build_arm_cortex_m4_base_application_stm32f4/task_uart_if.o
- .debug_abbrev  0x00006618      0x216 build_arm_cortex_m4_base_application_stm32f4/task_dbg.o
- .debug_abbrev  0x0000682e      0x1dc build_arm_cortex_m4_base_application_stm32f4/task_encoder_pid.o
- .debug_abbrev  0x00006a0a      0x263 build_arm_cortex_m4_base_application_stm32f4/view_render.o
- .debug_abbrev  0x00006c6d      0x45e build_arm_cortex_m4_base_application_stm32f4/Adafruit_GFX.o
- .debug_abbrev  0x000070cb      0x356 build_arm_cortex_m4_base_application_stm32f4/Adafruit_ssd1306syp.o
- .debug_abbrev  0x00007421       0xe0 build_arm_cortex_m4_base_application_stm32f4/eeprom.o
- .debug_abbrev  0x00007501      0x18e build_arm_cortex_m4_base_application_stm32f4/nrf_data.o
- .debug_abbrev  0x0000768f      0x2f8 build_arm_cortex_m4_base_application_stm32f4/nrf_mac.o
- .debug_abbrev  0x00007987      0x1c3 build_arm_cortex_m4_base_application_stm32f4/nrf_nwk.o
- .debug_abbrev  0x00007b4a      0x229 build_arm_cortex_m4_base_application_stm32f4/nrf_phy.o
- .debug_abbrev  0x00007d73      0x2bb build_arm_cortex_m4_base_application_stm32f4/SPI.o
- .debug_abbrev  0x0000802e      0x124 build_arm_cortex_m4_base_application_stm32f4/wiring_digital.o
- .debug_abbrev  0x00008152      0x338 build_arm_cortex_m4_base_application_stm32f4/Print.o
- .debug_abbrev  0x0000848a      0x239 build_arm_cortex_m4_base_application_stm32f4/mini_cpp.o
+ .debug_abbrev  0x0000445e      0x452 build_arm_cortex_m4_base_application_stm32f4/system.o
+ .debug_abbrev  0x000048b0      0x48c build_arm_cortex_m4_base_application_stm32f4/sys_cfg.o
+ .debug_abbrev  0x00004d3c      0x4a6 build_arm_cortex_m4_base_application_stm32f4/io_cfg.o
+ .debug_abbrev  0x000051e2      0x147 build_arm_cortex_m4_base_application_stm32f4/system_stm32f4xx.o
+ .debug_abbrev  0x00005329      0x219 build_arm_cortex_m4_base_application_stm32f4/app.o
+ .debug_abbrev  0x00005542       0x4b build_arm_cortex_m4_base_application_stm32f4/app_non_clear_ram.o
+ .debug_abbrev  0x0000558d       0x86 build_arm_cortex_m4_base_application_stm32f4/rf_remote_ctrl.o
+ .debug_abbrev  0x00005613      0x369 build_arm_cortex_m4_base_application_stm32f4/shell.o
+ .debug_abbrev  0x0000597c      0x1fa build_arm_cortex_m4_base_application_stm32f4/task_shell.o
+ .debug_abbrev  0x00005b76      0x105 build_arm_cortex_m4_base_application_stm32f4/task_life.o
+ .debug_abbrev  0x00005c7b      0x23f build_arm_cortex_m4_base_application_stm32f4/task_fw.o
+ .debug_abbrev  0x00005eba       0xc8 build_arm_cortex_m4_base_application_stm32f4/task_list.o
+ .debug_abbrev  0x00005f82      0x170 build_arm_cortex_m4_base_application_stm32f4/task_display.o
+ .debug_abbrev  0x000060f2      0x166 build_arm_cortex_m4_base_application_stm32f4/task_if.o
+ .debug_abbrev  0x00006258      0x161 build_arm_cortex_m4_base_application_stm32f4/task_rf24_if.o
+ .debug_abbrev  0x000063b9      0x308 build_arm_cortex_m4_base_application_stm32f4/task_uart_if.o
+ .debug_abbrev  0x000066c1      0x216 build_arm_cortex_m4_base_application_stm32f4/task_dbg.o
+ .debug_abbrev  0x000068d7      0x1dc build_arm_cortex_m4_base_application_stm32f4/task_encoder_pid.o
+ .debug_abbrev  0x00006ab3      0x263 build_arm_cortex_m4_base_application_stm32f4/view_render.o
+ .debug_abbrev  0x00006d16      0x45e build_arm_cortex_m4_base_application_stm32f4/Adafruit_GFX.o
+ .debug_abbrev  0x00007174      0x356 build_arm_cortex_m4_base_application_stm32f4/Adafruit_ssd1306syp.o
+ .debug_abbrev  0x000074ca       0xe0 build_arm_cortex_m4_base_application_stm32f4/eeprom.o
+ .debug_abbrev  0x000075aa      0x18e build_arm_cortex_m4_base_application_stm32f4/nrf_data.o
+ .debug_abbrev  0x00007738      0x2f8 build_arm_cortex_m4_base_application_stm32f4/nrf_mac.o
+ .debug_abbrev  0x00007a30      0x1c3 build_arm_cortex_m4_base_application_stm32f4/nrf_nwk.o
+ .debug_abbrev  0x00007bf3      0x229 build_arm_cortex_m4_base_application_stm32f4/nrf_phy.o
+ .debug_abbrev  0x00007e1c      0x2bb build_arm_cortex_m4_base_application_stm32f4/SPI.o
+ .debug_abbrev  0x000080d7      0x124 build_arm_cortex_m4_base_application_stm32f4/wiring_digital.o
+ .debug_abbrev  0x000081fb      0x338 build_arm_cortex_m4_base_application_stm32f4/Print.o
+ .debug_abbrev  0x00008533      0x239 build_arm_cortex_m4_base_application_stm32f4/mini_cpp.o
 
-.debug_loc      0x00000000    0x42e70
+.debug_loc      0x00000000    0x43128
  .debug_loc     0x00000000      0xc02 build_arm_cortex_m4_base_application_stm32f4/message.o
  .debug_loc     0x00000c02       0x42 build_arm_cortex_m4_base_application_stm32f4/fsm.o
  .debug_loc     0x00000c44      0x806 build_arm_cortex_m4_base_application_stm32f4/task.o
@@ -5590,32 +5588,32 @@ OUTPUT(build_arm_cortex_m4_base_application_stm32f4/arm_cortex_m4_base_applicati
  .debug_loc     0x00027057     0x3922 build_arm_cortex_m4_base_application_stm32f4/fatfs_sd_sdio.o
  .debug_loc     0x0002a979       0x42 build_arm_cortex_m4_base_application_stm32f4/syscall.o
  .debug_loc     0x0002a9bb      0x170 build_arm_cortex_m4_base_application_stm32f4/unicode.o
- .debug_loc     0x0002ab2b      0x499 build_arm_cortex_m4_base_application_stm32f4/system.o
- .debug_loc     0x0002afc4      0x140 build_arm_cortex_m4_base_application_stm32f4/sys_cfg.o
- .debug_loc     0x0002b104     0x1ad4 build_arm_cortex_m4_base_application_stm32f4/io_cfg.o
- .debug_loc     0x0002cbd8      0x13b build_arm_cortex_m4_base_application_stm32f4/system_stm32f4xx.o
- .debug_loc     0x0002cd13      0xc22 build_arm_cortex_m4_base_application_stm32f4/shell.o
- .debug_loc     0x0002d935       0xab build_arm_cortex_m4_base_application_stm32f4/task_shell.o
- .debug_loc     0x0002d9e0       0x21 build_arm_cortex_m4_base_application_stm32f4/task_life.o
- .debug_loc     0x0002da01      0x331 build_arm_cortex_m4_base_application_stm32f4/task_fw.o
- .debug_loc     0x0002dd32       0x53 build_arm_cortex_m4_base_application_stm32f4/task_display.o
- .debug_loc     0x0002dd85      0x19d build_arm_cortex_m4_base_application_stm32f4/task_if.o
- .debug_loc     0x0002df22       0xf3 build_arm_cortex_m4_base_application_stm32f4/task_rf24_if.o
- .debug_loc     0x0002e015      0xb38 build_arm_cortex_m4_base_application_stm32f4/task_uart_if.o
- .debug_loc     0x0002eb4d       0x53 build_arm_cortex_m4_base_application_stm32f4/task_dbg.o
- .debug_loc     0x0002eba0       0x92 build_arm_cortex_m4_base_application_stm32f4/task_encoder_pid.o
- .debug_loc     0x0002ec32      0x255 build_arm_cortex_m4_base_application_stm32f4/view_render.o
- .debug_loc     0x0002ee87     0xcfc1 build_arm_cortex_m4_base_application_stm32f4/Adafruit_GFX.o
- .debug_loc     0x0003be48      0xd18 build_arm_cortex_m4_base_application_stm32f4/Adafruit_ssd1306syp.o
- .debug_loc     0x0003cb60       0xa5 build_arm_cortex_m4_base_application_stm32f4/eeprom.o
- .debug_loc     0x0003cc05       0xd9 build_arm_cortex_m4_base_application_stm32f4/nrf_data.o
- .debug_loc     0x0003ccde      0x3a0 build_arm_cortex_m4_base_application_stm32f4/nrf_mac.o
- .debug_loc     0x0003d07e      0x2d8 build_arm_cortex_m4_base_application_stm32f4/nrf_nwk.o
- .debug_loc     0x0003d356      0x1b9 build_arm_cortex_m4_base_application_stm32f4/nrf_phy.o
- .debug_loc     0x0003d50f      0x19d build_arm_cortex_m4_base_application_stm32f4/SPI.o
- .debug_loc     0x0003d6ac      0x420 build_arm_cortex_m4_base_application_stm32f4/wiring_digital.o
- .debug_loc     0x0003dacc     0x5341 build_arm_cortex_m4_base_application_stm32f4/Print.o
- .debug_loc     0x00042e0d       0x63 build_arm_cortex_m4_base_application_stm32f4/mini_cpp.o
+ .debug_loc     0x0002ab2b      0x751 build_arm_cortex_m4_base_application_stm32f4/system.o
+ .debug_loc     0x0002b27c      0x140 build_arm_cortex_m4_base_application_stm32f4/sys_cfg.o
+ .debug_loc     0x0002b3bc     0x1ad4 build_arm_cortex_m4_base_application_stm32f4/io_cfg.o
+ .debug_loc     0x0002ce90      0x13b build_arm_cortex_m4_base_application_stm32f4/system_stm32f4xx.o
+ .debug_loc     0x0002cfcb      0xc22 build_arm_cortex_m4_base_application_stm32f4/shell.o
+ .debug_loc     0x0002dbed       0xab build_arm_cortex_m4_base_application_stm32f4/task_shell.o
+ .debug_loc     0x0002dc98       0x21 build_arm_cortex_m4_base_application_stm32f4/task_life.o
+ .debug_loc     0x0002dcb9      0x331 build_arm_cortex_m4_base_application_stm32f4/task_fw.o
+ .debug_loc     0x0002dfea       0x53 build_arm_cortex_m4_base_application_stm32f4/task_display.o
+ .debug_loc     0x0002e03d      0x19d build_arm_cortex_m4_base_application_stm32f4/task_if.o
+ .debug_loc     0x0002e1da       0xf3 build_arm_cortex_m4_base_application_stm32f4/task_rf24_if.o
+ .debug_loc     0x0002e2cd      0xb38 build_arm_cortex_m4_base_application_stm32f4/task_uart_if.o
+ .debug_loc     0x0002ee05       0x53 build_arm_cortex_m4_base_application_stm32f4/task_dbg.o
+ .debug_loc     0x0002ee58       0x92 build_arm_cortex_m4_base_application_stm32f4/task_encoder_pid.o
+ .debug_loc     0x0002eeea      0x255 build_arm_cortex_m4_base_application_stm32f4/view_render.o
+ .debug_loc     0x0002f13f     0xcfc1 build_arm_cortex_m4_base_application_stm32f4/Adafruit_GFX.o
+ .debug_loc     0x0003c100      0xd18 build_arm_cortex_m4_base_application_stm32f4/Adafruit_ssd1306syp.o
+ .debug_loc     0x0003ce18       0xa5 build_arm_cortex_m4_base_application_stm32f4/eeprom.o
+ .debug_loc     0x0003cebd       0xd9 build_arm_cortex_m4_base_application_stm32f4/nrf_data.o
+ .debug_loc     0x0003cf96      0x3a0 build_arm_cortex_m4_base_application_stm32f4/nrf_mac.o
+ .debug_loc     0x0003d336      0x2d8 build_arm_cortex_m4_base_application_stm32f4/nrf_nwk.o
+ .debug_loc     0x0003d60e      0x1b9 build_arm_cortex_m4_base_application_stm32f4/nrf_phy.o
+ .debug_loc     0x0003d7c7      0x19d build_arm_cortex_m4_base_application_stm32f4/SPI.o
+ .debug_loc     0x0003d964      0x420 build_arm_cortex_m4_base_application_stm32f4/wiring_digital.o
+ .debug_loc     0x0003dd84     0x5341 build_arm_cortex_m4_base_application_stm32f4/Print.o
+ .debug_loc     0x000430c5       0x63 build_arm_cortex_m4_base_application_stm32f4/mini_cpp.o
 
 .debug_aranges  0x00000000     0x23d8
  .debug_aranges
@@ -5753,7 +5751,7 @@ OUTPUT(build_arm_cortex_m4_base_application_stm32f4/arm_cortex_m4_base_applicati
  .debug_aranges
                 0x00002398       0x40 build_arm_cortex_m4_base_application_stm32f4/mini_cpp.o
 
-.debug_ranges   0x00000000     0x8ab8
+.debug_ranges   0x00000000     0x8b78
  .debug_ranges  0x00000000      0x1b8 build_arm_cortex_m4_base_application_stm32f4/message.o
  .debug_ranges  0x000001b8       0x10 build_arm_cortex_m4_base_application_stm32f4/fsm.o
  .debug_ranges  0x000001c8      0x118 build_arm_cortex_m4_base_application_stm32f4/task.o
@@ -5791,36 +5789,36 @@ OUTPUT(build_arm_cortex_m4_base_application_stm32f4/arm_cortex_m4_base_applicati
  .debug_ranges  0x00005858       0x18 build_arm_cortex_m4_base_application_stm32f4/syscall.o
  .debug_ranges  0x00005870       0x18 build_arm_cortex_m4_base_application_stm32f4/unicode.o
  .debug_ranges  0x00005888       0x50 build_arm_cortex_m4_base_application_stm32f4/stm32f4.o
- .debug_ranges  0x000058d8      0x1d8 build_arm_cortex_m4_base_application_stm32f4/system.o
- .debug_ranges  0x00005ab0      0x120 build_arm_cortex_m4_base_application_stm32f4/sys_cfg.o
- .debug_ranges  0x00005bd0      0x5a0 build_arm_cortex_m4_base_application_stm32f4/io_cfg.o
- .debug_ranges  0x00006170       0x30 build_arm_cortex_m4_base_application_stm32f4/system_stm32f4xx.o
- .debug_ranges  0x000061a0       0x20 build_arm_cortex_m4_base_application_stm32f4/app.o
- .debug_ranges  0x000061c0       0x10 build_arm_cortex_m4_base_application_stm32f4/rf_remote_ctrl.o
- .debug_ranges  0x000061d0      0x1c0 build_arm_cortex_m4_base_application_stm32f4/shell.o
- .debug_ranges  0x00006390       0x18 build_arm_cortex_m4_base_application_stm32f4/task_shell.o
- .debug_ranges  0x000063a8       0x10 build_arm_cortex_m4_base_application_stm32f4/task_life.o
- .debug_ranges  0x000063b8       0x70 build_arm_cortex_m4_base_application_stm32f4/task_fw.o
- .debug_ranges  0x00006428       0x10 build_arm_cortex_m4_base_application_stm32f4/task_display.o
- .debug_ranges  0x00006438       0x58 build_arm_cortex_m4_base_application_stm32f4/task_if.o
- .debug_ranges  0x00006490       0x10 build_arm_cortex_m4_base_application_stm32f4/task_rf24_if.o
- .debug_ranges  0x000064a0      0x250 build_arm_cortex_m4_base_application_stm32f4/task_uart_if.o
- .debug_ranges  0x000066f0       0x28 build_arm_cortex_m4_base_application_stm32f4/task_dbg.o
- .debug_ranges  0x00006718       0x10 build_arm_cortex_m4_base_application_stm32f4/task_encoder_pid.o
- .debug_ranges  0x00006728       0x60 build_arm_cortex_m4_base_application_stm32f4/view_render.o
- .debug_ranges  0x00006788     0x1020 build_arm_cortex_m4_base_application_stm32f4/Adafruit_GFX.o
- .debug_ranges  0x000077a8      0x1a0 build_arm_cortex_m4_base_application_stm32f4/Adafruit_ssd1306syp.o
- .debug_ranges  0x00007948       0x20 build_arm_cortex_m4_base_application_stm32f4/eeprom.o
- .debug_ranges  0x00007968       0x78 build_arm_cortex_m4_base_application_stm32f4/nrf_data.o
- .debug_ranges  0x000079e0       0xf0 build_arm_cortex_m4_base_application_stm32f4/nrf_mac.o
- .debug_ranges  0x00007ad0       0x68 build_arm_cortex_m4_base_application_stm32f4/nrf_nwk.o
- .debug_ranges  0x00007b38       0x98 build_arm_cortex_m4_base_application_stm32f4/nrf_phy.o
- .debug_ranges  0x00007bd0       0x60 build_arm_cortex_m4_base_application_stm32f4/SPI.o
- .debug_ranges  0x00007c30       0x20 build_arm_cortex_m4_base_application_stm32f4/wiring_digital.o
- .debug_ranges  0x00007c50      0xe38 build_arm_cortex_m4_base_application_stm32f4/Print.o
- .debug_ranges  0x00008a88       0x30 build_arm_cortex_m4_base_application_stm32f4/mini_cpp.o
+ .debug_ranges  0x000058d8      0x298 build_arm_cortex_m4_base_application_stm32f4/system.o
+ .debug_ranges  0x00005b70      0x120 build_arm_cortex_m4_base_application_stm32f4/sys_cfg.o
+ .debug_ranges  0x00005c90      0x5a0 build_arm_cortex_m4_base_application_stm32f4/io_cfg.o
+ .debug_ranges  0x00006230       0x30 build_arm_cortex_m4_base_application_stm32f4/system_stm32f4xx.o
+ .debug_ranges  0x00006260       0x20 build_arm_cortex_m4_base_application_stm32f4/app.o
+ .debug_ranges  0x00006280       0x10 build_arm_cortex_m4_base_application_stm32f4/rf_remote_ctrl.o
+ .debug_ranges  0x00006290      0x1c0 build_arm_cortex_m4_base_application_stm32f4/shell.o
+ .debug_ranges  0x00006450       0x18 build_arm_cortex_m4_base_application_stm32f4/task_shell.o
+ .debug_ranges  0x00006468       0x10 build_arm_cortex_m4_base_application_stm32f4/task_life.o
+ .debug_ranges  0x00006478       0x70 build_arm_cortex_m4_base_application_stm32f4/task_fw.o
+ .debug_ranges  0x000064e8       0x10 build_arm_cortex_m4_base_application_stm32f4/task_display.o
+ .debug_ranges  0x000064f8       0x58 build_arm_cortex_m4_base_application_stm32f4/task_if.o
+ .debug_ranges  0x00006550       0x10 build_arm_cortex_m4_base_application_stm32f4/task_rf24_if.o
+ .debug_ranges  0x00006560      0x250 build_arm_cortex_m4_base_application_stm32f4/task_uart_if.o
+ .debug_ranges  0x000067b0       0x28 build_arm_cortex_m4_base_application_stm32f4/task_dbg.o
+ .debug_ranges  0x000067d8       0x10 build_arm_cortex_m4_base_application_stm32f4/task_encoder_pid.o
+ .debug_ranges  0x000067e8       0x60 build_arm_cortex_m4_base_application_stm32f4/view_render.o
+ .debug_ranges  0x00006848     0x1020 build_arm_cortex_m4_base_application_stm32f4/Adafruit_GFX.o
+ .debug_ranges  0x00007868      0x1a0 build_arm_cortex_m4_base_application_stm32f4/Adafruit_ssd1306syp.o
+ .debug_ranges  0x00007a08       0x20 build_arm_cortex_m4_base_application_stm32f4/eeprom.o
+ .debug_ranges  0x00007a28       0x78 build_arm_cortex_m4_base_application_stm32f4/nrf_data.o
+ .debug_ranges  0x00007aa0       0xf0 build_arm_cortex_m4_base_application_stm32f4/nrf_mac.o
+ .debug_ranges  0x00007b90       0x68 build_arm_cortex_m4_base_application_stm32f4/nrf_nwk.o
+ .debug_ranges  0x00007bf8       0x98 build_arm_cortex_m4_base_application_stm32f4/nrf_phy.o
+ .debug_ranges  0x00007c90       0x60 build_arm_cortex_m4_base_application_stm32f4/SPI.o
+ .debug_ranges  0x00007cf0       0x20 build_arm_cortex_m4_base_application_stm32f4/wiring_digital.o
+ .debug_ranges  0x00007d10      0xe38 build_arm_cortex_m4_base_application_stm32f4/Print.o
+ .debug_ranges  0x00008b48       0x30 build_arm_cortex_m4_base_application_stm32f4/mini_cpp.o
 
-.debug_line     0x00000000    0x15ed5
+.debug_line     0x00000000    0x15f0c
  .debug_line    0x00000000      0x512 build_arm_cortex_m4_base_application_stm32f4/message.o
  .debug_line    0x00000512      0x120 build_arm_cortex_m4_base_application_stm32f4/fsm.o
  .debug_line    0x00000632      0x439 build_arm_cortex_m4_base_application_stm32f4/task.o
@@ -5858,36 +5856,36 @@ OUTPUT(build_arm_cortex_m4_base_application_stm32f4/arm_cortex_m4_base_applicati
  .debug_line    0x0000ccf6      0x102 build_arm_cortex_m4_base_application_stm32f4/syscall.o
  .debug_line    0x0000cdf8       0xd2 build_arm_cortex_m4_base_application_stm32f4/unicode.o
  .debug_line    0x0000ceca      0x21e build_arm_cortex_m4_base_application_stm32f4/stm32f4.o
- .debug_line    0x0000d0e8      0x6bc build_arm_cortex_m4_base_application_stm32f4/system.o
- .debug_line    0x0000d7a4      0x6a3 build_arm_cortex_m4_base_application_stm32f4/sys_cfg.o
- .debug_line    0x0000de47     0x1441 build_arm_cortex_m4_base_application_stm32f4/io_cfg.o
- .debug_line    0x0000f288      0x231 build_arm_cortex_m4_base_application_stm32f4/system_stm32f4xx.o
- .debug_line    0x0000f4b9      0x2ca build_arm_cortex_m4_base_application_stm32f4/app.o
- .debug_line    0x0000f783      0x10b build_arm_cortex_m4_base_application_stm32f4/app_non_clear_ram.o
- .debug_line    0x0000f88e      0x158 build_arm_cortex_m4_base_application_stm32f4/rf_remote_ctrl.o
- .debug_line    0x0000f9e6      0x7fa build_arm_cortex_m4_base_application_stm32f4/shell.o
- .debug_line    0x000101e0      0x31e build_arm_cortex_m4_base_application_stm32f4/task_shell.o
- .debug_line    0x000104fe      0x179 build_arm_cortex_m4_base_application_stm32f4/task_life.o
- .debug_line    0x00010677      0x4de build_arm_cortex_m4_base_application_stm32f4/task_fw.o
- .debug_line    0x00010b55      0x13b build_arm_cortex_m4_base_application_stm32f4/task_list.o
- .debug_line    0x00010c90      0x217 build_arm_cortex_m4_base_application_stm32f4/task_display.o
- .debug_line    0x00010ea7      0x1d3 build_arm_cortex_m4_base_application_stm32f4/task_if.o
- .debug_line    0x0001107a      0x224 build_arm_cortex_m4_base_application_stm32f4/task_rf24_if.o
- .debug_line    0x0001129e      0x540 build_arm_cortex_m4_base_application_stm32f4/task_uart_if.o
- .debug_line    0x000117de      0x320 build_arm_cortex_m4_base_application_stm32f4/task_dbg.o
- .debug_line    0x00011afe      0x2fe build_arm_cortex_m4_base_application_stm32f4/task_encoder_pid.o
- .debug_line    0x00011dfc      0x2cc build_arm_cortex_m4_base_application_stm32f4/view_render.o
- .debug_line    0x000120c8     0x11ec build_arm_cortex_m4_base_application_stm32f4/Adafruit_GFX.o
- .debug_line    0x000132b4      0x6dd build_arm_cortex_m4_base_application_stm32f4/Adafruit_ssd1306syp.o
- .debug_line    0x00013991      0x1ad build_arm_cortex_m4_base_application_stm32f4/eeprom.o
- .debug_line    0x00013b3e      0x2a6 build_arm_cortex_m4_base_application_stm32f4/nrf_data.o
- .debug_line    0x00013de4      0x4c5 build_arm_cortex_m4_base_application_stm32f4/nrf_mac.o
- .debug_line    0x000142a9      0x356 build_arm_cortex_m4_base_application_stm32f4/nrf_nwk.o
- .debug_line    0x000145ff      0x47d build_arm_cortex_m4_base_application_stm32f4/nrf_phy.o
- .debug_line    0x00014a7c      0x36b build_arm_cortex_m4_base_application_stm32f4/SPI.o
- .debug_line    0x00014de7      0x3a1 build_arm_cortex_m4_base_application_stm32f4/wiring_digital.o
- .debug_line    0x00015188      0x9af build_arm_cortex_m4_base_application_stm32f4/Print.o
- .debug_line    0x00015b37      0x39e build_arm_cortex_m4_base_application_stm32f4/mini_cpp.o
+ .debug_line    0x0000d0e8      0x6f5 build_arm_cortex_m4_base_application_stm32f4/system.o
+ .debug_line    0x0000d7dd      0x6a3 build_arm_cortex_m4_base_application_stm32f4/sys_cfg.o
+ .debug_line    0x0000de80     0x143e build_arm_cortex_m4_base_application_stm32f4/io_cfg.o
+ .debug_line    0x0000f2be      0x231 build_arm_cortex_m4_base_application_stm32f4/system_stm32f4xx.o
+ .debug_line    0x0000f4ef      0x2cb build_arm_cortex_m4_base_application_stm32f4/app.o
+ .debug_line    0x0000f7ba      0x10b build_arm_cortex_m4_base_application_stm32f4/app_non_clear_ram.o
+ .debug_line    0x0000f8c5      0x158 build_arm_cortex_m4_base_application_stm32f4/rf_remote_ctrl.o
+ .debug_line    0x0000fa1d      0x7fa build_arm_cortex_m4_base_application_stm32f4/shell.o
+ .debug_line    0x00010217      0x31e build_arm_cortex_m4_base_application_stm32f4/task_shell.o
+ .debug_line    0x00010535      0x179 build_arm_cortex_m4_base_application_stm32f4/task_life.o
+ .debug_line    0x000106ae      0x4de build_arm_cortex_m4_base_application_stm32f4/task_fw.o
+ .debug_line    0x00010b8c      0x13b build_arm_cortex_m4_base_application_stm32f4/task_list.o
+ .debug_line    0x00010cc7      0x217 build_arm_cortex_m4_base_application_stm32f4/task_display.o
+ .debug_line    0x00010ede      0x1d3 build_arm_cortex_m4_base_application_stm32f4/task_if.o
+ .debug_line    0x000110b1      0x224 build_arm_cortex_m4_base_application_stm32f4/task_rf24_if.o
+ .debug_line    0x000112d5      0x540 build_arm_cortex_m4_base_application_stm32f4/task_uart_if.o
+ .debug_line    0x00011815      0x320 build_arm_cortex_m4_base_application_stm32f4/task_dbg.o
+ .debug_line    0x00011b35      0x2fe build_arm_cortex_m4_base_application_stm32f4/task_encoder_pid.o
+ .debug_line    0x00011e33      0x2cc build_arm_cortex_m4_base_application_stm32f4/view_render.o
+ .debug_line    0x000120ff     0x11ec build_arm_cortex_m4_base_application_stm32f4/Adafruit_GFX.o
+ .debug_line    0x000132eb      0x6dd build_arm_cortex_m4_base_application_stm32f4/Adafruit_ssd1306syp.o
+ .debug_line    0x000139c8      0x1ad build_arm_cortex_m4_base_application_stm32f4/eeprom.o
+ .debug_line    0x00013b75      0x2a6 build_arm_cortex_m4_base_application_stm32f4/nrf_data.o
+ .debug_line    0x00013e1b      0x4c5 build_arm_cortex_m4_base_application_stm32f4/nrf_mac.o
+ .debug_line    0x000142e0      0x356 build_arm_cortex_m4_base_application_stm32f4/nrf_nwk.o
+ .debug_line    0x00014636      0x47d build_arm_cortex_m4_base_application_stm32f4/nrf_phy.o
+ .debug_line    0x00014ab3      0x36b build_arm_cortex_m4_base_application_stm32f4/SPI.o
+ .debug_line    0x00014e1e      0x3a1 build_arm_cortex_m4_base_application_stm32f4/wiring_digital.o
+ .debug_line    0x000151bf      0x9af build_arm_cortex_m4_base_application_stm32f4/Print.o
+ .debug_line    0x00015b6e      0x39e build_arm_cortex_m4_base_application_stm32f4/mini_cpp.o
 
 .debug_str      0x00000000     0xb44a
  .debug_str     0x00000000      0x5d4 build_arm_cortex_m4_base_application_stm32f4/message.o
@@ -5964,41 +5962,41 @@ OUTPUT(build_arm_cortex_m4_base_application_stm32f4/arm_cortex_m4_base_applicati
                                 0x1c0 (size before relaxing)
  .debug_str     0x00006eb3       0x70 build_arm_cortex_m4_base_application_stm32f4/stm32f4.o
                                 0x296 (size before relaxing)
- .debug_str     0x00006f23      0x492 build_arm_cortex_m4_base_application_stm32f4/system.o
-                                0x902 (size before relaxing)
- .debug_str     0x000073b5      0x2c1 build_arm_cortex_m4_base_application_stm32f4/sys_cfg.o
+ .debug_str     0x00006f23      0x47e build_arm_cortex_m4_base_application_stm32f4/system.o
+                                0x8ee (size before relaxing)
+ .debug_str     0x000073a1      0x2c1 build_arm_cortex_m4_base_application_stm32f4/sys_cfg.o
                                0x1303 (size before relaxing)
- .debug_str     0x00007676      0xe7c build_arm_cortex_m4_base_application_stm32f4/io_cfg.o
+ .debug_str     0x00007662      0xe7c build_arm_cortex_m4_base_application_stm32f4/io_cfg.o
                                0x23ef (size before relaxing)
- .debug_str     0x000084f2       0x5d build_arm_cortex_m4_base_application_stm32f4/system_stm32f4xx.o
+ .debug_str     0x000084de       0x5d build_arm_cortex_m4_base_application_stm32f4/system_stm32f4xx.o
                                 0x439 (size before relaxing)
- .debug_str     0x0000854f      0x34b build_arm_cortex_m4_base_application_stm32f4/app.o
-                                0x7d0 (size before relaxing)
- .debug_str     0x0000889a       0x3a build_arm_cortex_m4_base_application_stm32f4/app_non_clear_ram.o
+ .debug_str     0x0000853b      0x360 build_arm_cortex_m4_base_application_stm32f4/app.o
+                                0x7e5 (size before relaxing)
+ .debug_str     0x0000889b       0x3a build_arm_cortex_m4_base_application_stm32f4/app_non_clear_ram.o
                                 0x229 (size before relaxing)
- .debug_str     0x000088d4       0x1f build_arm_cortex_m4_base_application_stm32f4/rf_remote_ctrl.o
+ .debug_str     0x000088d5       0x1f build_arm_cortex_m4_base_application_stm32f4/rf_remote_ctrl.o
                                 0x249 (size before relaxing)
- .debug_str     0x000088f3      0x4cb build_arm_cortex_m4_base_application_stm32f4/shell.o
+ .debug_str     0x000088f4      0x4cb build_arm_cortex_m4_base_application_stm32f4/shell.o
                                 0xd65 (size before relaxing)
- .debug_str     0x00008dbe       0x9d build_arm_cortex_m4_base_application_stm32f4/task_shell.o
+ .debug_str     0x00008dbf       0x9d build_arm_cortex_m4_base_application_stm32f4/task_shell.o
                                 0x5c9 (size before relaxing)
- .debug_str     0x00008e5b       0x50 build_arm_cortex_m4_base_application_stm32f4/task_life.o
+ .debug_str     0x00008e5c       0x3b build_arm_cortex_m4_base_application_stm32f4/task_life.o
                                 0x37b (size before relaxing)
- .debug_str     0x00008eab      0x2e4 build_arm_cortex_m4_base_application_stm32f4/task_fw.o
+ .debug_str     0x00008e97      0x2e4 build_arm_cortex_m4_base_application_stm32f4/task_fw.o
                                 0xbd8 (size before relaxing)
- .debug_str     0x0000918f       0x1a build_arm_cortex_m4_base_application_stm32f4/task_list.o
+ .debug_str     0x0000917b       0x1a build_arm_cortex_m4_base_application_stm32f4/task_list.o
                                 0x3f2 (size before relaxing)
- .debug_str     0x000091a9       0xb0 build_arm_cortex_m4_base_application_stm32f4/task_display.o
+ .debug_str     0x00009195       0xb0 build_arm_cortex_m4_base_application_stm32f4/task_display.o
                                 0x580 (size before relaxing)
- .debug_str     0x00009259      0x142 build_arm_cortex_m4_base_application_stm32f4/task_if.o
+ .debug_str     0x00009245      0x142 build_arm_cortex_m4_base_application_stm32f4/task_if.o
                                 0x58e (size before relaxing)
- .debug_str     0x0000939b      0x197 build_arm_cortex_m4_base_application_stm32f4/task_rf24_if.o
+ .debug_str     0x00009387      0x197 build_arm_cortex_m4_base_application_stm32f4/task_rf24_if.o
                                 0x68a (size before relaxing)
- .debug_str     0x00009532      0x174 build_arm_cortex_m4_base_application_stm32f4/task_uart_if.o
+ .debug_str     0x0000951e      0x174 build_arm_cortex_m4_base_application_stm32f4/task_uart_if.o
                                 0x8aa (size before relaxing)
- .debug_str     0x000096a6       0x8c build_arm_cortex_m4_base_application_stm32f4/task_dbg.o
+ .debug_str     0x00009692       0x8c build_arm_cortex_m4_base_application_stm32f4/task_dbg.o
                                 0x775 (size before relaxing)
- .debug_str     0x00009732       0xff build_arm_cortex_m4_base_application_stm32f4/task_encoder_pid.o
+ .debug_str     0x0000971e      0x113 build_arm_cortex_m4_base_application_stm32f4/task_encoder_pid.o
                                 0x845 (size before relaxing)
  .debug_str     0x00009831      0x26f build_arm_cortex_m4_base_application_stm32f4/view_render.o
                                 0x5ec (size before relaxing)
@@ -6290,7 +6288,7 @@ OUTPUT(build_arm_cortex_m4_base_application_stm32f4/arm_cortex_m4_base_applicati
  .ARM.attributes
                 0x00001191       0x1d /home/covv/workspace/tools/gcc-arm-none-eabi-5_4-2016q3/lib/gcc/arm-none-eabi/5.4.1/armv7-m/libgcc.a(_arm_fixunssfsi.o)
 
-.debug_frame    0x00000000     0x77ec
+.debug_frame    0x00000000     0x77fc
  .debug_frame   0x00000000      0x224 build_arm_cortex_m4_base_application_stm32f4/message.o
  .debug_frame   0x00000224       0x20 build_arm_cortex_m4_base_application_stm32f4/fsm.o
  .debug_frame   0x00000244      0x1d0 build_arm_cortex_m4_base_application_stm32f4/task.o
@@ -6328,47 +6326,47 @@ OUTPUT(build_arm_cortex_m4_base_application_stm32f4/arm_cortex_m4_base_applicati
  .debug_frame   0x00004790       0x30 build_arm_cortex_m4_base_application_stm32f4/syscall.o
  .debug_frame   0x000047c0       0x40 build_arm_cortex_m4_base_application_stm32f4/unicode.o
  .debug_frame   0x00004800       0x60 build_arm_cortex_m4_base_application_stm32f4/stm32f4.o
- .debug_frame   0x00004860      0x2d4 build_arm_cortex_m4_base_application_stm32f4/system.o
- .debug_frame   0x00004b34      0x2c4 build_arm_cortex_m4_base_application_stm32f4/sys_cfg.o
- .debug_frame   0x00004df8      0xd70 build_arm_cortex_m4_base_application_stm32f4/io_cfg.o
- .debug_frame   0x00005b68       0x3c build_arm_cortex_m4_base_application_stm32f4/system_stm32f4xx.o
- .debug_frame   0x00005ba4       0x7c build_arm_cortex_m4_base_application_stm32f4/app.o
- .debug_frame   0x00005c20       0x20 build_arm_cortex_m4_base_application_stm32f4/rf_remote_ctrl.o
- .debug_frame   0x00005c40      0x244 build_arm_cortex_m4_base_application_stm32f4/shell.o
- .debug_frame   0x00005e84       0x7c build_arm_cortex_m4_base_application_stm32f4/task_shell.o
- .debug_frame   0x00005f00       0x20 build_arm_cortex_m4_base_application_stm32f4/task_life.o
- .debug_frame   0x00005f20       0x60 build_arm_cortex_m4_base_application_stm32f4/task_fw.o
- .debug_frame   0x00005f80       0x40 build_arm_cortex_m4_base_application_stm32f4/task_display.o
- .debug_frame   0x00005fc0       0x40 build_arm_cortex_m4_base_application_stm32f4/task_if.o
- .debug_frame   0x00006000       0x4c build_arm_cortex_m4_base_application_stm32f4/task_rf24_if.o
- .debug_frame   0x0000604c       0xe0 build_arm_cortex_m4_base_application_stm32f4/task_uart_if.o
- .debug_frame   0x0000612c       0x40 build_arm_cortex_m4_base_application_stm32f4/task_dbg.o
- .debug_frame   0x0000616c       0x60 build_arm_cortex_m4_base_application_stm32f4/task_encoder_pid.o
- .debug_frame   0x000061cc       0xc8 build_arm_cortex_m4_base_application_stm32f4/view_render.o
- .debug_frame   0x00006294      0x4e4 build_arm_cortex_m4_base_application_stm32f4/Adafruit_GFX.o
- .debug_frame   0x00006778      0x1fc build_arm_cortex_m4_base_application_stm32f4/Adafruit_ssd1306syp.o
- .debug_frame   0x00006974       0x40 build_arm_cortex_m4_base_application_stm32f4/eeprom.o
- .debug_frame   0x000069b4      0x10c build_arm_cortex_m4_base_application_stm32f4/nrf_data.o
- .debug_frame   0x00006ac0       0x44 build_arm_cortex_m4_base_application_stm32f4/nrf_mac.o
- .debug_frame   0x00006b04       0x78 build_arm_cortex_m4_base_application_stm32f4/nrf_nwk.o
- .debug_frame   0x00006b7c       0xe4 build_arm_cortex_m4_base_application_stm32f4/nrf_phy.o
- .debug_frame   0x00006c60       0xfc build_arm_cortex_m4_base_application_stm32f4/SPI.o
- .debug_frame   0x00006d5c      0x14c build_arm_cortex_m4_base_application_stm32f4/wiring_digital.o
- .debug_frame   0x00006ea8      0x448 build_arm_cortex_m4_base_application_stm32f4/Print.o
- .debug_frame   0x000072f0       0x8c build_arm_cortex_m4_base_application_stm32f4/mini_cpp.o
- .debug_frame   0x0000737c       0x30 /home/covv/workspace/tools/gcc-arm-none-eabi-5_4-2016q3/arm-none-eabi/lib/armv7-m/libc.a(lib_a-malloc.o)
- .debug_frame   0x000073ac       0x54 /home/covv/workspace/tools/gcc-arm-none-eabi-5_4-2016q3/arm-none-eabi/lib/armv7-m/libc.a(lib_a-mallocr.o)
- .debug_frame   0x00007400       0x38 /home/covv/workspace/tools/gcc-arm-none-eabi-5_4-2016q3/arm-none-eabi/lib/armv7-m/libc.a(lib_a-memcmp.o)
- .debug_frame   0x00007438       0x34 /home/covv/workspace/tools/gcc-arm-none-eabi-5_4-2016q3/arm-none-eabi/lib/armv7-m/libc.a(lib_a-memset.o)
- .debug_frame   0x0000746c       0x30 /home/covv/workspace/tools/gcc-arm-none-eabi-5_4-2016q3/arm-none-eabi/lib/armv7-m/libc.a(lib_a-mlock.o)
- .debug_frame   0x0000749c       0x3c /home/covv/workspace/tools/gcc-arm-none-eabi-5_4-2016q3/arm-none-eabi/lib/armv7-m/libc.a(lib_a-rand.o)
- .debug_frame   0x000074d8       0x2c /home/covv/workspace/tools/gcc-arm-none-eabi-5_4-2016q3/arm-none-eabi/lib/armv7-m/libc.a(lib_a-sbrkr.o)
- .debug_frame   0x00007504       0x34 /home/covv/workspace/tools/gcc-arm-none-eabi-5_4-2016q3/arm-none-eabi/lib/armv7-m/libc.a(lib_a-strcmp.o)
- .debug_frame   0x00007538       0x20 /home/covv/workspace/tools/gcc-arm-none-eabi-5_4-2016q3/arm-none-eabi/lib/armv7-m/libc.a(lib_a-strcpy.o)
- .debug_frame   0x00007558       0x20 /home/covv/workspace/tools/gcc-arm-none-eabi-5_4-2016q3/arm-none-eabi/lib/armv7-m/libc.a(lib_a-strlen-stub.o)
- .debug_frame   0x00007578       0x9c /home/covv/workspace/tools/gcc-arm-none-eabi-5_4-2016q3/arm-none-eabi/lib/armv7-m/libc.a(lib_a-strtol.o)
- .debug_frame   0x00007614       0x74 /home/covv/workspace/tools/gcc-arm-none-eabi-5_4-2016q3/arm-none-eabi/lib/armv7-m/libc.a(lib_a-freer.o)
- .debug_frame   0x00007688       0x84 /home/covv/workspace/tools/gcc-arm-none-eabi-5_4-2016q3/arm-none-eabi/lib/armv7-m/libc.a(lib_a-locale.o)
- .debug_frame   0x0000770c       0x4c /home/covv/workspace/tools/gcc-arm-none-eabi-5_4-2016q3/arm-none-eabi/lib/armv7-m/libc.a(lib_a-mbtowc_r.o)
- .debug_frame   0x00007758       0x58 /home/covv/workspace/tools/gcc-arm-none-eabi-5_4-2016q3/arm-none-eabi/lib/armv7-m/libc.a(lib_a-reent.o)
- .debug_frame   0x000077b0       0x3c /home/covv/workspace/tools/gcc-arm-none-eabi-5_4-2016q3/arm-none-eabi/lib/armv7-m/libc.a(lib_a-wctomb_r.o)
+ .debug_frame   0x00004860      0x2e4 build_arm_cortex_m4_base_application_stm32f4/system.o
+ .debug_frame   0x00004b44      0x2c4 build_arm_cortex_m4_base_application_stm32f4/sys_cfg.o
+ .debug_frame   0x00004e08      0xd70 build_arm_cortex_m4_base_application_stm32f4/io_cfg.o
+ .debug_frame   0x00005b78       0x3c build_arm_cortex_m4_base_application_stm32f4/system_stm32f4xx.o
+ .debug_frame   0x00005bb4       0x7c build_arm_cortex_m4_base_application_stm32f4/app.o
+ .debug_frame   0x00005c30       0x20 build_arm_cortex_m4_base_application_stm32f4/rf_remote_ctrl.o
+ .debug_frame   0x00005c50      0x244 build_arm_cortex_m4_base_application_stm32f4/shell.o
+ .debug_frame   0x00005e94       0x7c build_arm_cortex_m4_base_application_stm32f4/task_shell.o
+ .debug_frame   0x00005f10       0x20 build_arm_cortex_m4_base_application_stm32f4/task_life.o
+ .debug_frame   0x00005f30       0x60 build_arm_cortex_m4_base_application_stm32f4/task_fw.o
+ .debug_frame   0x00005f90       0x40 build_arm_cortex_m4_base_application_stm32f4/task_display.o
+ .debug_frame   0x00005fd0       0x40 build_arm_cortex_m4_base_application_stm32f4/task_if.o
+ .debug_frame   0x00006010       0x4c build_arm_cortex_m4_base_application_stm32f4/task_rf24_if.o
+ .debug_frame   0x0000605c       0xe0 build_arm_cortex_m4_base_application_stm32f4/task_uart_if.o
+ .debug_frame   0x0000613c       0x40 build_arm_cortex_m4_base_application_stm32f4/task_dbg.o
+ .debug_frame   0x0000617c       0x60 build_arm_cortex_m4_base_application_stm32f4/task_encoder_pid.o
+ .debug_frame   0x000061dc       0xc8 build_arm_cortex_m4_base_application_stm32f4/view_render.o
+ .debug_frame   0x000062a4      0x4e4 build_arm_cortex_m4_base_application_stm32f4/Adafruit_GFX.o
+ .debug_frame   0x00006788      0x1fc build_arm_cortex_m4_base_application_stm32f4/Adafruit_ssd1306syp.o
+ .debug_frame   0x00006984       0x40 build_arm_cortex_m4_base_application_stm32f4/eeprom.o
+ .debug_frame   0x000069c4      0x10c build_arm_cortex_m4_base_application_stm32f4/nrf_data.o
+ .debug_frame   0x00006ad0       0x44 build_arm_cortex_m4_base_application_stm32f4/nrf_mac.o
+ .debug_frame   0x00006b14       0x78 build_arm_cortex_m4_base_application_stm32f4/nrf_nwk.o
+ .debug_frame   0x00006b8c       0xe4 build_arm_cortex_m4_base_application_stm32f4/nrf_phy.o
+ .debug_frame   0x00006c70       0xfc build_arm_cortex_m4_base_application_stm32f4/SPI.o
+ .debug_frame   0x00006d6c      0x14c build_arm_cortex_m4_base_application_stm32f4/wiring_digital.o
+ .debug_frame   0x00006eb8      0x448 build_arm_cortex_m4_base_application_stm32f4/Print.o
+ .debug_frame   0x00007300       0x8c build_arm_cortex_m4_base_application_stm32f4/mini_cpp.o
+ .debug_frame   0x0000738c       0x30 /home/covv/workspace/tools/gcc-arm-none-eabi-5_4-2016q3/arm-none-eabi/lib/armv7-m/libc.a(lib_a-malloc.o)
+ .debug_frame   0x000073bc       0x54 /home/covv/workspace/tools/gcc-arm-none-eabi-5_4-2016q3/arm-none-eabi/lib/armv7-m/libc.a(lib_a-mallocr.o)
+ .debug_frame   0x00007410       0x38 /home/covv/workspace/tools/gcc-arm-none-eabi-5_4-2016q3/arm-none-eabi/lib/armv7-m/libc.a(lib_a-memcmp.o)
+ .debug_frame   0x00007448       0x34 /home/covv/workspace/tools/gcc-arm-none-eabi-5_4-2016q3/arm-none-eabi/lib/armv7-m/libc.a(lib_a-memset.o)
+ .debug_frame   0x0000747c       0x30 /home/covv/workspace/tools/gcc-arm-none-eabi-5_4-2016q3/arm-none-eabi/lib/armv7-m/libc.a(lib_a-mlock.o)
+ .debug_frame   0x000074ac       0x3c /home/covv/workspace/tools/gcc-arm-none-eabi-5_4-2016q3/arm-none-eabi/lib/armv7-m/libc.a(lib_a-rand.o)
+ .debug_frame   0x000074e8       0x2c /home/covv/workspace/tools/gcc-arm-none-eabi-5_4-2016q3/arm-none-eabi/lib/armv7-m/libc.a(lib_a-sbrkr.o)
+ .debug_frame   0x00007514       0x34 /home/covv/workspace/tools/gcc-arm-none-eabi-5_4-2016q3/arm-none-eabi/lib/armv7-m/libc.a(lib_a-strcmp.o)
+ .debug_frame   0x00007548       0x20 /home/covv/workspace/tools/gcc-arm-none-eabi-5_4-2016q3/arm-none-eabi/lib/armv7-m/libc.a(lib_a-strcpy.o)
+ .debug_frame   0x00007568       0x20 /home/covv/workspace/tools/gcc-arm-none-eabi-5_4-2016q3/arm-none-eabi/lib/armv7-m/libc.a(lib_a-strlen-stub.o)
+ .debug_frame   0x00007588       0x9c /home/covv/workspace/tools/gcc-arm-none-eabi-5_4-2016q3/arm-none-eabi/lib/armv7-m/libc.a(lib_a-strtol.o)
+ .debug_frame   0x00007624       0x74 /home/covv/workspace/tools/gcc-arm-none-eabi-5_4-2016q3/arm-none-eabi/lib/armv7-m/libc.a(lib_a-freer.o)
+ .debug_frame   0x00007698       0x84 /home/covv/workspace/tools/gcc-arm-none-eabi-5_4-2016q3/arm-none-eabi/lib/armv7-m/libc.a(lib_a-locale.o)
+ .debug_frame   0x0000771c       0x4c /home/covv/workspace/tools/gcc-arm-none-eabi-5_4-2016q3/arm-none-eabi/lib/armv7-m/libc.a(lib_a-mbtowc_r.o)
+ .debug_frame   0x00007768       0x58 /home/covv/workspace/tools/gcc-arm-none-eabi-5_4-2016q3/arm-none-eabi/lib/armv7-m/libc.a(lib_a-reent.o)
+ .debug_frame   0x000077c0       0x3c /home/covv/workspace/tools/gcc-arm-none-eabi-5_4-2016q3/arm-none-eabi/lib/armv7-m/libc.a(lib_a-wctomb_r.o)

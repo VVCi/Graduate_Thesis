@@ -527,7 +527,7 @@ void timer4_irq() {
 
 	if (TIM_GetITStatus(TIM4, TIM_IT_Update) != RESET) {
 
-		PID_DeltaRobot(&pid_feeback2, pid_degree, pid_time, enc_fb2.Pos_encoder_feedback, kp_545, ki_545, kd_545);
+		PID_DeltaRobot(&pid_feeback2, 360, 1, enc_fb2.Pos_encoder_feedback, kp_545, ki_545, kd_545);
 		TIM_ClearITPendingBit(TIM4, TIM_IT_Update);
 	}
 
