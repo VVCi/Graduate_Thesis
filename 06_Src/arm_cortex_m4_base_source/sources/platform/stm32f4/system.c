@@ -472,18 +472,23 @@ void PID_DIGITAL(__IO float* Save_PID_Feeback, int32_t Target, int32_t Current, 
 
 	iloi += Bias;
 
-	iloi = constrain(iloi, -30, 30);
+	iloi = constrain(iloi, -10, 10);
 
 	Last_Bias = Bias;
 
-	Pwm = kp*ploi + ki*iloi*0.005 + kd*dloi/0.005;
+	Pwm = kp*ploi + ki*iloi*0.02 + kd*dloi/0.02;
 
-	Pwm = constrain(Pwm, -50, 50);
+	Pwm = constrain(Pwm, -100, 100);
 
 	*Save_PID_Feeback = Pwm ;
+
+#if (DEBUG_ENCODER == 1)
+	//xprintf("error: %d			", (int32_t)error);
+	//xprintf("Target: %d			", (int32_t)Target);
+	xprintf("Current: %d			\n", (int32_t)Current);
+	//xprintf("pid_feeback1: %d			\n", (int32_t)Pwm);
+#endif
 }
-
-
 
 void PID_DeltaRobot(__IO float* Save_PID_Feeback, float deta_run, float t_run, float current, float kp, float ki, float kd) {
 	float error;
@@ -518,7 +523,7 @@ void PID_DeltaRobot(__IO float* Save_PID_Feeback, float deta_run, float t_run, f
 	//xprintf("error: %d			", (int32_t)error);
 	xprintf("r_k: %d			", (int32_t)r_k);
 	xprintf("current: %d			\n", (int32_t)current);
-	//xprintf("pid_feeback1: %d			\n", (int32_t)pwm);
+	xprintf("pid_feeback1: %d			\n", (int32_t)pwm);
 #endif
 }
 
@@ -527,7 +532,8 @@ void timer4_irq() {
 
 	if (TIM_GetITStatus(TIM4, TIM_IT_Update) != RESET) {
 
-		PID_DeltaRobot(&pid_feeback2, 360, 1, enc_fb2.Pos_encoder_feedback, kp_545, ki_545, kd_545);
+		//PID_DeltaRobot(&pid_feeback2, pid_degree , 0.5, enc_fb2.Pos_encoder_feedback, kp_545, ki_545, kd_545);
+		PID_DIGITAL(&pid_feeback2, pid_degree, enc_fb2.Pos_encoder_feedback, kp_545, ki_545, kd_545);
 		TIM_ClearITPendingBit(TIM4, TIM_IT_Update);
 	}
 
@@ -535,7 +541,7 @@ void timer4_irq() {
 }
 
 void uart2_irq(void) {
-	//volatile uint8_t c;
+	// uint8_t c;
 	task_entry_interrupt();
 	if (USART_GetITStatus(USART2, USART_IT_RXNE) == SET) {
 		//c = (uint8_t)USART_ReceiveData(USART2);

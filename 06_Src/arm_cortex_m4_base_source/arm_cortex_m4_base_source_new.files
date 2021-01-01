@@ -232,6 +232,8 @@ sources/driver/sdcard/tm_stm32f4_fatfs.c
 sources/driver/sdcard/tm_stm32f4_fatfs.h
 sources/driver/thermistor/thermistor.cpp
 sources/driver/thermistor/thermistor.h
+sources/driver/tm_stm32f4_mpu6050/tm_stm32f4_mpu6050.c
+sources/driver/tm_stm32f4_mpu6050/tm_stm32f4_mpu6050.h
 sources/networks/ArduinoZigBee/README.md
 sources/networks/ArduinoZigBee/hal_defs.h
 sources/networks/ArduinoZigBee/images/ZigBeeGate.jpg
@@ -2477,6 +2479,8 @@ sources/platform/stm32f4/Libraries/STM32_USB_Device_Library/src/usbd_hid_core.c
 sources/platform/stm32f4/Libraries/STM32_USB_Device_Library/src/usbd_ioreq.c
 sources/platform/stm32f4/Libraries/STM32_USB_Device_Library/src/usbd_req.c
 sources/platform/stm32f4/Libraries/STM32_USB_Device_Library/src/usbd_usr.c
+sources/platform/stm32f4/Libraries/tm_stm32f4_i2c/tm_stm32f4_i2c.c
+sources/platform/stm32f4/Libraries/tm_stm32f4_i2c/tm_stm32f4_i2c.h
 sources/platform/stm32f4/PIN_CONF.txt
 sources/platform/stm32f4/ak.ld
 sources/platform/stm32f4/arduino/Arduino.h

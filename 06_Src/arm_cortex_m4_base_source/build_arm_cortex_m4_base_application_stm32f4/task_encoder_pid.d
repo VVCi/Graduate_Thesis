@@ -41,6 +41,10 @@ build_arm_cortex_m4_base_application_stm32f4/task_encoder_pid.o: \
  sources/app/../common/xprintf.h sources/app/task_list.h \
  sources/app/../ak/ak.h sources/app/../ak/task.h \
  /home/covv/workspace/tools/gcc-arm-none-eabi-5_4-2016q3/arm-none-eabi/include/math.h \
+ /home/covv/workspace/tools/gcc-arm-none-eabi-5_4-2016q3/arm-none-eabi/include/stdio.h \
+ /home/covv/workspace/tools/gcc-arm-none-eabi-5_4-2016q3/arm-none-eabi/include/sys/types.h \
+ /home/covv/workspace/tools/gcc-arm-none-eabi-5_4-2016q3/arm-none-eabi/include/machine/types.h \
+ /home/covv/workspace/tools/gcc-arm-none-eabi-5_4-2016q3/arm-none-eabi/include/sys/stdio.h \
  sources/platform/stm32f4/io_cfg.h \
  sources/platform/stm32f4/Libraries/CMSIS/Device/ST/STM32F4xx/Include/stm32f4xx.h \
  sources/platform/stm32f4/Libraries/CMSIS/Include/core_cm4.h \

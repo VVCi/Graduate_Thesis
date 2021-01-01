@@ -17,6 +17,8 @@
 #include "../sys/sys_dbg.h"
 #include "../app/app_dbg.h"
 #include "../common/utils.h"
+#include "xprintf.h"
+#include "task_encoder_pid.h"
 
 /******************************************************************************
 * button function
@@ -1317,6 +1319,8 @@ void uart(int bau) {
 void MPU6050_Initialize()
 {
 	MPU6050_SetClockSource(MPU6050_CLOCK_PLL_XGYRO);
+	MPU6050_SetClockSource(MPU6050_CLOCK_PLL_YGYRO);
+	MPU6050_SetClockSource(MPU6050_CLOCK_PLL_ZGYRO);
 	MPU6050_SetFullScaleGyroRange(MPU6050_GYRO_FS_1000);
 	MPU6050_SetFullScaleAccelRange(MPU6050_ACCEL_FS_16);
 	MPU6050_SetSleepModeStatus(DISABLE);
@@ -1495,11 +1499,11 @@ void MPU6050_SetSleepModeStatus(FunctionalState NewState)
 void MPU6050_GetRawAccelTempGyro(int16_t* AccelGyro)
 {
 	uint8_t dataR[14],i;
+
 	MPU6050_I2C_BufferRead(MPU6050_DEFAULT_ADDRESS, dataR, MPU6050_RA_ACCEL_XOUT_H, 14);
 
 	for(i=0;i<7;i++) {AccelGyro[i]=(dataR[i*2]<<8)|dataR[i*2+1];}
 
-	// AccelGyro[i]=(dataR[i*2]<<8)|dataR[i*2+1];
 	accel_x = (dataR[0*2]<<8)|dataR[0*2+1];
 	accel_y = (dataR[1*2]<<8)|dataR[1*2+1];
 	accel_z = (dataR[2*2]<<8)|dataR[2*2+1];
@@ -1509,6 +1513,7 @@ void MPU6050_GetRawAccelTempGyro(int16_t* AccelGyro)
 	gyro_x = (dataR[4*2]<<8)|dataR[4*2+1];
 	gyro_y = (dataR[5*2]<<8)|dataR[5*2+1];
 	gyro_z = (dataR[6*2]<<8)|dataR[6*2+1];
+
 }
 /*
 void MPU6050_GetRawAccelTempGyro(s16* AccelGyro)
@@ -1647,7 +1652,6 @@ void MPU6050_I2C_Init()
 	/* I2C Peripheral Enable */
 	I2C_Cmd(I2C1, ENABLE);
 	I2C_Init(I2C1, &I2C_InitStructure);
-
 }
 
 /**
@@ -1659,7 +1663,7 @@ void MPU6050_I2C_Init()
 */
 void MPU6050_I2C_ByteWrite(uint8_t slaveAddr, uint8_t* pBuffer, uint8_t writeAddr)
 {
-	//  ENTR_CRT_SECTION();
+	//ENTR_CRT_SECTION();
 
 	/* Send START condition */
 	I2C_GenerateSTART(MPU6050_I2C, ENABLE);
@@ -1788,6 +1792,7 @@ void MPU6050_OffsetCal(){
 		y=(y+gyro_y)/2;
 		z=(z+gyro_z)/2;
 	}
+
 	gyro_x_OC=x;
 	gyro_y_OC=y;
 	gyro_z_OC=z;
@@ -1808,6 +1813,10 @@ void MPU6050_OffsetCal(){
 	accel_y_OC = y;
 	accel_z_OC = z-(float)g*1000/accel_scale_fact;
 }
+
+/* Tilen MPU6050*/
+
+
 
 void io_uart_interface_cfg() {
 	GPIO_InitTypeDef GPIO_InitStruct; // this is for the GPIO pins used as TX and RX
@@ -2033,7 +2042,7 @@ void ENCODER_Read_Release(float* Save_vitri_feedback, uint32_t* Dir, uint32_t* C
 
 	*Cnt = TIMx->CNT;     //TIM_GetCounter(TIMx);       // dem encoder
 
-	*Save_vitri_feedback = ((*Cnt - 2000000000.0) * 360) / 4000000.0;               // export to degree
+	*Save_vitri_feedback = ((*Cnt - 2000000000.0) * 360) / 400000.0;               // export to degree
 
 }
 
@@ -2190,6 +2199,7 @@ void Move_Up_Release(int16_t DCx, TM_PWM_TIM_t* TIM_Data, TM_PWM_Channel_t Chann
 	{
 	case 1:
 		TM_GPIO_SetPinHigh(DC_DIR_GPIO_PORT, DC1_DIR_PIN);
+		TM_GPIO_SetPinLow(DC_DIR_GPIO_PORT, DC1_DIR_PIN);
 		TM_PWM_SetChannelPercent(TIM_Data, Channel, 100 - percent);
 		break;
 
@@ -2199,7 +2209,7 @@ void Move_Up_Release(int16_t DCx, TM_PWM_TIM_t* TIM_Data, TM_PWM_Channel_t Chann
 		TM_GPIO_SetPinLow(DC_DIR_GPIO_PORT, DC1_DIR_PIN);
 		TM_GPIO_SetPinHigh(DC_DIR_GPIO_PORT, DC2_DIR_PIN);
 
-		TM_PWM_SetChannelPercent(TIM_Data, Channel, 100 - percent);
+		TM_PWM_SetChannelPercent(TIM_Data, Channel, percent);
 		break;
 
 	case 3:
@@ -2224,13 +2234,14 @@ void Move_Down_Release(int16_t DCx, TM_PWM_TIM_t* TIM_Data, TM_PWM_Channel_t Cha
 	{
 	case 1:
 		TM_GPIO_SetPinLow(DC_DIR_GPIO_PORT, DC1_DIR_PIN);
+		TM_GPIO_SetPinHigh(DC_DIR_GPIO_PORT, DC1_DIR_PIN);
 		TM_PWM_SetChannelPercent(TIM_Data, Channel, 100 - percent);
 		break;
 
 	case 2:
 		TM_GPIO_SetPinHigh(DC_DIR_GPIO_PORT, DC1_DIR_PIN);
 		TM_GPIO_SetPinLow(DC_DIR_GPIO_PORT, DC2_DIR_PIN);
-		TM_PWM_SetChannelPercent(TIM_Data, Channel, 100 - percent);
+		TM_PWM_SetChannelPercent(TIM_Data, Channel, percent);
 		break;
 
 	case 3:

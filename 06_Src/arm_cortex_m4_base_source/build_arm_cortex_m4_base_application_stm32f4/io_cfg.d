@@ -96,4 +96,5 @@ build_arm_cortex_m4_base_application_stm32f4/io_cfg.o: \
  sources/ak/../sys/../common/xprintf.h \
  /home/covv/workspace/tools/gcc-arm-none-eabi-5_4-2016q3/lib/gcc/arm-none-eabi/5.4.1/include/stdarg.h \
  sources/ak/../app/app_dbg.h sources/ak/../app/../common/xprintf.h \
- sources/ak/../common/utils.h
+ sources/ak/../common/utils.h sources/common/xprintf.h \
+ sources/app/task_encoder_pid.h sources/app/app.h

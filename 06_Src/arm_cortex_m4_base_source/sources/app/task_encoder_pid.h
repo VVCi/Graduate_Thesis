@@ -32,6 +32,8 @@ typedef struct {
 	uint8_t direction;
 } param_rb_t;
 
+
+
 extern encoder_t enc_fb1, enc_fb2, enc_fb3;
 extern float pid_degree;
 extern float pid_time;

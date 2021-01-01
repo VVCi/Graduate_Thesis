@@ -41,3 +41,7 @@ sources/rf_protocols/rf24/hal
 sources/rf_protocols/rf24/nwk
 sources/sys
 .
+sources/driver/tm_stm32f4_i2c
+sources/platform/stm32f4/Libraries/tm_stm32f4_i2c
+sources/platform/stm32f4/Libraries/tm_stm32f4_mpu6050
+sources/driver/tm_stm32f4_mpu6050

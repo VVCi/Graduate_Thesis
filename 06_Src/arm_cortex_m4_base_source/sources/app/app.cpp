@@ -89,6 +89,10 @@ int main_app() {
 //	flash_io_ctrl_init();
 //	windboneFlash_spi_ctrl_init();
 
+	/* MPU Init */
+	MPU6050_I2C_Init();
+	MPU6050_Initialize();
+
 	/* timer4 init */
 	timer4_config();
 
@@ -131,7 +135,7 @@ int main_app() {
 void app_start_timer() {
 	/* start timer to toggle life led */
 	timer_set(AC_TASK_LIFE_ID, AC_LIFE_SYSTEM_CHECK, 10000, TIMER_PERIODIC);
-	timer_set(AC_TASK_ENCODER_PID_ID, SL_DELTA_ROBOT_AUTO_RUN_REQ, 10, TIMER_PERIODIC);
+	timer_set(AC_TASK_ENCODER_PID_ID, SL_DELTA_ROBOT_AUTO_RUN_REQ, 500, TIMER_PERIODIC);
 }
 
 /* init state machine for tasks

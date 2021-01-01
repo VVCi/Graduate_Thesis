@@ -1,0 +1,304 @@
+!SESSION 2018-10-13 11:16:11.414 -----------------------------------------------
+eclipse.buildId=unknown
+java.version=1.8.0_152
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86, WS=win32, NL=en_US
+Command-line arguments:  -os win32 -ws win32 -arch x86
+
+!ENTRY com.atollic.truestudio.productmanager 1 0 2018-10-13 11:16:22.044
+!MESSAGE Loading product manager
+
+!ENTRY com.atollic.truestudio.productmanager 1 0 2018-10-13 11:16:22.058
+!MESSAGE OS info: Windows 7, 6.1, x86
+
+!ENTRY TrueSTUDIO 1 0 2018-10-13 11:16:23.709
+!MESSAGE Target: STM32, Version: 9.0.1, Build date: 20180420-1214, Installation dir: /C:/Program Files (x86)/Atollic/TrueSTUDIO for STM32 9.0.1/ide/
+
+!ENTRY TrueSTUDIO 1 0 2018-10-13 11:16:23.710
+!MESSAGE Workspace: D:\Devo_7
+
+!ENTRY org.eclipse.jface 2 0 2018-10-13 11:16:26.394
+!MESSAGE Keybinding conflicts occurred.  They may interfere with normal accelerator operation.
+!SUBENTRY 1 org.eclipse.jface 2 0 2018-10-13 11:16:26.394
+!MESSAGE A conflict occurred for ALT+CTRL+T:
+Binding(ALT+CTRL+T,
+	ParameterizedCommand(Command(org.eclipse.team.svn.ui.command.EditPropertiesCommand,Show Properties,
+		,
+		Category(org.eclipse.team.svn.ui.command.category,SVN,null,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@1ec5357,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+Binding(ALT+CTRL+T,
+	ParameterizedCommand(Command(org.eclipse.tm.terminal.connector.local.command.launch,Open Local Terminal on Selection,
+		,
+		Category(org.eclipse.tm.terminal.view.ui.commands.category,Terminal Commands,null,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@11d93bd,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+
+!ENTRY com.atollic.truestudio.integration.processorexpert 0 0 2018-10-13 11:16:31.759
+!MESSAGE Atollic TrueSTUDIO Processor Expert integration is up.
+
+!ENTRY AtollicWebServices 4 0 2018-10-13 11:16:32.013
+!MESSAGE Exception in webservices
+!STACK 0
+java.net.UnknownHostException: sumba.atollic.com
+	at java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:184)
+	at java.net.PlainSocketImpl.connect(PlainSocketImpl.java:172)
+	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:392)
+	at java.net.Socket.connect(Socket.java:589)
+	at java.net.Socket.connect(Socket.java:538)
+	at sun.net.NetworkClient.doConnect(NetworkClient.java:180)
+	at sun.net.www.http.HttpClient.openServer(HttpClient.java:463)
+	at sun.net.www.http.HttpClient.openServer(HttpClient.java:558)
+	at sun.net.www.http.HttpClient.<init>(HttpClient.java:242)
+	at sun.net.www.http.HttpClient.New(HttpClient.java:339)
+	at sun.net.www.http.HttpClient.New(HttpClient.java:357)
+	at sun.net.www.protocol.http.HttpURLConnection.getNewHttpClient(HttpURLConnection.java:1220)
+	at sun.net.www.protocol.http.HttpURLConnection.plainConnect0(HttpURLConnection.java:1156)
+	at sun.net.www.protocol.http.HttpURLConnection.plainConnect(HttpURLConnection.java:1050)
+	at sun.net.www.protocol.http.HttpURLConnection.connect(HttpURLConnection.java:984)
+	at com.atollic.truestudio.productmanager.exposed.AtollicWebServices.request(AtollicWebServices.java:603)
+	at com.atollic.truestudio.productmanager.exposed.AtollicWebServices.getLatestVersion(AtollicWebServices.java:93)
+	at com.atollic.truestudio.productmanager.exposed.ProductManager$1.run(ProductManager.java:197)
+	at java.lang.Thread.run(Thread.java:748)
+
+!ENTRY TrueSTUDIO 4 0 2018-10-13 11:16:32.016
+!MESSAGE Failed to get version information: No contact with license server: Failed to contact Atollic.
+
+!ENTRY edu.hawaii.ics.csdl.jupiter 1 0 2018-10-13 11:16:32.128
+!MESSAGE Code Review is up.
+
+!ENTRY com.atollic.truestudio.mbs 2 0 2018-10-13 11:17:02.615
+!MESSAGE Devo_7 needs property 'com.atollic.truestudio.general.runtimelib.509784485' fixed. Fixing to 'com.atollic.truestudio.ld.general.clib.small'.
+
+!ENTRY com.atollic.truestudio.mbs 2 0 2018-10-13 11:17:02.625
+!MESSAGE Devo_7 needs property 'com.atollic.truestudio.toolchain_options.mcu.759197199' fixed. Fixing to 'STM32F407VE'.
+
+!ENTRY com.atollic.truestudio.mbs 2 0 2018-10-13 11:17:02.626
+!MESSAGE Devo_7 needs property 'com.atollic.truestudio.toolchain_options.vendor.2128693674' fixed. Fixing to 'STMicroelectronics'.
+
+!ENTRY org.eclipse.cdt.managedbuilder.core 4 0 2018-10-13 11:17:03.026
+!MESSAGE Orphaned CDT build configuration [com.atollic.truestudio.exe.release.1518366166]: parent extension cfg [com.atollic.truestudio.exe.release] not found
+!STACK 0
+java.lang.Exception
+	at org.eclipse.cdt.managedbuilder.core.ManagedBuilderCorePlugin.error(ManagedBuilderCorePlugin.java:226)
+	at org.eclipse.cdt.managedbuilder.internal.core.Configuration.loadFromProject(Configuration.java:844)
+	at org.eclipse.cdt.managedbuilder.internal.core.Configuration.<init>(Configuration.java:402)
+	at org.eclipse.cdt.managedbuilder.internal.dataprovider.ConfigurationDataProvider.load(ConfigurationDataProvider.java:391)
+	at org.eclipse.cdt.managedbuilder.internal.dataprovider.ConfigurationDataProvider.loadConfiguration(ConfigurationDataProvider.java:557)
+	at org.eclipse.cdt.internal.core.settings.model.CConfigurationDescriptionCache.loadData(CConfigurationDescriptionCache.java:136)
+	at org.eclipse.cdt.internal.core.settings.model.CProjectDescription.loadDatas(CProjectDescription.java:196)
+	at org.eclipse.cdt.internal.core.settings.model.xml.XmlProjectDescriptionStorage.loadProjectDescription(XmlProjectDescriptionStorage.java:500)
+	at org.eclipse.cdt.internal.core.settings.model.xml.XmlProjectDescriptionStorage.getProjectDescription(XmlProjectDescriptionStorage.java:237)
+	at org.eclipse.cdt.internal.core.settings.model.CProjectDescriptionManager.getProjectDescriptionInternal(CProjectDescriptionManager.java:437)
+	at org.eclipse.cdt.internal.core.settings.model.CProjectDescriptionManager.getProjectDescription(CProjectDescriptionManager.java:419)
+	at org.eclipse.cdt.internal.core.settings.model.CProjectDescriptionManager.getProjectDescription(CProjectDescriptionManager.java:413)
+	at org.eclipse.cdt.internal.core.settings.model.CProjectDescriptionManager.getProjectDescription(CProjectDescriptionManager.java:406)
+	at org.eclipse.cdt.internal.core.model.CProject.computeSourceRoots(CProject.java:608)
+	at org.eclipse.cdt.internal.core.model.CProject.computeChildren(CProject.java:629)
+	at org.eclipse.cdt.internal.core.model.CProject.buildStructure(CProject.java:593)
+	at org.eclipse.cdt.internal.core.model.Openable.generateInfos(Openable.java:261)
+	at org.eclipse.cdt.internal.core.model.CElement.openWhenClosed(CElement.java:427)
+	at org.eclipse.cdt.internal.core.model.CElement.getElementInfo(CElement.java:305)
+	at org.eclipse.cdt.internal.core.model.CElement.getElementInfo(CElement.java:295)
+	at org.eclipse.cdt.internal.core.model.Parent.getChildren(Parent.java:55)
+	at org.eclipse.cdt.internal.core.model.CProject.getSourceRoots(CProject.java:467)
+	at org.eclipse.cdt.internal.core.model.CModelManager.create(CModelManager.java:340)
+	at org.eclipse.cdt.internal.core.model.CModelManager.create(CModelManager.java:268)
+	at org.eclipse.cdt.internal.core.model.DeltaProcessor.createElement(DeltaProcessor.java:87)
+	at org.eclipse.cdt.internal.core.model.DeltaProcessor.traverseDelta(DeltaProcessor.java:453)
+	at org.eclipse.cdt.internal.core.model.DeltaProcessor.traverseDelta(DeltaProcessor.java:471)
+	at org.eclipse.cdt.internal.core.model.DeltaProcessor.processResourceDelta(DeltaProcessor.java:433)
+	at org.eclipse.cdt.internal.core.model.CModelManager.resourceChanged(CModelManager.java:930)
+	at org.eclipse.core.internal.events.NotificationManager$1.run(NotificationManager.java:299)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.NotificationManager.notify(NotificationManager.java:289)
+	at org.eclipse.core.internal.events.NotificationManager.broadcastChanges(NotificationManager.java:152)
+	at org.eclipse.core.internal.resources.Workspace.broadcastPostChange(Workspace.java:374)
+	at org.eclipse.core.internal.resources.Workspace.endOperation(Workspace.java:1469)
+	at org.eclipse.core.internal.resources.InternalWorkspaceJob.run(InternalWorkspaceJob.java:46)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+
+!ENTRY com.atollic.truestudio.mbs 2 0 2018-10-13 11:17:03.032
+!MESSAGE Devo_7 needs property 'com.atollic.truestudio.general.runtimelib.1960514211' fixed. Fixing to 'com.atollic.truestudio.ld.general.clib.small'.
+
+!ENTRY com.atollic.truestudio.mbs 2 0 2018-10-13 11:17:03.032
+!MESSAGE Devo_7 needs property 'com.atollic.truestudio.toolchain_options.mcu.597007311' fixed. Fixing to 'STM32F407VE'.
+
+!ENTRY com.atollic.truestudio.mbs 2 0 2018-10-13 11:17:03.033
+!MESSAGE Devo_7 needs property 'com.atollic.truestudio.toolchain_options.vendor.490991031' fixed. Fixing to 'STMicroelectronics'.
+
+!ENTRY org.eclipse.cdt.core 1 0 2018-10-13 11:17:07.797
+!MESSAGE Indexed 'Devo_7' (18 sources, 63 headers) in 2.72 sec: 4,396 declarations; 25,873 references; 0 unresolved inclusions; 0 syntax errors; 0 unresolved names (0%)
+
+!ENTRY org.eclipse.ui 4 4 2018-10-13 11:26:35.675
+!MESSAGE Referenced part does not exist yet: org.eclipse.ui.views.TaskList.
+
+!ENTRY org.eclipse.cdt.core 1 0 2018-10-13 11:37:18.054
+!MESSAGE Indexed 'Devo_7' (18 sources, 63 headers) in 1.99 sec: 4,404 declarations; 25,974 references; 0 unresolved inclusions; 0 syntax errors; 2 unresolved names (0.0066%)
+
+!ENTRY com.atollic.hardwaredebug.launch 2 0 2018-10-13 11:57:46.852
+!MESSAGE Won't launch debug session since we failed to locate the binary.
+
+!ENTRY TrueSTUDIO 4 0 2018-10-13 12:59:56.664
+!MESSAGE ST-Link GDB server failed to start (exit code = 1).
+
+!ENTRY org.eclipse.cdt.dsf.gdb 4 5012 2018-10-13 12:59:56.713
+!MESSAGE Error in initializing ST-Link device.
+Reason: (1) Failed to connect to device. Please check power and cabling to target.
+
+!ENTRY TrueSTUDIO 4 0 2018-10-13 13:41:03.609
+!MESSAGE ST-Link GDB server failed to start (exit code = 1).
+
+!ENTRY org.eclipse.cdt.dsf.gdb 4 5012 2018-10-13 13:41:03.645
+!MESSAGE Error in initializing ST-Link device.
+Reason: (1) Failed to connect to device. Please check power and cabling to target.
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2018-10-13 13:41:11.199
+!MESSAGE Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.mi.service.MIRunControl$9@1c9134b): Status ERROR: org.eclipse.cdt.dsf code=10001 Sequence "" failed while rolling back. null children=[Status ERROR: org.eclipse.cdt.dsf.gdb code=10001 Connection is shut down null Status ERROR: org.eclipse.cdt.dsf.gdb code=10001 Connection is shut down null]' resulted in an error.
+!SUBENTRY 1 org.eclipse.cdt.dsf.gdb 4 10001 2018-10-13 13:41:11.200
+!MESSAGE Connection is shut down
+!SUBENTRY 1 org.eclipse.cdt.dsf.gdb 4 10001 2018-10-13 13:41:11.200
+!MESSAGE Connection is shut down
+
+!ENTRY TrueSTUDIO 4 0 2018-10-13 13:58:16.140
+!MESSAGE ST-Link GDB server failed to start (exit code = 1).
+
+!ENTRY org.eclipse.cdt.dsf.gdb 4 5012 2018-10-13 13:58:16.184
+!MESSAGE Error in initializing ST-Link device.
+Reason: (1) Failed to connect to device. Please check power and cabling to target.
+
+!ENTRY TrueSTUDIO 4 0 2018-10-13 14:11:16.848
+!MESSAGE ST-Link GDB server failed to start (exit code = 1).
+
+!ENTRY org.eclipse.cdt.dsf.gdb 4 5012 2018-10-13 14:11:16.900
+!MESSAGE Error in initializing ST-Link device.
+Reason: (1) Failed to connect to device. Please check power and cabling to target.
+
+!ENTRY TrueSTUDIO 4 0 2018-10-13 14:21:11.863
+!MESSAGE ST-Link GDB server failed to start (exit code = 1).
+
+!ENTRY org.eclipse.cdt.dsf.gdb 4 5012 2018-10-13 14:21:11.921
+!MESSAGE Error in initializing ST-Link device.
+Reason: (1) Failed to connect to device. Please check power and cabling to target.
+
+!ENTRY TrueSTUDIO 4 0 2018-10-13 14:22:24.931
+!MESSAGE ST-Link GDB server failed to start (exit code = 1).
+
+!ENTRY org.eclipse.cdt.dsf.gdb 4 5012 2018-10-13 14:22:24.965
+!MESSAGE Error in initializing ST-Link device.
+Reason: (1) Failed to connect to device. Please check power and cabling to target.
+
+!ENTRY com.atollic.truestudio.debug 4 0 2018-10-13 14:22:32.882
+!MESSAGE Error - No active DSF-Session. tmpSessionId = 29 (contextManager row 121)
+
+!ENTRY com.atollic.truestudio.debug 4 0 2018-10-13 14:22:32.882
+!MESSAGE Existing sessions are:
+
+!ENTRY com.atollic.truestudio.debug 4 0 2018-10-13 14:22:33.065
+!MESSAGE Error - No active DSF-Session. tmpSessionId = 29 (contextManager row 121)
+
+!ENTRY com.atollic.truestudio.debug 4 0 2018-10-13 14:22:33.066
+!MESSAGE Existing sessions are:
+
+!ENTRY TrueSTUDIO 4 0 2018-10-13 14:43:10.637
+!MESSAGE ST-Link GDB server failed to start (exit code = 2).
+
+!ENTRY org.eclipse.cdt.dsf.gdb 4 5012 2018-10-13 14:43:10.698
+!MESSAGE Error in initializing ST-Link device.
+Reason: (2) ST-Link DLL error.
+
+!ENTRY com.atollic.truestudio.debug 4 0 2018-10-13 14:44:43.809
+!MESSAGE Error - No active DSF-Session. tmpSessionId = 34 (contextManager row 121)
+
+!ENTRY com.atollic.truestudio.debug 4 0 2018-10-13 14:44:43.810
+!MESSAGE Existing sessions are:
+
+!ENTRY com.atollic.truestudio.debug 4 0 2018-10-13 14:44:43.923
+!MESSAGE Error - No active DSF-Session. tmpSessionId = 34 (contextManager row 121)
+
+!ENTRY com.atollic.truestudio.debug 4 0 2018-10-13 14:44:43.924
+!MESSAGE Existing sessions are:
+
+!ENTRY TrueSTUDIO 4 0 2018-10-13 14:57:27.685
+!MESSAGE ST-Link GDB server failed to start (exit code = 1).
+
+!ENTRY org.eclipse.cdt.dsf.gdb 4 5012 2018-10-13 14:57:27.733
+!MESSAGE Error in initializing ST-Link device.
+Reason: (1) Failed to connect to device. Please check power and cabling to target.
+
+!ENTRY TrueSTUDIO 4 0 2018-10-13 15:21:47.286
+!MESSAGE ST-Link GDB server failed to start (exit code = 2).
+
+!ENTRY org.eclipse.cdt.dsf.gdb 4 5012 2018-10-13 15:21:47.355
+!MESSAGE Error in initializing ST-Link device.
+Reason: (2) ST-Link DLL error.
+
+!ENTRY TrueSTUDIO 4 0 2018-10-13 15:59:19.421
+!MESSAGE ST-Link GDB server failed to start (exit code = 1).
+
+!ENTRY org.eclipse.cdt.dsf.gdb 4 5012 2018-10-13 15:59:19.474
+!MESSAGE Error in initializing ST-Link device.
+Reason: (1) Failed to connect to device. Please check power and cabling to target.
+
+!ENTRY TrueSTUDIO 4 0 2018-10-13 16:19:29.400
+!MESSAGE ST-Link GDB server failed to start (exit code = 1).
+
+!ENTRY org.eclipse.cdt.dsf.gdb 4 5012 2018-10-13 16:19:29.456
+!MESSAGE Error in initializing ST-Link device.
+Reason: (1) Failed to connect to device. Please check power and cabling to target.
+
+!ENTRY TrueSTUDIO 4 0 2018-10-13 16:19:49.324
+!MESSAGE ST-Link GDB server failed to start (exit code = 1).
+
+!ENTRY org.eclipse.cdt.dsf.gdb 4 5012 2018-10-13 16:19:49.391
+!MESSAGE Error in initializing ST-Link device.
+Reason: (1) Failed to connect to device. Please check power and cabling to target.
+
+!ENTRY TrueSTUDIO 4 0 2018-10-13 16:19:56.348
+!MESSAGE ST-Link GDB server failed to start (exit code = 4).
+
+!ENTRY org.eclipse.cdt.dsf.gdb 4 5012 2018-10-13 16:19:56.398
+!MESSAGE Error in initializing ST-Link device.
+Reason: (4) No device found on target.
+
+!ENTRY TrueSTUDIO 4 0 2018-10-13 16:38:44.519
+!MESSAGE ST-Link GDB server failed to start (exit code = 4).
+
+!ENTRY org.eclipse.cdt.dsf.gdb 4 5012 2018-10-13 16:38:44.563
+!MESSAGE Error in initializing ST-Link device.
+Reason: (4) No device found on target.
+
+!ENTRY TrueSTUDIO 4 0 2018-10-13 16:39:39.278
+!MESSAGE ST-Link GDB server failed to start (exit code = 4).
+
+!ENTRY org.eclipse.cdt.dsf.gdb 4 5012 2018-10-13 16:39:39.327
+!MESSAGE Error in initializing ST-Link device.
+Reason: (4) No device found on target.
+
+!ENTRY TrueSTUDIO 4 0 2018-10-13 16:39:53.174
+!MESSAGE ST-Link GDB server failed to start (exit code = 1).
+
+!ENTRY org.eclipse.cdt.dsf.gdb 4 5012 2018-10-13 16:39:53.233
+!MESSAGE Error in initializing ST-Link device.
+Reason: (1) Failed to connect to device. Please check power and cabling to target.
+
+!ENTRY TrueSTUDIO 4 0 2018-10-13 16:40:02.242
+!MESSAGE ST-Link GDB server failed to start (exit code = 1).
+
+!ENTRY org.eclipse.cdt.dsf.gdb 4 5012 2018-10-13 16:40:02.279
+!MESSAGE Error in initializing ST-Link device.
+Reason: (1) Failed to connect to device. Please check power and cabling to target.
+
+!ENTRY TrueSTUDIO 4 0 2018-10-13 16:40:15.295
+!MESSAGE ST-Link GDB server failed to start (exit code = 1).
+
+!ENTRY org.eclipse.cdt.dsf.gdb 4 5012 2018-10-13 16:40:15.353
+!MESSAGE Error in initializing ST-Link device.
+Reason: (1) Failed to connect to device. Please check power and cabling to target.
+
+!ENTRY com.atollic.truestudio.productmanager 1 0 2018-10-13 16:40:40.573
+!MESSAGE Unloading product manager

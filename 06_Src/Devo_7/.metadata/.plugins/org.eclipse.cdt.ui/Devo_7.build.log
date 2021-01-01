@@ -1,0 +1,7 @@
+16:40:20 **** Incremental Build of configuration Debug for project Devo_7 ****
+Info: Internal Builder is used for build
+arm-atollic-eabi-objcopy.exe -O ihex Devo_7.elf Devo_7.hex 
+Info: Parallel threads used: 0
+
+16:40:20 Build Finished (took 122ms)
+
