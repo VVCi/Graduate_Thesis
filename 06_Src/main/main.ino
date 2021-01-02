@@ -7,10 +7,8 @@
 /*============ Pins Table============ */
 
 /*  RF Signal                       Mega2560
-      CH1                               40
-      CH2                               41
-      CH3                               42
-      CH4                               43
+      CH2                               45
+      CH4                               47
 */
 
 /* Water Pump                       Mega2560
@@ -31,7 +29,7 @@
 */
 
 /* Encoder Feedback Input             Mega2560
-    ENCA (ChannelA) - Interrupt         2
+    ENCA (ChannelA) - Interrupt         18
     ENCB (ChannelB) - Normal            4
 */
 
@@ -39,13 +37,14 @@
 
 /* Define Signal Channel RF Pins*/
 #define channel2  45        // DC Channel
-#define channel3  46        // DC Pump Channel
 #define channel4  47        // DC Servo Channel
 
 unsigned long duration2, duration3, duration4;
 int32_t   pulse1, // RUN_FW
           pulse2, // BACK_RV
-          pulse4; // DC_SERVO
+          pulse4, // DC_SERVO
+          pulse5,
+          pulse6;
 /* Define Water Pump Pins*/
 #define waterPump 39
 
@@ -68,43 +67,42 @@ BTS7960 motorController0(EN0, L_PWM0, R_PWM0);
 
 /* DC Servo Motor Timing */
 
-
 /* PID Parameter Configuration */
 int32_t curPos = 0, desPos = 0, err = 0;
 
 void setup() {
   Serial.begin(4800);
   init_RF();
+  delay(200);
   //init_WATER_pump();
   init_Encoders();
 }
 
 void loop() {
   /*Mode Camera Handlde*/
-  if (Serial.available() > 0)
-  {
-    /* Testing Serial */
+  /*if (Serial.available() > 0)
+    {
+    //Testing Serial
     desPos = Serial.parseInt();
       Serial.readString();
       if (desPos >= 40000)
       desPos = 40000;
       if (desPos <= -40000)
       desPos = -40000;
-  }
-  
+    }*/
+
   /* DC_Handle */
-  //read_channel2();
+  read_channel2();
+  //duration2 = pulseIn(channel2, HIGH);
+  Serial.println(duration2);
   /* Servo_Handle */
-  //read_channel4();
+  read_channel4();
 
-  /* Pump Handle */
-  //read_channel3();
-
-  err = desPos - curPos;
+  //err = desPos - curPos;
   //DC_SERVO_run(partP(err, 0.198) +  + partI(err, 0) + partD(err, 0)); //1
   //DC_SERVO_run(partP(err, 0.099) +  + partI(err, 0.0001) + partD(err, 0)); //2
   //DC_SERVO_run(partP(err, 0.099) +  + partI(err, 0.001) + partD(err, 0)); //3
-  DC_SERVO_run(partP(err, 0.099) +  + partI(err, 0.00011) + partD(err, 0)); //4
+  //DC_SERVO_run(partP(err, 0.099) +  + partI(err, 0.00011) + partD(err, 0)); //4
   //DC_SERVO_run(partP(err, 0.099) +  + partI(err, 0.0001) + partD(err,0));
   //DC_SERVO_run(partP(err, 0.049) +  + partI(err, 0.0001) + partD(err, 0));
   //Serial.println(desPos);
@@ -113,7 +111,6 @@ void loop() {
 
 void init_RF() {
   pinMode(channel2, INPUT);
-  pinMode(channel3, INPUT);
   pinMode(channel4, INPUT);
 }
 
@@ -213,54 +210,70 @@ float partI(float err, float i)
 
 void read_channel2() {
   duration2 = pulseIn(channel2, HIGH);
-  if (duration2 >= 1473 && duration2 <= 1910) {
-    duration2 = constrain(duration2, 1473, 1910);
+  if (duration2 >= 1050 && duration2 <= 1910) {
+    duration2 = constrain(duration2, 1050, 1910);
     /* Min: 1485 Max: 1910*/
-    if ( duration2 >= 1473 && duration2 <= 1473 ) {
+    if ( duration2 >= 1050 && duration2 <= 1473 ) {
       pulse1 = map(duration2, 1473, 1050, 0, 255);
-      //Serial.println(pulse1);
+      Serial.println(pulse1);
       DC_motor_run(pulse1, 1); // RUN_FW
     }
-
     else if ( duration2 >= 1485 && duration2 <= 1910 ) {
-      pulse1 = map(duration2, 1485, 1910, 0, 255);
-      //Serial.println(pulse2);
-      DC_motor_run(pulse1, 0); // RUN_RV
+      pulse2 = map(duration2, 1485, 1910, 0, 255);
+      Serial.println(pulse2);
+      DC_motor_run(pulse2, 0); // RUN_RV
     }
   }
-
 }
 
 void read_channel3() {
-  duration3 = pulseIn(channel3, HIGH);
-  duration3 = constrain(duration3, 1050, 1890);
-  if ( duration3 >= 1050 && duration3 <= 1473  ) {
-    WATER_pump_run();
-  }
-  else if ( duration3 >= 1485 && duration3 <= 1910 ) {
-    WATER_pump_brake();
+  duration4 = pulseIn(channel4, HIGH);
+  if (duration4 >= 1050 && duration4 <= 1910) {
+    duration4 = constrain(duration4, 1050, 1910);
+    /* Min: 1485 Max: 1910*/
+    if ( duration4 >= 1050 && duration4 <= 1473 ) {
+      pulse4 = map(duration4, 1473, 1050, 0, 255);
+      Serial.println(pulse1);
+      DC_SERVO_run(pulse4); // RUN_FW
+    }
+    else if ( duration4 >= 1485 && duration4 <= 1910 ) {
+      pulse5 = map(duration4, 1485, 1910, 0, 255);
+      Serial.println(pulse2);
+      DC_SERVO_run(-pulse1); // RUN_RV
+    }
   }
 }
 
 void read_channel4() {
   duration4 = pulseIn(channel4, HIGH); // DC Servo Motor
   //Serial.println(duration4);
-  duration4 = constrain(duration4, 1050, 1890);
+  duration4 = constrain(duration4, 1030, 1890);
   //Serial.println(duration4);
   //Serial.println(duration4);
-  duration4 = map(duration4, 1050, 1890, -5, 5);
-  desPos = duration4 * 6553;
-  
-  if (desPos <= -32000) {
-    desPos = -32000;
+  duration4 = map(duration4, 1030, 1890, -5, 5);
+  desPos = duration4 * 1939;
+
+  if (curPos <= -9695) {
+    //desPos = -9695;
+    //desPos = 0;
+    DC_SERVO_brake();
   }
-  else if (desPos >= 32000) {
-    desPos = 32000;
+  else if (curPos >= 9695) {
+    //desPos = 0;
+    DC_SERVO_brake();
+  }
+  else {
+    err = desPos - curPos;
+    DC_SERVO_run(partP(err, 0.01) +  + partI(err, 0) + partD(err, 0));
+    //Serial.println(desPos);
+    Serial.println(curPos);
   }
 
-  err = desPos - curPos;
+
+  //if ((desPos >= -9695) && (desPos <= 9695)){
+
   //DC_SERVO_run(partP(err, 0.099) +  + partI(err, 0.0001) + partD(err,0));
-  DC_SERVO_run(partP(err, 0.049) +  + partI(err, 0.0001) + partD(err, 0));
-  //Serial.println(desPos);
-  Serial.println(curPos);
+
+  //}
+
 }

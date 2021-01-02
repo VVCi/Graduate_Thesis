@@ -91,7 +91,7 @@ int main_app() {
 
 	/* MPU Init */
 	MPU6050_I2C_Init();
-	MPU6050_Initialize();
+	//MPU6050_Initialize();
 
 	/* timer4 init */
 	timer4_config();

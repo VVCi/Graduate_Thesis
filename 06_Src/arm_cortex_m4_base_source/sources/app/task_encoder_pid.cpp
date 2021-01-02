@@ -25,7 +25,7 @@
 encoder_t enc_fb1, enc_fb2, enc_fb3 ;
 delta_if_t delta_data;
 param_rb_t param_robot_data;
-float pid_degree = 0;
+float pid_degree = 30;
 float pid_time = 1;
 
 int16_t MPU6050data[7];
@@ -44,15 +44,18 @@ void task_encoder_pid(ak_msg_t* msg) {
 		/* Mode Auto Handle */
 		/* 1. Read_MPU return data */
 
-		if (MPU6050_TestConnection() == 1){
+		/*if (MPU6050_TestConnection() == 1){
 			xprintf(" Connected! ");
-		}
-
+			MPU6050_GetRawAccelTempGyro(MPU6050data);
+			MPU6050_OffsetCal();
+			xprintf("%f", gyro_x_OC);
+		}*/
 		/* 2. Steering Control */
 		ENCODER_Read_Release(&enc_fb2.Pos_encoder_feedback, &enc_fb2.Dir_feedback, &enc_fb2.Cnt_feedback, TIM5);
 		Turn_Release(2, &TIM08_Data_CH2, TM_PWM_Channel_2, pid_feeback2);
 		/* Running Control*/
-		Turn_Release(1, &TIM08_Data_CH1, TM_PWM_Channel_1, 70);
+		//Turn_Release(1, &TIM08_Data_CH1, TM_PWM_Channel_1, 70);
+		//MPU6050_Initialize();
 
 	}
 		break;

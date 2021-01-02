@@ -1319,11 +1319,12 @@ void uart(int bau) {
 void MPU6050_Initialize()
 {
 	MPU6050_SetClockSource(MPU6050_CLOCK_PLL_XGYRO);
-	MPU6050_SetClockSource(MPU6050_CLOCK_PLL_YGYRO);
-	MPU6050_SetClockSource(MPU6050_CLOCK_PLL_ZGYRO);
+	//MPU6050_SetClockSource(MPU6050_CLOCK_PLL_YGYRO);
+	//MPU6050_SetClockSource(MPU6050_CLOCK_PLL_ZGYRO);
 	MPU6050_SetFullScaleGyroRange(MPU6050_GYRO_FS_1000);
 	MPU6050_SetFullScaleAccelRange(MPU6050_ACCEL_FS_16);
 	MPU6050_SetSleepModeStatus(DISABLE);
+	xprintf("MPU Init OK\n");
 }
 
 /** Verify the I2C connection.
@@ -1528,9 +1529,6 @@ void MPU6050_GetRawAccelTempGyro(s16* AccelGyro)
 */
 
 
-
-
-
 /** Write multiple bits in an 8-bit device register.
  * @param slaveAddr I2C slave device address
  * @param regAddr Register regAddr to write to
@@ -1652,6 +1650,8 @@ void MPU6050_I2C_Init()
 	/* I2C Peripheral Enable */
 	I2C_Cmd(I2C1, ENABLE);
 	I2C_Init(I2C1, &I2C_InitStructure);
+
+	xprintf("Init OK \n");
 }
 
 /**
@@ -2198,9 +2198,9 @@ void Move_Up_Release(int16_t DCx, TM_PWM_TIM_t* TIM_Data, TM_PWM_Channel_t Chann
 	switch(DCx)
 	{
 	case 1:
-		TM_GPIO_SetPinHigh(DC_DIR_GPIO_PORT, DC1_DIR_PIN);
-		TM_GPIO_SetPinLow(DC_DIR_GPIO_PORT, DC1_DIR_PIN);
-		TM_PWM_SetChannelPercent(TIM_Data, Channel, 100 - percent);
+		TM_GPIO_SetPinHigh(DC_DIR_GPIO_PORT, DC3_DIR_PIN);
+		TM_GPIO_SetPinLow(DC_DIR_GPIO_PORT, DC4_DIR_PIN);
+		TM_PWM_SetChannelPercent(TIM_Data, Channel, percent);
 		break;
 
 	case 2:
@@ -2233,9 +2233,9 @@ void Move_Down_Release(int16_t DCx, TM_PWM_TIM_t* TIM_Data, TM_PWM_Channel_t Cha
 	switch(DCx)
 	{
 	case 1:
-		TM_GPIO_SetPinLow(DC_DIR_GPIO_PORT, DC1_DIR_PIN);
-		TM_GPIO_SetPinHigh(DC_DIR_GPIO_PORT, DC1_DIR_PIN);
-		TM_PWM_SetChannelPercent(TIM_Data, Channel, 100 - percent);
+		TM_GPIO_SetPinLow(DC_DIR_GPIO_PORT, DC3_DIR_PIN);
+		TM_GPIO_SetPinHigh(DC_DIR_GPIO_PORT, DC4_DIR_PIN);
+		TM_PWM_SetChannelPercent(TIM_Data, Channel, percent);
 		break;
 
 	case 2:
