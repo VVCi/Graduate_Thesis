@@ -64,6 +64,8 @@ BTS7960 motorController0(EN0, L_PWM0, R_PWM0);
 /* Define Encoders Pins */
 #define ECD_A        18
 #define ECD_B        4
+const float degree = 100000 / 360;
+
 
 /* DC Servo Motor Timing */
 
@@ -94,7 +96,6 @@ void loop() {
   /* DC_Handle */
   read_channel2();
   //duration2 = pulseIn(channel2, HIGH);
-  Serial.println(duration2);
   /* Servo_Handle */
   read_channel4();
 
@@ -106,7 +107,7 @@ void loop() {
   //DC_SERVO_run(partP(err, 0.099) +  + partI(err, 0.0001) + partD(err,0));
   //DC_SERVO_run(partP(err, 0.049) +  + partI(err, 0.0001) + partD(err, 0));
   //Serial.println(desPos);
-  Serial.println(curPos);
+  //Serial.println(curPos);
 }
 
 void init_RF() {
@@ -204,7 +205,6 @@ float partI(float err, float i)
     sum += err;
   ret = sum * i * float(millis() - preTime);
   preTime = millis();
-
   return ret;
 }
 
@@ -215,12 +215,12 @@ void read_channel2() {
     /* Min: 1485 Max: 1910*/
     if ( duration2 >= 1050 && duration2 <= 1473 ) {
       pulse1 = map(duration2, 1473, 1050, 0, 255);
-      Serial.println(pulse1);
+      //Serial.println(pulse1);
       DC_motor_run(pulse1, 1); // RUN_FW
     }
     else if ( duration2 >= 1485 && duration2 <= 1910 ) {
       pulse2 = map(duration2, 1485, 1910, 0, 255);
-      Serial.println(pulse2);
+      //Serial.println(pulse2);
       DC_motor_run(pulse2, 0); // RUN_RV
     }
   }
@@ -265,7 +265,7 @@ void read_channel4() {
   else {
     err = desPos - curPos;
     DC_SERVO_run(partP(err, 0.01) +  + partI(err, 0) + partD(err, 0));
-    //Serial.println(desPos);
+    Serial.println(desPos);
     Serial.println(curPos);
   }
 
