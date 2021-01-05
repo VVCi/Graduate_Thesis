@@ -1,4 +1,5 @@
 #include "BTS7960.h"
+#include <TimerOne.h>
 /* Define Mode
   0: Locked Mode
   1: Auto Handling Mode
@@ -70,43 +71,47 @@ float const convert_degree = 100000 / 360;
 
 /* PID Parameter Configuration */
 int32_t curPos = 0, desPos = 0, err = 0;
-
+int32_t curPos_fb = 0;
 void setup() {
   Serial.begin(4800);
   init_RF();
-  delay(200);
   //init_WATER_pump();
+  Timer1.initialize(20000);
+  //Timer1.attachInterrupt(init_Encoders);
   init_Encoders();
 }
 
 void loop() {
-  /*Mode Camera Handlde*/
+ 
   if (Serial.available() > 0)
   {
     //Testing Serial
     desPos = Serial.parseInt();
     Serial.readString();
-    if (desPos >= 40000)
-      desPos = 40000;
-    if (desPos <= -40000)
-      desPos = -40000;
+    if (desPos >= 9695)
+      desPos = 9695;
+    if (desPos <= -9695)
+      desPos = -9695;
   }
-  /* DC_Handle */
+  noInterrupts();
+  curPos_fb = curPos;
+  interrupts();
   //read_channel2();
   //duration2 = pulseIn(channel2, HIGH);
   //Serial.println(duration2);
   /* Servo_Handle */
   //read_channel4();
-
   err = desPos - curPos;
   //DC_SERVO_run(partP(err, 0.198) +  + partI(err, 0) + partD(err, 0)); //1
-  DC_SERVO_run(partP(err, 0.099) +  + partI(err, 0.0001) + partD(err, 0)); //2
+  //DC_SERVO_run(partP(err, 0.099) +  + partI(err, 0.0001) + partD(err, 0)); //2
   //DC_SERVO_run(partP(err, 0.099) +  + partI(err, 0.001) + partD(err, 0)); //3
   //DC_SERVO_run(partP(err, 0.099) +  + partI(err, 0.00011) + partD(err, 0)); //4
   //DC_SERVO_run(partP(err, 0.099) +  + partI(err, 0.0001) + partD(err,0));
-  //DC_SERVO_run(partP(err, 0.049) +  + partI(err, 0.0001) + partD(err, 0));
+  DC_SERVO_run(partP(err, 0.0495) +  + partI(err, 0.0001) + partD(err, 0));
   //Serial.println(desPos);
-  Serial.println(curPos);
+  Serial.println("\t");
+  Serial.print(curPos);
+
 }
 
 void init_RF() {
@@ -130,8 +135,9 @@ void init_Encoders() {
       curPos++;
     }
   }, RISING);
-  Serial.setTimeout(111);
-  Serial.println(curPos);
+
+  Serial.setTimeout(100);
+
 }
 
 void WATER_pump_run() {
@@ -201,7 +207,7 @@ float partI(float err, float i)
   float ret;
   static uint32_t preTime = 0;
 
-  if (abs(err) < 500)
+  if (abs(err) < 50)
     sum += err;
   ret = sum * i * float(millis() - preTime);
   preTime = millis();
@@ -253,6 +259,8 @@ void read_channel4() {
   //Serial.println(duration4);
   duration4 = map(duration4, 1030, 1890, -5, 5);
   desPos = duration4 * 1939;
+  Serial.print(" desPos:\t");
+  Serial.print(desPos, DEC);
 
   if (curPos <= -9695) {
     //desPos = -9695;
@@ -265,9 +273,10 @@ void read_channel4() {
   }
   else {
     err = desPos - curPos;
-    DC_SERVO_run(partP(err, 0.01) +  + partI(err, 0) + partD(err, 0));
+    DC_SERVO_run(partP(err, 0.01) +  + partI(err, 0.1) + partD(err, 0));
     //Serial.println(desPos);
     //Serial.println(curPos);
+
   }
 
 

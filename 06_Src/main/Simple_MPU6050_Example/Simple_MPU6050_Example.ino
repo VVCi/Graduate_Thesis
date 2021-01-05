@@ -101,6 +101,7 @@ BTS7960 motorController0(EN0, L_PWM0, R_PWM0);
 
 /* PID Parameter Configuration */
 int32_t curPos = 0, desPos = 0, err = 0;
+const float degree = 100000/360;
 int32_t mpuYaw = 0;
 
 
@@ -147,13 +148,13 @@ int PrintAllValues(int16_t *gyro, int16_t *accel, int32_t *quat, uint16_t SpamDe
     mpu.GetGravity(&gravity, &q);
     mpu.GetYawPitchRoll(ypr, &q, &gravity);
     mpu.ConvertToDegrees(ypr, xyz);
-    Serial.printfloatx(F("Yaw") , xyz[0], 9, 4, F(",   ")); //printfloatx is a Helper Macro that works with Serial.print that I created (See #define above)
+    Serial.printfloatx(F("Yaw:\t") , xyz[0], 9, 4, F("\t")); //printfloatx is a Helper Macro that works with Serial.print that I created (See #define above)
     //int32_t setpoint = int32_t(xyz[0]);
-    Serial.print("Goc: ");
-    mpuYaw = (int32_t)xyz[0];
-    Serial.print(xyz[0]);
+    //Serial.print("Do: ");
+    //mpuYaw = (int32_t)xyz[0];
+    //Serial.print(xyz[0]);
     #ifdef AUTO
-    read_channel4_auto(xyz[0]);
+    read_channel4_auto(-xyz[0]);
     #endif
     //Serial.printfloatx(F("Pitch"), xyz[1], 9, 4, F(",   "));
     //Serial.printfloatx(F("Roll") , xyz[2], 9, 4, F(",   "));
@@ -165,8 +166,8 @@ int PrintAllValues(int16_t *gyro, int16_t *accel, int32_t *quat, uint16_t SpamDe
       Serial.printfloatx(F("gy")   , gyro[1],  5, 0, F(",   "));
       Serial.printfloatx(F("gz")   , gyro[2],  5, 0, F("\n"));
     */
-    Serial.println();
-    return mpuYaw;
+    //Serial.println();
+    //return mpuYaw;
   }
 }
 
@@ -180,15 +181,15 @@ int ChartAllValues(int16_t *gyro, int16_t *accel, int32_t *quat, uint16_t SpamDe
     mpu.GetGravity(&gravity, &q);
     mpu.GetYawPitchRoll(ypr, &q, &gravity);
     mpu.ConvertToDegrees(ypr, xyz);
-    Serial.printfloatx("", ypr[0], 9, 4, F(",")); //printfloatx is a Helper Macro that works with Serial.print that I created (See #define above)
-    Serial.printfloatx("", ypr[1], 9, 4, F(","));
-    Serial.printfloatx("", ypr[2], 9, 4, F(", "));
-    Serial.printfloatx("", accel[0], 5, 0, F(","));
-    Serial.printfloatx("", accel[1], 5, 0, F(","));
-    Serial.printfloatx("", accel[2], 5, 0, F(","));
-    Serial.printfloatx("", gyro[0],  5, 0, F(","));
-    Serial.printfloatx("", gyro[1],  5, 0, F(","));
-    Serial.printfloatx("", gyro[2],  5, 0, F("\n"));
+    //Serial.printfloatx("", ypr[0], 9, 4, F(",")); //printfloatx is a Helper Macro that works with Serial.print that I created (See #define above)
+    //Serial.printfloatx("", ypr[1], 9, 4, F(","));
+    //Serial.printfloatx("", ypr[2], 9, 4, F(", "));
+    //Serial.printfloatx("", accel[0], 5, 0, F(","));
+    //Serial.printfloatx("", accel[1], 5, 0, F(","));
+    //Serial.printfloatx("", accel[2], 5, 0, F(","));
+    //Serial.printfloatx("", gyro[0],  5, 0, F(","));
+    //Serial.printfloatx("", gyro[1],  5, 0, F(","));
+    //Serial.printfloatx("", gyro[2],  5, 0, F("\n"));
   }
 }
 
@@ -196,10 +197,10 @@ int PrintQuaternion(int32_t *quat, uint16_t SpamDelay = 100) {
   Quaternion q;
   spamtimer(SpamDelay) {// non blocking delay before printing again. This skips the following code when delay time (ms) hasn't been met
     mpu.GetQuaternion(&q, quat);
-    Serial.printfloatx(F("quat w")  , q.w, 9, 4, F(",   ")); //printfloatx is a Helper Macro that works with Serial.print that I created (See #define above)
-    Serial.printfloatx(F("x")       , q.x, 9, 4, F(",   "));
-    Serial.printfloatx(F("y")       , q.y, 9, 4, F(",   "));
-    Serial.printfloatx(F("z")       , q.z, 9, 4, F("\n"));
+    //Serial.printfloatx(F("quat w")  , q.w, 9, 4, F(",   ")); //printfloatx is a Helper Macro that works with Serial.print that I created (See #define above)
+    //Serial.printfloatx(F("x")       , q.x, 9, 4, F(",   "));
+    //Serial.printfloatx(F("y")       , q.y, 9, 4, F(",   "));
+    //Serial.printfloatx(F("z")       , q.z, 9, 4, F("\n"));
   }
 }
 
@@ -209,9 +210,9 @@ int PrintEuler(int32_t *quat, uint16_t SpamDelay = 100) {
   spamtimer(SpamDelay) {// non blocking delay before printing again. This skips the following code when delay time (ms) hasn't been met
     mpu.GetQuaternion(&q, quat);
     mpu.GetEuler(euler, &q);
-    Serial.printfloatx(F("euler  ")  , euler[0] * 180 / M_PI, 9, 4, F(",   ")); //printfloatx is a Helper Macro that works with Serial.print that I created (See #define above)
-    Serial.printfloatx(F("")       , euler[1] * 180 / M_PI, 9, 4, F(",   "));
-    Serial.printfloatx(F("")       , euler[2] * 180 / M_PI, 9, 4, F("\n"));
+    //Serial.printfloatx(F("euler  ")  , euler[0] * 180 / M_PI, 9, 4, F(",   ")); //printfloatx is a Helper Macro that works with Serial.print that I created (See #define above)
+    //Serial.printfloatx(F("")       , euler[1] * 180 / M_PI, 9, 4, F(",   "));
+    //Serial.printfloatx(F("")       , euler[2] * 180 / M_PI, 9, 4, F("\n"));
   }
 }
 
@@ -224,9 +225,9 @@ int PrintRealAccel(int16_t *accel, int32_t *quat, uint16_t SpamDelay = 100) {
     mpu.GetGravity(&gravity, &q);
     mpu.SetAccel(&aa, accel);
     mpu.GetLinearAccel(&aaReal, &aa, &gravity);
-    Serial.printfloatx(F("aReal x")  , aaReal.x , 9, 4, F(",   ")); //printfloatx is a Helper Macro that works with Serial.print that I created (See #define above)
-    Serial.printfloatx(F("y")        , aaReal.y , 9, 4, F(",   "));
-    Serial.printfloatx(F("z")        , aaReal.z, 9, 4, F("\n"));
+    //Serial.printfloatx(F("aReal x")  , aaReal.x , 9, 4, F(",   ")); //printfloatx is a Helper Macro that works with Serial.print that I created (See #define above)
+    //Serial.printfloatx(F("y")        , aaReal.y , 9, 4, F(",   "));
+    //Serial.printfloatx(F("z")        , aaReal.z, 9, 4, F("\n"));
   }
 }
 
@@ -241,9 +242,9 @@ int PrintWorldAccel(int16_t *accel, int32_t *quat, uint16_t SpamDelay = 100) {
     mpu.SetAccel(&aa, accel);
     mpu.GetLinearAccel(&aaReal, &aa, &gravity);
     mpu.GetLinearAccelInWorld(&aaWorld, &aaReal, &q);
-    Serial.printfloatx(F("aWorld x")  , aaWorld.x , 9, 4, F(",   ")); //printfloatx is a Helper Macro that works with Serial.print that I created (See #define above)
-    Serial.printfloatx(F("y")        , aaWorld.y, 9, 4, F(",   "));
-    Serial.printfloatx(F("z")        , aaWorld.z, 9, 4, F("\n"));
+    //Serial.printfloatx(F("aWorld x")  , aaWorld.x , 9, 4, F(",   ")); //printfloatx is a Helper Macro that works with Serial.print that I created (See #define above)
+    //Serial.printfloatx(F("y")        , aaWorld.y, 9, 4, F(",   "));
+    //Serial.printfloatx(F("z")        , aaWorld.z, 9, 4, F("\n"));
   }
 }
 //***************************************************************************************
@@ -303,7 +304,7 @@ void setup() {
 void loop() {
   
   mpu.dmp_read_fifo();
-  DC_motor_run(200, 1);
+  //DC_motor_run(200, 1);
 }
 
 void init_RF() {
@@ -471,9 +472,9 @@ void read_channel4_auto(float setpoint){
   }
   else
    desPos = desPos;
-  Serial.println(desPos);
+  //Serial.println(desPos);
   err = desPos - curPos;
-  DC_SERVO_run(partP(err, 0.099) +  + partI(err, 0.0001) + partD(err,0));
+  DC_SERVO_run(partP(err, 0.049) +  + partI(err, 0.0001) + partD(err,0));
   //DC_SERVO_run(partP(err, 0.049) +  + partI(err, 0.0001) + partD(err, 0));
   //Serial.println(desPos);
   Serial.println(curPos); 

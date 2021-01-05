@@ -1,0 +1,381 @@
+/*LIBRARY EXTERNAL*/
+#include "BTS7960.h"
+#include <TimerOne.h>
+#include "Simple_MPU6050.h"
+/*
+
+/*MPU DEFINE ADDRESS*/
+#define MPU6050_ADDRESS_AD0_LOW     0x68 // Address pin low (GND)
+#define MPU6050_ADDRESS_AD0_HIGH    0x69 // Address pin high (VCC)
+#define MPU6050_DEFAULT_ADDRESS
+
+Simple_MPU6050 mpu;
+ENABLE_MPU_OVERFLOW_PROTECTION();
+
+#define spamtimer(t) for (static uint32_t SpamTimer; (uint32_t)(millis() - SpamTimer) >= (t); SpamTimer = millis())
+#define printfloatx(Name,Variable,Spaces,Precision,EndTxt) print(Name); {char S[(Spaces + Precision + 3)];Serial.print(F(" ")); Serial.print(dtostrf((float)Variable,Spaces,Precision ,S));}Serial.print(EndTxt);
+
+/* Define Mode
+  0: Locked Mode
+  1: Auto Handling Mode
+  2: Remode Handling Mode
+*/
+/*============ Pins Table============ */
+
+/*  RF Signal                       Mega2560
+      CH2                               45
+      CH4                               47
+*/
+
+/* Water Pump                       Mega2560
+      waterPump                         39
+*/
+
+/* BTS7960 DC Motor Controller      Mega2560
+    EN                                  8
+    L_PWM                               9
+    R_PWM                               10
+
+*/
+
+/* BTS7960 DC Servo Controller       Mega2560
+    PWA                                 5
+    AIN1                                6
+    AIN2                                7
+*/
+
+/* Encoder Feedback Input             Mega2560
+    ENCA (ChannelA) - Interrupt         2
+    ENCB (ChannelB) - Normal            4
+*/
+
+/* ================================== */
+
+/* ================================== */
+
+/* Define Signal Channel RF Pins*/
+#define channel2  45        // DC Channel
+#define channel4  47        // DC Servo Channel
+
+unsigned long duration2, duration4;
+int32_t   pulse1, // RUN_FW
+          pulse2, // BACK_RV
+          pulse4; // DC_SERVO
+
+/* Define Water Pump Pins*/
+#define waterPump 39
+
+/* Define DIR DC Motor Pins*/
+/* DIR: RUN_Forward (RUN_FW): R_PWM - Run Reverse (RUN_RV): L_PWM */
+#define EN       8
+#define L_PWM    9
+#define R_PWM   10
+BTS7960 motorController(EN, L_PWM, R_PWM);
+
+/* Define DC Servo Motor Pins */
+#define EN0         5
+#define L_PWM0      6
+#define R_PWM0      7
+BTS7960 motorController0(EN0, L_PWM0, R_PWM0);
+
+/* Define Encoders Pins */
+#define ECD_A        18
+#define ECD_B        4
+
+/* Define Mode*/
+#define LOCK        0
+#define AUTO        1
+#define HANDLE      2
+
+/* Define Sonar */
+#define triggerPIN D1
+#define triggerPIN D2
+
+/* PID Parameter Configuration */
+int32_t curPos = 0, desPos = 0, err = 0;
+const float degree = 100000 / 360;
+int32_t distance = 0;
+
+/* Roll - Pith - Yaw Angles*/
+int32_t mpuRoll = 0, mpuPith = 0, mpuYaw = 0;
+
+
+//***************************************************************************************
+//******************                Setup and Loop                 **********************
+//***************************************************************************************
+
+void setup() {
+  init_RF();
+  init_WATER_pump();
+  init_WATER_pump();
+  
+  pinMode(triggerPIN, OUTPUT);   
+  pinMode(echoPIN,INPUT_PULLUP); 
+  uint8_t val;
+
+#if I2CDEV_IMPLEMENTATION == I2CDEV_ARDUINO_WIRE
+  Wire.begin();
+  /*Config I2C Clock*/
+  Wire.setClock(100000); // 400kHz I2C clock.
+#elif I2CDEV_IMPLEMENTATION == I2CDEV_BUILTIN_FASTWIRE
+  Fastwire::setup(400, true);
+#endif
+
+  /*Init Timer 1 - Sample Time 0.2s*/
+  Timer1.initialize(200000);
+  Timer1.attachInterrupt(init_Encoders);
+  
+  /*Enable UART*/
+  Serial.begin(115200);
+  while (!Serial);
+  Serial.println(F("Start:"));
+#ifdef OFFSETS
+  Serial.println(F("Using Offsets"));
+  mpu.SetAddress(MPU6050_ADDRESS_AD0_LOW).load_DMP_Image(OFFSETS); 
+#else
+
+  delay(500);
+  /*Calib MPU6050 = Need to reset power*/
+  mpu.SetAddress(MPU6050_ADDRESS_AD0_LOW).CalibrateMPU().load_DMP_Image();// Does it all for you with Calibration
+#endif
+  mpu.on_FIFO(print_Values);
+}
+void loop() {
+  /*Debug Servo Handle*/
+  if (Serial.available() > 0)
+  {
+    //Testing Serial
+    desPos = Serial.parseInt();
+    Serial.readString();
+    if (desPos >= 9695)
+      desPos = 9695;
+    if (desPos <= -9695)
+      desPos = -9695;
+  }
+  noInterrupts();
+  curPos_fb = curPos;
+  interrupts();
+#ifdef AUTO == 1
+  if (distance() != NULL ){
+    mpu.dmp_read_fifo();
+    DC_motor_run(200, 1);
+  }
+#ifdef HANDLE == 2
+  else (distance() > 0) %% (distance() < 30) ||  distance() == 0){
+      WATER_pump_brake();
+      read_channel2();
+      read_channel4();
+  }
+}
+
+void init_RF() {
+  pinMode(channel2, INPUT);
+  pinMode(channel4, INPUT);
+}
+
+void init_WATER_pump() {
+  pinMode(waterPump, OUTPUT);
+}
+
+void init_Encoders() {
+  digitalWrite(ECD_A, LOW);
+  digitalWrite(ECD_B, LOW);
+  attachInterrupt(digitalPinToInterrupt(ECD_A), [] {
+    if (digitalRead(ECD_B)) {
+      curPos--;
+    }
+    else{
+      curPos++;
+    }
+  }, RISING);
+  Serial.setTimeout(100);
+}
+
+void WATER_pump_run() {
+  digitalWrite(waterPump, HIGH);
+}
+
+void WATER_pump_brake() {
+  digitalWrite(waterPump, LOW);
+}
+
+void DC_motor_run( uint32_t pulse, uint32_t dir ) {
+  motorController.Enable();
+  if (dir == 1) {
+    motorController.TurnLeft(pulse);
+  }
+  else if (dir == 0) {
+    motorController.TurnRight(pulse);
+  }
+}
+
+void DC_motor_brake() {
+  motorController.Disable();
+}
+
+void DC_SERVO_run(float value)
+{
+  value = constrain(value, -255.00, 255.00);
+  motorController0.Enable();
+  if (value > 0)
+  {
+    motorController0.TurnRight(value);
+    //Serial.println(value);
+  }
+  else
+  {
+    motorController0.TurnLeft(-value);
+
+    //Serial.println(-value);
+  }
+}
+
+void DC_SERVO_brake() {
+  motorController0.Disable();
+}
+
+float partP(float err, float p)
+{
+  return err * p;
+}
+
+float partD(float err, float d)
+{
+  static float preErr;
+  uint32_t preTime = 0;
+  float dErr, ret;
+
+  dErr = err - preErr;
+  preErr = err;
+  ret = dErr * d / float(millis() - preTime);
+  preTime = millis();
+  return ret;
+}
+
+float partI(float err, float i)
+{
+  static float sum;
+  float ret;
+  static uint32_t preTime = 0;
+
+  if (abs(err) < 50)
+    sum += err;
+  ret = sum * i * float(millis() - preTime);
+  preTime = millis();
+
+  return ret;
+}
+
+void read_channel2() {
+  /*Reading RF Hander*/
+  duration2 = pulseIn(channel2, HIGH);
+  if (duration2 >= 1050 && duration2 <= 1910) {
+    duration2 = constrain(duration2, 1050, 1910);
+    /* Min: 1485 Max: 1910*/
+    if ( duration2 >= 1050 && duration2 <= 1473 ) {
+      pulse1 = map(duration2, 1473, 1050, 0, 255);
+      Serial.println(pulse1);
+      DC_motor_run(pulse1, 1); // RUN_FW
+    }
+    else if ( duration2 >= 1485 && duration2 <= 1910 ) {
+      pulse2 = map(duration2, 1485, 1910, 0, 255);
+      Serial.println(pulse2);
+      DC_motor_run(pulse2, 0); // RUN_RV
+    }
+  }
+}
+
+void read_channel4() {
+  /*Reading RF Hander*/
+  duration4 = pulseIn(channel4, HIGH);
+  duration4 = constrain(duration4, 1030, 1890);
+  //Serial.println(duration4);
+  //Serial.println(duration4);
+  duration4 = map(duration4, 1030, 1890, -5, 5);
+  desPos = duration4 * 1939;
+  Serial.print(" desPos:\t");
+  Serial.print(desPos, DEC);
+
+  if (curPos <= -9695) {
+    desPos = -9695;
+  }
+  else if (curPos >= 9695) {
+    desPos = 9695;
+  }
+
+  err = desPos - curPos_fb;
+  DC_SERVO_run(partP(err, 0.01) +  + partI(err, 0.1) + partD(err, 0));
+}
+
+/*Gyro, Accel and Quaternion*/
+int PrintAllValues(int16_t *gyro, int16_t *accel, int32_t *quat, uint16_t SpamDelay = 100) {
+  Quaternion q;
+  VectorFloat gravity;
+  float ypr[3] = { 0, 0, 0 };
+  float xyz[3] = { 0, 0, 0 };
+  spamtimer(SpamDelay) {// non blocking delay before printing again. This skips the following code when delay time (ms) hasn't been met
+    mpu.GetQuaternion(&q, quat);
+    mpu.GetGravity(&gravity, &q);
+    mpu.GetYawPitchRoll(ypr, &q, &gravity);
+    mpu.ConvertToDegrees(ypr, xyz);
+    Serial.printfloatx(F("Yaw:\t") , xyz[0], 9, 4, F("\t"));
+    Serial.printfloatx(F("Pitch:\t"), xyz[1], 9, 4, F(",   "));
+    Serial.printfloatx(F("Roll: ") , xyz[2], 9, 4, F(",   "))
+
+    mpuYaw = xyz[0];
+    mpuPitch = xyz[1];
+    mpuRoll = xyz[2];
+
+#ifdef AUTO
+    read_channel4_auto(-xyz[0]);
+#endif
+
+    Serial.printfloatx(F("ax")   , accel[0], 5, 0, F(",   "));
+    Serial.printfloatx(F("ay")   , accel[1], 5, 0, F(",   "));
+    Serial.printfloatx(F("az")   , accel[2], 5, 0, F(",   "));
+    Serial.printfloatx(F("gx")   , gyro[0],  5, 0, F(",   "));
+    Serial.printfloatx(F("gy")   , gyro[1],  5, 0, F(",   "));
+    Serial.printfloatx(F("gz")   , gyro[2],  5, 0, F("\n"));
+
+    return mpuYaw;
+  }
+}
+
+void read_channel4_auto(float setpoint) {
+  desPos = (int32_t)setpoint * 277;
+  if (desPos <= -16620) {
+    desPos = -16620;
+  }
+  else if (desPos >= 16620) {
+    desPos = 16620;
+  }
+  else
+    desPos = desPos;
+
+  err = desPos - curPos;
+  DC_SERVO_run(partP(err, 0.049) +  + partI(err, 0.0001) + partD(err, 0));
+}
+
+void distance() {
+  int distanceCM = 0;
+  unsigned long durationMS = 0;
+  digitalWrite(triggerPIN, LOW);
+  delayMicroseconds(2);
+  digitalWrite(triggerPIN, HIGH);
+  delayMicroseconds(10);
+  digitalWrite (triggerPIN, LOW);
+
+  durationMS = pulseIn(echoPIN, HIGH);
+  if (durationMS == 0)
+    else {
+      Serial.print("Time:  ");
+      Serial.print(durationMS);
+
+      distanceCM = (((int) durationMS * 0.034) / 2);
+      if (distanceCM < 0) || (distanceCM > 450)
+        distance = NULL;
+      else
+        distance = distanceCM;
+      return distance
+    }
+}
